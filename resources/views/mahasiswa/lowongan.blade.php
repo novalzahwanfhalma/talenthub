@@ -52,17 +52,20 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto" href="/index">Home</a></li>
-                    <li><a class="nav-link scrollto-active" href="/lowongan">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/student">Student</a></li>
-                    <li><a class="nav-link scrollto" href="blog.html">CV</a></li>
-                    &emsp;
-                    <div class="mt-0 mb-0">
-                        <a href="#" style="padding: 2px">
-                            <img src="{{ asset('style/assets/img/noval.jpg') }}" class="rounded-circle img-fluid"
-                                style="width: 45px;" />
-                        </a>
-                    </div>
-
+                    <li><a class="nav-link scrollto" href="/lowongan">Lowongan</a></li>
+                    <li><a class="nav-link scrollto" href="/student">Mahasiswa</a></li>
+                    <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
+                    <li class="dropdown"><a href="#"><span>
+                                <div id="pp" class="mt-0 mb-0 ms-2">
+                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
+                                        class="rounded-circle img-fluid" style="width: 50px;" />
+                                </div>
+                            </span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="/mhsprof">Profil & CV</a></li>
+                            <li><a href="/index">Log out</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>

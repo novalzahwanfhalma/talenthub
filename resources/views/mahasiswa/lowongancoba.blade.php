@@ -46,20 +46,23 @@
 
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="img/logothub.png" alt="">
-                <span>TALENT HUB.</span>
+                <span class="spn">TALENT HUB.</span>
             </a>
             <!-- .navbar -->
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Student</a></li>
-                    <li><a class="nav-link scrollto" href="blog.html">CV</a></li>
+                    <li><a class="nav-link scrollto" href="/index">Home</a></li>
+                    <li><a class="nav-link scrollto-active" href="/lowongan">Lowongan</a></li>
+                    <li><a class="nav-link scrollto" href="/student">Mahasiswa</a></li>
+                    <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
                     &emsp;
                     <div class="mt-0 mb-0">
-                        <img src="{{ asset('style/assets/img/noval.jpg') }}" class="rounded-circle img-fluid"
-                            style="width: 45px;" />
+                        <a href="#" style="padding: 2px">
+                            <img src="{{ asset('style/assets/img/noval.jpg') }}" class="rounded-circle img-fluid"
+                                style="width: 45px;" />
+                        </a>
                     </div>
+
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>

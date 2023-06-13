@@ -25,9 +25,54 @@
     <link href="{{ asset('style/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('style/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('style/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('style/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('style/assets/css/style.css') }}" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <style>
+        .dropdown {
+            padding-top: 20px;
+        }
+
+        .dropbtn {
+            border-radius: 50px;
+            padding: 10px 40px;
+            background-color: #18aaf4;
+            color: #ffffff
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            padding: 10px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 10px;
+        }
+
+        .dropdown-content ul li a {
+            display: block;
+            padding: 10px 0px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .dropdown-content ul li a:hover {
+            background-color: #f1f1f1;
+            color: #2a0ab8;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
 
     <!-- =======================================================
   * Template Name: FlexStart
@@ -46,10 +91,27 @@
 
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="img/logothub.png" alt="">
-                <span>TALENT HUB.</span>
+                <span class="spn">TALENT HUB.</span>
             </a>
             <!-- .navbar -->
             <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto" href="/index">Home</a></li>
+                    <li><a class="nav-link scrollto" href="/lowongan">Lowongan</a></li>
+                    <li><a class="nav-link scrollto" href="/student">Mahasiswa</a></li>
+                    <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
+                    <li class="dropdown"><a href="#"><span>
+                                <div id="pp" class="mt-0 mb-0 ms-2">
+                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
+                                        class="rounded-circle img-fluid" style="width: 50px;" />
+                                </div>
+                            </span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="/mhsprof">Profil & CV</a></li>
+                            <li><a href="/index">Log out</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
             <!-- .navbar end-->
@@ -69,16 +131,19 @@
                         mereka dan membantu mereka untuk mendapatkan pekerjaan dengan lebih cepat sesuai dengan
                         keinginan mereka.</h2>
                     <div data-aos="fade-up" data-aos-delay="600">
-                        <div class="text-center text-lg-start">
-                            <a href="/lowongan"
-                                class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                                <span>Masuk</span>
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                            <h6></h6>
-                            <h5 href="#">Belum punya akun?<a href="register.blade.php"> Daftar Sekarang</a></h5>
+                        <div class="text-lg-start">
+                            <div class="dropdown">
+                                <button class="dropbtn">Masuk</button>
+                                <div class="dropdown-content">
+                                    <ul>
+                                        <li><a href="/login">Login Mahasiswa</a></li>
+                                        <li><a href="/loginind">Login Industri</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
                     <img src="assets/img/hero-img.png" class="img-fluid" alt="">
@@ -104,9 +169,17 @@
     <script src="{{ asset('style/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('style/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('style/assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js') }}"></script>
 
     <!-- Template Main JS File -->
     <script src="{{ asset('style/assets/js/main.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
 </body>
 
