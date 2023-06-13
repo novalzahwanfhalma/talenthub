@@ -54,32 +54,6 @@
     <!-- End Header -->
 
     <main id="main">
-
-        <!-- ======= Breadcrumbs ======= -->
-        <section class="breadcrumbs1">
-            <div class="container">
-                <ol>
-                    <li><a href="/cv1">Portofolio</a></li>
-                    <li><a href="/cv2">Pendidikan</a></li>
-                    <li><a href="/cv3">Pengalaman</a></li>
-                    <li><a href="/cv4">Prestasi</a></li>
-                    <li><a href="/cv5">Sertifikat</a></li>
-                    <li><a href="/cv6">Bahasa</a></li>
-                    <li>
-                        <a href="/laporan">
-                            <button onclick="cetakPDF()"
-                                style="color: #fff; background-color: #2168c5; border: none; border-radius: 7px;">
-                                <i class="bi bi-printer-fill"></i>
-                                Cetak CV
-                            </button>
-                        </a>
-                    </li>
-                </ol>
-            </div>
-        </section><!-- End Breadcrumbs -->
-    </main>
-
-    <main id="main">
         <section>
             <header class="ScriptHeader">
                 <div class="rt-container">
@@ -191,11 +165,12 @@
                                     </div>
                                     <td>
                                         <form class="text-end">
-                                            <button type="submit" class="btn btn-sm btn-warning mr-1"><a
-                                                    href="/editprof" style="color: #fff">Kelola
-                                                    Profil</a></button>
-                                            <button type="submit" class="btn btn-sm btn-primary mr-1"><a
-                                                    href="/lowongan" style="color: #fff">Simpan</a></button>
+                                            <button onclick="cetakPDF()"
+                                                style="color: #fff; background-color: #2168c5; border: none; border-radius: 7px;">
+                                                <i class="bi bi-printer-fill"></i><a href="/laporan"
+                                                    style="color: #fff">
+                                                    Cetak CV</a>
+                                            </button>
                                         </form>
                                     </td>
                                 </div>

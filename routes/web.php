@@ -100,6 +100,12 @@ Route::get('/perusahaan2', function () {
     return view('mahasiswa/perusahaan2');
 });
 
+Route::get('/perusahaan3', function () {
+    return view('mahasiswa/perusahaan3');
+});
+
+
+
 /*
 |--------------------------------------------------------------------------
 | mahasiswa (PROFIL)
@@ -112,6 +118,10 @@ Route::get('/editprof', function () {
 
 Route::get('/mhsprof', function () {
     return view('mahasiswa/profil/mhsprofil');
+});
+
+Route::get('/mhsprof3', function () {
+    return view('mahasiswa/profil/profilview');
 });
 
 Route::get('/indprof2', function () {

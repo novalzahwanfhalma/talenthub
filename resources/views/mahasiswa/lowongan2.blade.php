@@ -41,38 +41,8 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="img/logothub.png" alt="">
-                <span class="spn">TALENT HUB.</span>
-            </a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="/index">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowongan">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/student">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
-                    <li class="dropdown"><a href="#"><span>
-                                <div id="pp" class="mt-0 mb-0 ms-2">
-                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
-                                        class="rounded-circle img-fluid" style="width: 50px;" />
-                                </div>
-                            </span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/mhsprof">Profil & CV</a></li>
-                            <li><a href="/index">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar end-->
-
-        </div>
-    </header><!-- End Header -->
+    @include('layouts/components/navbar')
+    <!-- End Header -->
 
     <main id="main">
         <!-- ======= Blog Section ======= -->
@@ -117,8 +87,7 @@
                                 <label class="form-check-label" for="flexCheckDefault">Paruh Waktu</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                 <label class="form-check-label" for="flexCheckDefault">Karyawan
                                     Kontrak</label>
                             </div>
@@ -127,19 +96,16 @@
 
                             <h3 class="sidebar-tit">Pengalaman</h3>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                 <label class="form-check-label" for="flexCheckDefault">Tingkat Pemula</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                 <label class="form-check-label" for="flexCheckDefault">Tingkat
                                     Menengah</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                 <label class="form-check-label" for="flexCheckDefault">Tingkat Senior</label>
                             </div><!-- End sidebar tags-->
 

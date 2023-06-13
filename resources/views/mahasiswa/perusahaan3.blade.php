@@ -60,22 +60,13 @@
                             </div>
 
                             <h2 class="entry-title">
-                                <a href="#">Programming &amp; Software Development</a>
+                                <a href="/indprof2">PT. TRPL Industri</a>
                             </h2>
-                            <div class="entry-content">
-                                <p><a href="/indprof2" style="color: #313030">
-                                        PT TRPL Industri
-                                    </a>
-                                </p>
-                            </div>
 
                             <div class="entry-meta">
                                 <ul>
                                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                            href="blog-single.html">100 orang</a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                            href="blog-single.html"><time datetime="2020-01-01">23 Maret - 10
-                                                Juni</time></a></li>
+                                            href="blog-single.html">Administrasi</a></li>
                                 </ul>
                             </div>
 
@@ -91,73 +82,26 @@
 
                         </article><!-- End blog entry -->
 
-                        <article class="entry">
-
-                            <div class="entry-img">
-                                <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <h2 class="entry-title">
-                                <a href="#">Kriteria Lowongan</a>
-                            </h2>
-
-                            <div class="entry-content">
-                                <p>
-                                    1. Mempunyai kekuatan layaknya super hero.
-                                </p>
-                                <p>
-                                    2. Mampu menguasai dunia beserta isinya.
-                                </p>
-                                <p>
-                                    3. Mampu menguasai bahasa semesta.
-                                </p>
-                                <p>
-                                    4. Memiliki ijazah sunda empire.
-                                </p>
-                                <p>
-                                    5. Mahasiswa prodi Teknologi Rekayasa Perangkat Lunak.
-                                </p>
-                                <p>
-                                    6. Memiliki nyawa tidak terbatas.
-                                </p>
-                                <p>
-                                    7. Belum pernah mendapatkan bintang 6 di gta.
-                                </p>
-                                <p>
-                                    8. bukan buronan KKB.
-                                </p>
-                            </div>
-
                     </div><!-- End blog entries list -->
 
                     <div class="col-lg-4">
 
                         <div class="sidebar">
 
-                            <h4 class="sidebar-tit" style="margin-top: 20px;">Bidang pekerjaan</h4>
+                            <h4 class="sidebar-tit" style="margin-top: 20px;">Bidang</h4>
                             <h3
                                 style="font-size: 20px; font-weight: bold; color: #5b5555; margin-top: 2px; margin-bottom: 20px;">
-                                Programming &amp; Software Development</h3>
+                                Administrasi</h3>
                             &nbsp;
                             <h4 class="sidebar-tit">Lokasi</h4>
                             <h3
                                 style="font-size: 20px; font-weight: bold; color: #5b5555; margin-top: 2px; margin-bottom: 20px;">
                                 Batam</h3>
                             &nbsp;
-                            <h4 class="sidebar-tit">Daya Tampung</h4>
+                            <h4 class="sidebar-tit">Kontak</h4>
                             <h3
                                 style="font-size: 20px; font-weight: bold; color: #5b5555; margin-top: 2px; margin-bottom: 20px;">
-                                100</h3>
-                            &nbsp;
-                            <h4 class="sidebar-tit">Tipe Pekerjaan</h4>
-                            <h3
-                                style="font-size: 20px; font-weight: bold; color: #5b5555; margin-top: 2px; margin-bottom: 20px;">
-                                Karyawan Magang</h3>
-                            &nbsp;
-                            <h4 class="sidebar-tit">Level</h4>
-                            <h3
-                                style="font-size: 20px; font-weight: bold; color: #5b5555; margin-top: 2px; margin-bottom: 20px;">
-                                Menengah</h3>
+                                08********73</h3>
                             &nbsp;
                             <h4 class="sidebar-tit">Gaji</h4>
                             <h3
