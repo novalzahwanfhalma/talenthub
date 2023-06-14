@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\IndustriController;
+use App\Models\Mahasiswa;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +22,7 @@ Route::get('/', function () {
 });
 
 route::get('/registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
-route::post('/simpanregistrasi', [LoginController::class, 'simpanregistrasi'])->name('simpanregistrasi');
+route::post('/simpanregistrasi', [MahasiswaController::class, 'store'])->name('simpanregistrasi');
 route::get('/login', [LoginController::class, 'halamanlogin'])->name('login');
 route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 route::get('/logout', [LoginController::class, 'logout'])->name('logout');

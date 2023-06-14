@@ -156,8 +156,8 @@
         <form>
             <h4>Industri</h4>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="username">Username:</label>
+            <input type="username" id="username" name="username" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
@@ -167,7 +167,7 @@
             </div>
 
             <div class="button-container">
-                <a href="/lowonganind"><input type="submit" value="Login"></a>
+                <button name="submit" type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
     </div>

@@ -153,73 +153,31 @@
             <img src="{{ asset('style/assets/img/logothub.png') }}" alt="Logo">
         </div>
         <h2>Autentikasi</h2>
-<<<<<<< HEAD
-        <form class="user" action="/login" method="POST"> @csrf
+        <form action="{{ route('postlogin') }}" method="POST">
+            @csrf
             <h4>Mahasiswa</h4>
 
-            <div class="form-group">
-                <label for="email">Email : </label>
-                <input type="email" name="email" required class="form-control form-control-user" 
-                @error('email') is-invalid @enderror id="exampleInputEmail" value="{{ old('email') }}"
-                placeholder="Alamat E-mail">
-
-                @error('email')
-                    <small class="invalid-feedback">{{ $message }}</small>
-                @enderror
-            </div>
-
-            <label for="password">Password : </label>
-            <input type="password" name="password" class="form-control form-control-user
-            @error('password') is-invalid @enderror" id="exampleInputPassword" value="{{ old('password') }}"
-            placeholder="Password" required>
-
-            @error('password')
-                <small class="invalid-feedback">{{ $message }}</small>
-            @enderror
-=======
-        <form>
-            <h4>Mahasiswa</h4>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="username">Username:</label>
+            <input type="username" id="username" name="username" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
             <div class="checkbox-container">
                 <label for="new"><a href="/regis">Belum memiliki akun?</a></label>
             </div>
 
             <div class="button-container">
-<<<<<<< HEAD
-                <a href="/lowongan">
-                    <input type="submit" value="Login">
-                </a>
-=======
-                <a href="/lowongan"><input type="submit" value="Login"></a>
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
+
+                <button class="btn btn-primary btn-block" type="submit" value="Login">Syubmitr</button>
+
+
             </div>
         </form>
     </div>
 
 
-    <script>
-        function hideNIMField() {
-            var role = document.getElementById("role").value;
-            var nimField = document.getElementById("nim");
-            var nimLabel = document.getElementById("nimLabel");
-
-            if (role === "industri") {
-                nimField.value = "";
-                nimField.classList.add("hide");
-                nimLabel.textContent = "";
-            } else {
-                nimField.classList.remove("hide");
-                nimLabel.textContent = "NIM";
-            }
-        }
-    </script>
+    <script></script>
 </body>
 
 </html>
