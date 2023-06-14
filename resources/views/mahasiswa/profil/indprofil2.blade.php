@@ -50,6 +50,7 @@
 <body>
 
     <!-- ======= Header ======= -->
+<<<<<<< HEAD
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
@@ -82,6 +83,10 @@
 
         </div>
     </header><!-- End Header -->
+=======
+    @include('layouts/components/navbarind')
+    <!-- End Header -->
+>>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main">
         <section>

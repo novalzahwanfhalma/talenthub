@@ -50,6 +50,7 @@
 <body>
 
     <!-- ======= Header ======= -->
+<<<<<<< HEAD
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
@@ -82,6 +83,10 @@
 
         </div>
     </header><!-- End Header -->
+=======
+    @include('layouts/components/navbarind')
+    <!-- End Header -->
+>>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main">
         <section>
@@ -193,7 +198,20 @@
                                         </div>
                                         <div style="height: 26px"></div>
                                     </div>
+<<<<<<< HEAD
 
+=======
+                                    <td>
+                                        <form class="text-end">
+                                            <button onclick="cetakPDF()"
+                                                style="color: #fff; background-color: #2168c5; border: none; border-radius: 7px;">
+                                                <i class="bi bi-printer-fill"></i><a href="/laporan"
+                                                    style="color: #fff">
+                                                    Cetak CV</a>
+                                            </button>
+                                        </form>
+                                    </td>
+>>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
                                 </div>
                             </div>
                         </div>

@@ -50,6 +50,7 @@
 <body>
 
     <!-- ======= Header ======= -->
+<<<<<<< HEAD
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
@@ -82,6 +83,10 @@
 
         </div>
     </header><!-- End Header -->
+=======
+    @include('layouts/components/navbar')
+    <!-- End Header -->
+>>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main">
 
@@ -222,7 +227,11 @@
                                     <td>
                                         <form class="text-end">
                                             <button type="submit" class="btn btn-sm btn-warning mr-1"><a
+<<<<<<< HEAD
                                                     href="/profilind" style="color: #fff">Kelola
+=======
+                                                    href="/editprof" style="color: #fff">Kelola
+>>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
                                                     Profil</a></button>
                                             <button type="submit" class="btn btn-sm btn-primary mr-1"><a
                                                     href="/lowongan" style="color: #fff">Simpan</a></button>

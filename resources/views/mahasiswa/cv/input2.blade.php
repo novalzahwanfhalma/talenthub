@@ -34,6 +34,7 @@
 <body>
 
     <!-- ======= Header ======= -->
+<<<<<<< HEAD
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
@@ -66,6 +67,10 @@
 
         </div>
     </header><!-- End Header -->
+=======
+    @include('layouts/components/navbar')
+    <!-- End Header -->
+>>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main" style="text-align: center;">
 
@@ -136,9 +141,14 @@
                                                                     class="text-danger">
                                                                     *</i></label>
                                                             <input type="text"
+<<<<<<< HEAD
                                                                 class="form-control form-control-sm p-2"
                                                                 name="name" value=""
                                                                 placeholder="Masukkan Institusi"
+=======
+                                                                class="form-control form-control-sm p-2" name="name"
+                                                                value="" placeholder="Masukkan Institusi"
+>>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
                                                                 fdprocessedid="zt264h">
                                                         </div>
                                                     </div>
@@ -148,9 +158,14 @@
                                                             <label class="required form-label">Tahun Mulai<i
                                                                     class="text-danger">*</i></label>
                                                             <input type="date"
+<<<<<<< HEAD
                                                                 class="form-control form-control-sm p-2"
                                                                 name="tanggal" value=""
                                                                 placeholder="Masukkan Tahun Mulai"
+=======
+                                                                class="form-control form-control-sm p-2" name="tanggal"
+                                                                value="" placeholder="Masukkan Tahun Mulai"
+>>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
                                                                 fdprocessedid="zt264h">
                                                         </div>
                                                     </div>

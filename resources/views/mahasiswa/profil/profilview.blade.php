@@ -50,43 +50,8 @@
 <body>
 
     <!-- ======= Header ======= -->
-<<<<<<< HEAD
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="img/logothub.png" alt="">
-                <span class="spn">TALENT HUB.</span>
-            </a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="/indexind">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowonganind">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/indmhs">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/indind">Perusahaan</a></li>
-                    <li class="dropdown"><a href="#"><span>
-                                <div id="pp" class="mt-0 mb-0 ms-2">
-                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
-                                        class="rounded-circle img-fluid" style="width: 50px;" />
-                                </div>
-                            </span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/indprof">Profil & CV</a></li>
-                            <li><a href="/indexind">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar end-->
-
-        </div>
-    </header><!-- End Header -->
-=======
-    @include('layouts/components/navbarind')
+    @include('layouts/components/navbar')
     <!-- End Header -->
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main">
         <section>
@@ -94,7 +59,7 @@
                 <div class="rt-container">
                     <div class="col-rt-12">
                         <div class="rt-heading">
-                            <h1 style="color: rgb(37, 37, 99);">Profil Perusahaan</h1>
+                            <h1 style="color: rgb(37, 37, 99);">Profil Mahasiswa</h1>
                         </div>
                     </div>
                 </div>
@@ -112,34 +77,21 @@
                                             <div class="card-header bg-transparent text-center">
                                                 <img class="profile_img"
                                                     src="https://source.unsplash.com/600x300/?student" alt="student dp">
-                                                <h3>PT. TRPL Industri</h3>
+                                                <h3>Bisma Arya Wardhana</h3>
                                             </div>
                                             <div class="card-body">
-                                                <p class="mb-0"><strong class="pr-1">Email:</strong>
-                                                    awbisma0@gmail.com</p>
-                                                <p class="mb-0"><strong class="pr-1">Kontak:</strong>
-                                                    0895691791791</p>
-                                                <p class="mb-0"><strong class="pr-1">Website:</strong> -</p>
-                                                <div style="margin-top: 10px;">
-                                                    <p>PT Asam Lambung adalah perusahaan yang membuat obat herbal untuk
-                                                        mencegah terjadinya Asam Lambung</p>
-                                                </div>
-                                                <div class="social-icons"
-                                                    style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
-                                                    <a href="https://www.facebook.com/your-page" target="_blank"
-                                                        style="margin-right: 10px;"><i class="fab fa-facebook"
-                                                            style="font-size: 24px;"></i></a>
-                                                    <a href="https://www.instagram.com/your-account" target="_blank"
-                                                        style="margin-right: 10px;"><i class="fab fa-instagram"
-                                                            style="font-size: 24px;"></i></a>
-                                                    <a href="https://www.twitter.com/your-account" target="_blank"><i
-                                                            class="fab fa-twitter" style="font-size: 24px;"></i></a>
-                                                </div>
+                                                <p class="mb-0"><strong class="pr-1">NIM:</strong>4342201029</p>
+                                                <p class="mb-0"><strong class="pr-1">Program
+                                                        Studi:</strong>Teknologi
+                                                    Rekayasa Perangkat Lunak</p>
+                                                <p class="mb-0"><strong
+                                                        class="pr-1">Email:</strong>bistayo0@gmail.com
+                                                </p>
+                                                <p class="mb-0"><strong class="pr-1">Kontak:</strong>0895691791791
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <div class="col-lg-8 mt-3">
                                         <div class="card shadow-sm">
                                             <div class="card-header bg-transparent border-0">
@@ -152,44 +104,59 @@
                                                     <tr>
                                                     </tr>
                                                     <tr>
-                                                        <th width="30%">Nama Perusahaan</th>
+                                                        <th width="30%">Nama</th>
                                                         <td width="2%">:</td>
-                                                        <td>PT> TRPL Industri</td>
+                                                        <td>Bisma Arya Wardhana</td>
                                                     </tr>
                                                     <tr>
-                                                        <th width="30%">Tipe Perusahaan</th>
+                                                        <th width="30%">NIM</th>
                                                         <td width="2%">:</td>
-                                                        <td>-</td>
+                                                        <td>4342201029</td>
                                                     </tr>
                                                     <tr>
-                                                        <th width="30%">Sektor Usaha</th>
+                                                        <th width="30%">Perguruan Tinggi</th>
                                                         <td width="2%">:</td>
-                                                        <td>-</td>
+                                                        <td>Politeknik Negeri Batam</td>
                                                     </tr>
                                                     <tr>
-                                                        <th width="30%">Jumlah Pegawai</th>
+                                                        <th width="30%">IPK</th>
                                                         <td width="2%">:</td>
-                                                        <td>-</td>
+                                                        <td>Belum diketahui</td>
                                                     </tr>
                                                     <tr>
-                                                        <th width="30%">Provinsi</th>
+                                                        <th width="30%">Program Studi</th>
                                                         <td width="2%">:</td>
-                                                        <td>Kepulauan Riau</td>
+                                                        <td>Teknologi Rekayasa Perangkat Lunak</td>
                                                     </tr>
                                                     <tr>
-                                                        <th width="30%">Kota / Kabupaten</th>
+                                                        <th width="30%">Jenjang</th>
                                                         <td width="2%">:</td>
-                                                        <td>Batam</td>
+                                                        <td>D4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="30%">Status</th>
+                                                        <td width="2%">:</td>
+                                                        <td>Mahasiswa</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="30%">Jenis Kelamin</th>
+                                                        <td width="2%">:</td>
+                                                        <td>Laki-laki</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="30%">Alamat</th>
+                                                        <td width="2%">:</td>
+                                                        <td>Puri Agung 3 Blok B2 No 49</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Email</th>
                                                         <td width="2%">:</td>
-                                                        <td>trplindustri@gmail.com</td>
+                                                        <td>awbisma0@gmail.com</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Nomor Telepon</th>
                                                         <td width="2%">:</td>
-                                                        <td>08**********</td>
+                                                        <td>0895603635702</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -198,11 +165,12 @@
                                     </div>
                                     <td>
                                         <form class="text-end">
-                                            <button type="submit" class="btn btn-sm btn-warning mr-1"><a
-                                                    href="/profilind" style="color: #fff">Kelola
-                                                    Profil</a></button>
-                                            <button type="submit" class="btn btn-sm btn-primary mr-1"><a
-                                                    href="/lowongan" style="color: #fff">Simpan</a></button>
+                                            <button onclick="cetakPDF()"
+                                                style="color: #fff; background-color: #2168c5; border: none; border-radius: 7px;">
+                                                <i class="bi bi-printer-fill"></i><a href="/laporan"
+                                                    style="color: #fff">
+                                                    Cetak CV</a>
+                                            </button>
                                         </form>
                                     </td>
                                 </div>
