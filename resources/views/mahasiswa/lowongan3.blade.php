@@ -46,20 +46,26 @@
 
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="img/logothub.png" alt="">
-                <span>TALENT HUB.</span>
+                <span class="spn">TALENT HUB.</span>
             </a>
             <!-- .navbar -->
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Student</a></li>
-                    <li><a class="nav-link scrollto" href="blog.html">CV</a></li>
-                    &emsp;
-                    <div class="mt-0 mb-0">
-                        <img src="{{ asset('style/assets/img/noval.jpg') }}" class="rounded-circle img-fluid"
-                            style="width: 45px;" />
-                    </div>
+                    <li><a class="nav-link scrollto" href="/index">Home</a></li>
+                    <li><a class="nav-link scrollto" href="/lowongan">Lowongan</a></li>
+                    <li><a class="nav-link scrollto" href="/student">Mahasiswa</a></li>
+                    <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
+                    <li class="dropdown"><a href="#"><span>
+                                <div id="pp" class="mt-0 mb-0 ms-2">
+                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
+                                        class="rounded-circle img-fluid" style="width: 50px;" />
+                                </div>
+                            </span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="/mhsprof">Profil & CV</a></li>
+                            <li><a href="/index">Log out</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -80,22 +86,23 @@
                         <article class="entry">
 
                             <div class="entry-img">
-                                <img src="{{ asset('style/assets/img/dilan.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('style/assets/img/fitri.jpg') }}" alt="" class="img-fluid">
                             </div>
 
                             <h2 class="entry-title">
-                                <a href="blog-single.html">Programming &amp; Software Development</a>
+                                <a href="#">Programming &amp; Software Development</a>
                             </h2>
                             <div class="entry-content">
-                                <p>
-                                    PT Mencari Cinta Sejati
+                                <p><a href="/indprof2" style="color: #313030">
+                                    PT TRPL Industri
+                                    </a>
                                 </p>
                             </div>
 
                             <div class="entry-meta">
                                 <ul>
                                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                            href="blog-single.html">51 orang</a></li>
+                                            href="blog-single.html">100 orang</a></li>
                                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
                                             href="blog-single.html"><time datetime="2020-01-01">23 Maret - 10
                                                 Juni</time></a></li>
@@ -121,21 +128,33 @@
                             </div>
 
                             <h2 class="entry-title">
-                                <a href="#">Tentang Perusahaan</a>
+                                <a href="#">Kriteria Lowongan</a>
                             </h2>
 
                             <div class="entry-content">
                                 <p>
-                                    1. Berpenampilan menarik.
+                                    1. Mempunyai kekuatan layaknya super hero.
                                 </p>
                                 <p>
                                     2. Mampu menguasai dunia beserta isinya.
                                 </p>
                                 <p>
-                                    3. Incidunt voluptate sit temporibus aperiam.
+                                    3. Mampu menguasai bahasa semesta.
                                 </p>
                                 <p>
-                                    4. Incidunt voluptate sit temporibus aperiam.
+                                    4. Memiliki ijazah sunda empire.
+                                </p>
+                                <p>
+                                    5. Mahasiswa prodi Teknologi Rekayasa Perangkat Lunak.
+                                </p>
+                                <p>
+                                    6. Memiliki nyawa tidak terbatas.
+                                </p>
+                                <p>
+                                    7. Belum pernah mendapatkan bintang 6 di gta.
+                                </p>
+                                <p>
+                                    8. bukan buronan KKB.
                                 </p>
                             </div>
 
@@ -145,7 +164,7 @@
 
                         <div class="sidebar">
 
-                            <h4 class="sidebar-tit" style="margin-top: 100px;">Bidang pekerjaan</h4>
+                            <h4 class="sidebar-tit" style="margin-top: 20px;">Bidang pekerjaan</h4>
                             <h3
                                 style="font-size: 20px; font-weight: bold; color: #5b5555; margin-top: 2px; margin-bottom: 20px;">
                                 Programming &amp; Software Development</h3>
@@ -153,7 +172,7 @@
                             <h4 class="sidebar-tit">Lokasi</h4>
                             <h3
                                 style="font-size: 20px; font-weight: bold; color: #5b5555; margin-top: 2px; margin-bottom: 20px;">
-                                Jalan Soekarno</h3>
+                                Batam</h3>
                             &nbsp;
                             <h4 class="sidebar-tit">Daya Tampung</h4>
                             <h3

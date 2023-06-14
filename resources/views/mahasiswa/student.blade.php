@@ -46,20 +46,26 @@
 
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="img/logothub.png" alt="">
-                <span>TALENT HUB.</span>
+                <span class="spn">TALENT HUB.</span>
             </a>
             <!-- .navbar -->
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Student</a></li>
-                    <li><a class="nav-link scrollto" href="blog.html">CV</a></li>
-                    &emsp;
-                    <div id="pp" class="mt-0 mb-0 ms-4">
-                        <img src="{{ asset('style/assets/img/noval.jpg') }}" class="rounded-circle img-fluid"
-                            style="width: 50px;" />
-                    </div>
+                    <li><a class="nav-link scrollto" href="/index">Home</a></li>
+                    <li><a class="nav-link scrollto" href="/lowongan">Lowongan</a></li>
+                    <li><a class="nav-link scrollto" href="/student">Mahasiswa</a></li>
+                    <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
+                    <li class="dropdown"><a href="#"><span>
+                                <div id="pp" class="mt-0 mb-0 ms-2">
+                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
+                                        class="rounded-circle img-fluid" style="width: 50px;" />
+                                </div>
+                            </span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="/mhsprof">Profil & CV</a></li>
+                            <li><a href="/index">Log out</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -194,21 +200,22 @@
 
         </section><!-- End Testimonials Section -->
 
-        <!-- ======= Lowongan - blog ======= -->
+
+
+        <!-- ======= Blog Section ======= -->
         <section id="blog" class="blog">
             <div class="container" data-aos="fade-up">
 
-                <class="row">
-
-                    <div class="col-lg-3">
+                <div class="row">
+                    <div class="col-lg-4">
 
                         <div class="sidebar">
-                            <h4 class="sidebar-tit">Cari</h4>
+                            <h4 class="sidebar-tit">Kata kunci</h4>
                             <form action="">
                                 <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
                                     <div class="input-group">
-                                        <input type="search" placeholder="Cari Mahasiswa"
-                                            aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                                        <input type="search" placeholder="Cari" aria-describedby="button-addon1"
+                                            class="form-control border-0 bg-light">
                                         <div class="input-group-append">
                                             <button id="button-addon1" type="submit"
                                                 class="btn btn-link text-primary"><i
@@ -217,32 +224,186 @@
                                     </div>
                                 </div>
                             </form><!-- End sidebar search formn-->
-                            <br />
-                            <h4 class="sidebar-tit">Program Study</h4>
-                            <div class="dropdown">
-                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-mdb-toggle="dropdown" aria-expanded="false">
-                                    Semua Jurusan
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </div>
-                            <br />
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <button type="button" class="btn btn-primary btn-rounded rounded-pill">Cari</button>
+
+                            <h4 class="sidebar-tit">Prodi</h4>
+                            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                                <select name="job_type_id"
+                                    class="form-select form-select-sm p-2 form-control border-0 bg-light rounded rounded-pill"
+                                    tabindex="-1" aria-hidden="true">
+                                    <option value="" selected disabled>Pilih Prodi
+                                    </option>
+                                    <option value="1">Teknik Informatika</option>
+                                    <option value="2">Teknik Geomatika</option>
+                                    <option value="3">Teknik Animasi</option>
+                                    <option value="4">Teknik Multimedia Dan Jaringan</option>
+                                    <option value="5">Rekayasa Keamanan Siber</option>
+                                    <option value="6">Teknologi Rekayasa Perangkat Lunak</option>
+                                    <option value="7">Akutansi</option>
+                                    <option value="8">Akutansi Manajerial</option>
+                                    <option value="9">Administrasi Bisnis Terapan</option>
+                                    <option value="10">Logistik Perdagangan Internasional</option>
+                                    <option value="11">Administrasi Bisnis Terapan (Internasional Class)</option>
+                                    <option value="12">Jalur Cepat Distribusi Barang</option>
+                                    <option value="13">Teknik Elektronika Manufaktur</option>
+                                    <option value="14">Teknologi Rekayasa Elektronika</option>
+                                    <option value="15">Teknik Intrumentasi</option>
+                                    <option value="16">Teknik Mekatronika</option>
+                                    <option value="17">Teknologi Rekayasa Pembangkit Energi</option>
+                                    <option value="18">Teknik Robotika</option>
+                                    <option value="19">Teknik Elektro</option>
+                                    <option value="20">Teknik Mesin</option>
+                                    <option value="21">Teknik Perawatann Pesawat Udara</option>
+                                    <option value="22">Teknologi Rekayasa Kontruksi Perkapalan</option>
+                                    <option value="23">Teknologi Rekayasa pengelasan Dan Fabrikasi</option>
+                                    <option value="24">Program Profesi Insinyur</option>
+                                </select>
                             </div>
                         </div><!-- End sidebar -->
 
-                    </div><!-- End Recent Blog Posts Section -->
-                    <!-- End blog sidebar -->
+                    </div><!-- End blog sidebar -->
+                    <div class="col-lg-8 entries">
+                        <label>
+
+                            <article class="entry" style="border-radius: 20px;">
+
+                                <div class="entry-img" style="border-radius: 20px;">
+                                    <img src="{{ asset('style/assets/img/bisma.jpg') }}" alt=""
+                                        class="img-fluid">
+                                </div>
+
+                                <h2 class="entry-title">
+                                    <a>Bisma Arya Wardhana</a>
+                                </h2>
+
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                                href="blog-single.html">Teknologi Rekayasa Perangkat Lunak</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="entry-content">
+                                    <div class="card-body">
+                                        <p class="mb-0"></p>
+                                        <p class="mb-0">
+                                        </p>
+                                        <p class="mb-0">
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="/mhsprof2">Lihat Detail</a>
+                                    </div>
+                                </div>
+
+                            </article><!-- End blog entry -->
+
+                            <article class="entry" style="border-radius: 20px;">
+
+                                <div class="entry-img" style="border-radius: 20px;">
+                                    <img src="{{ asset('style/assets/img/hanna.jpg') }}" alt=""
+                                        class="img-fluid">
+                                </div>
+
+                                <h2 class="entry-title">
+                                    <a>Hanna</a>
+                                </h2>
+
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                                href="blog-single.html">Teknologi Rekayasa Perangkat Lunak</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="entry-content">
+                                    <div class="card-body">
+                                        <p class="mb-0"></p>
+                                        <p class="mb-0">
+                                        </p>
+                                        <p class="mb-0">
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="/mhsprof2">Lihat Detail</a>
+                                    </div>
+                                </div>
+
+                            </article><!-- End blog entry -->
+
+                            <article class="entry" style="border-radius: 20px;">
+
+                                <div class="entry-img" style="border-radius: 20px;">
+                                    <img src="{{ asset('style/assets/img/fitri.jpg') }}" alt=""
+                                        class="img-fluid">
+                                </div>
+
+                                <h2 class="entry-title">
+                                    <a>Fitriani</a>
+                                </h2>
+
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                                href="blog-single.html">Teknologi Rekayasa Perangkat Lunak</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="entry-content">
+                                    <div class="card-body">
+                                        <p class="mb-0"></p>
+                                        <p class="mb-0">
+                                        </p>
+                                        <p class="mb-0">
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="/mhsprof2">Lihat Detail</a>
+                                    </div>
+                                </div>
+
+                            </article><!-- End blog entry -->
+
+                            <article class="entry" style="border-radius: 20px;">
+
+                                <div class="entry-img" style="border-radius: 20px;">
+                                    <img src="{{ asset('style/assets/img/dilan.jpg') }}" alt=""
+                                        class="img-fluid">
+                                </div>
+
+                                <h2 class="entry-title">
+                                    <a>Dilan</a>
+                                </h2>
+
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                                href="blog-single.html">Teknologi Rekayasa Perangkat Lunak</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="entry-content">
+                                    <div class="card-body">
+                                        <p class="mb-0"></p>
+                                        <p class="mb-0">
+                                        </p>
+                                        <p class="mb-0">
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="/mhsprof2">Lihat Detail</a>
+                                    </div>
+                                </div>
+
+                            </article><!-- End blog entry -->
+
+                    </div><!-- End blog entries list -->
+
+
+
+                </div>
 
             </div>
-
-            </div>
-        </section><!-- ======= Recent Blog Posts Section ======= -->
+        </section><!-- End Blog Section -->
 
     </main><!-- End #main -->
 

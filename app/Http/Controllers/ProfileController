@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
+class ProfileController extends Controller
+{
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'profile_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($request->hasFile('profile_photo')) {
+            $file = $request->file('profile_photo');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+
+            // Simpan foto profil ke dalam direktori storage/app/public/profiles
+            $file->storeAs('public/profiles', $filename);
+
+            // Simpan nama file foto profil ke dalam database atau lakukan operasi lainnya
+            // Misalnya, jika Anda memiliki model User, Anda dapat menyimpan nama file dalam kolom 'profile_photo'
+            // $user->profile_photo = $filename;
+            // $user->save();
+
+            return 'Foto profil berhasil diunggah!';
+        }
+
+        return 'Gagal mengunggah foto profil.';
+    }
+}
