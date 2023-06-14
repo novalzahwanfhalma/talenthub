@@ -153,11 +153,12 @@
             <img src="{{ asset('style/assets/img/logothub.png') }}" alt="Logo">
         </div>
         <h2>Autentikasi</h2>
-        <form>
+        <form action="{{ route('postlogin') }}" method="POST">
+            @csrf 
             <h4>Mahasiswa</h4>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="username">Username:</label>
+            <input type="username" id="username" name="username" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
@@ -166,29 +167,17 @@
                 <label for="new"><a href="/regis">Belum memiliki akun?</a></label>
             </div>
 
-            <div class="button-container">
-                <a href="/lowongan"><input type="submit" value="Login"></a>
-            </div>
-        </form>
+            <<div class="button-container">
+
+                <button class="btn btn-primary btn-block" type="submit" value="Login">Syubmitr</button>
+
+
+    </div>
+    </form>
     </div>
 
 
-    <script>
-        function hideNIMField() {
-            var role = document.getElementById("role").value;
-            var nimField = document.getElementById("nim");
-            var nimLabel = document.getElementById("nimLabel");
-
-            if (role === "industri") {
-                nimField.value = "";
-                nimField.classList.add("hide");
-                nimLabel.textContent = "";
-            } else {
-                nimField.classList.remove("hide");
-                nimLabel.textContent = "NIM";
-            }
-        }
-    </script>
+    <script></script>
 </body>
 
 </html>

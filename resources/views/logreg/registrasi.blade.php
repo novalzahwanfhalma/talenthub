@@ -63,6 +63,8 @@
             animation: slideIn 1s forwards;
         }
 
+
+
         input[type="submit"] {
             background-color: #5e90ca;
             color: #ffffff;
@@ -153,9 +155,9 @@
             <img src="{{ asset('style/assets/img/logothub.png') }}" alt="Logo">
         </div>
         <h2>Autentikasi</h2>
-        <form>
+        <form action="{{ route('simpanregistrasi') }}" method="POST">
             <h4>Mahasiswa</h4>
-
+            @csrf
             <label for="nim" id="nimLabel">NIM:</label>
             <input type="text" id="nim" name="nim" required>
 
@@ -165,18 +167,28 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
 
+            <label for="username">Username:</label>
+            <input type="username" id="username" name="username" required>
+
             <label for="no_hp">Nomor Handphone:</label>
             <input type="text" id="no_hp" name="no_hp" required>
 
+            <label for="alamat">Alamat:</label>
+            <input type="alamat" id="alamat" name="alamat" required>
+
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+
 
             <div class="checkbox-container">
                 <label for="existing"><a href="/login">Sudah memiliki akun?</a></label>
             </div>
 
             <div class="button-container">
-                <a href="/lowongan"><input type="submit" value="Daftar"></a>
+
+                <button class="btn btn-primary btn-block" type="submit" value="Daftar">Syubmitr</button>
+
+
             </div>
         </form>
     </div>

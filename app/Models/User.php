@@ -15,20 +15,29 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array<string, string>
      */
+
+    protected $table = 'mahasiswa';
+    protected $primaryKey = 'nim';
     protected $fillable = [
-        'name',
-        'email',
+        'nim',
+        'username',
         'password',
+        'nama_mhs',
+        'ipk',
+        'foto',
+        'no_hp',
+        'email',
+        'alamat',
     ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
      */
     protected $hidden = [
+        'nim',
         'password',
         'remember_token',
     ];
