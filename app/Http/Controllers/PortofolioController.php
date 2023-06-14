@@ -3,22 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Portofolio;
 
 class PortofolioController extends Controller
 {
     public function index()
     {
-        $portofolio = mhs_portofolio::all();
+        $portofolio = Portofolio::all();
 
-        return view('portofolio.index', ['mhs_portofolio' => $portofolio]);
+        return view('mahasiswa/cv/input1', ['mhs_portofolio' => $portofolio]);
     }
 
     public function create()
     {
-        return view('portofolio.create-modal');
+        return view('store_porto');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $validatedData = $request->validate([
             'id_portofolio' => 'required|unique:mhs_portofolio,id_portofolio',
@@ -46,11 +47,9 @@ class PortofolioController extends Controller
             $portofolio->nim = $request->nim;
             $portofolio->judul = $request->judul;
             $portofolio->deskripsi = $request->deskripsi;
-            $portofolio->bukti = $request->bukti;
+            $portofolio->bukti = $foto ? 'foto/' . $foto : null;
             $portofolio->link = $request->link;
 
-            // New Line
-            $portofolio->foto = $foto ? 'foto/' . $foto : null;
 
         if ( $portofolio->save() ) {
             return redirect('/mahasiswa/cv/input1')->with([
@@ -62,6 +61,11 @@ class PortofolioController extends Controller
                 'notifikasi' => 'Data gagal disimpan !',
                 'type' => 'error'
             ]);
+        }
+        if ($mahasiswa) {
+            return redirect()->back()->with('success', 'Registrasi berhasil');
+        } else {
+            return "gagal";
         }
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\IndustriController;
 use App\Models\Mahasiswa;
+use App\Http\Controllers\PortofolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -142,13 +143,13 @@ Route::get('/cv1', function () {
     return view('mahasiswa/cv/input1');
 });
 
-Route::get('/mahasiswa/cv/input1', [StudentController::class, 'index'])
-    ->name('student.index');
+Route::get('/cv1', [PortofolioController::class, 'index'])->name('portofolio.index');
 
-Route::get('/mahasiswa/cv/input1/', [PortofolioController::class, 'create'])
-    ->name('portofolio.create-modal');
-Route::POST('/mahasiswa/cv/input1', [PortofolioController::class, 'store'])
-    ->name('portofolio.store');
+// Route untuk menampilkan form tambah portofolio
+Route::get('/cv1/create-modal', [PortofolioController::class, 'create'])->name('portofolio.create');
+
+// Route untuk menyimpan data portofolio
+Route::post('/cv1/store', [PortofolioController::class, 'store'])->name('portofolio.store');
 
 Route::get('/cv2', function () {
     return view('mahasiswa/cv/input2');

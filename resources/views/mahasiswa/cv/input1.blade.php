@@ -34,44 +34,9 @@
 <body>
 
     <!-- ======= Header ======= -->
-<<<<<<< HEAD
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="img/logothub.png" alt="">
-                <span class="spn">TALENT HUB.</span>
-            </a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="/index">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowongan">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/student">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
-                    <li class="dropdown"><a href="#"><span>
-                                <div id="pp" class="mt-0 mb-0 ms-2">
-                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
-                                        class="rounded-circle img-fluid" style="width: 50px;" />
-                                </div>
-                            </span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/mhsprof">Profil & CV</a></li>
-                            <li><a href="/index">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar end-->
-
-        </div>
-    </header><!-- End Header -->
-=======
     @include('layouts/components/navbar')
     <!-- End Header -->
 
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main" style="text-align: center;">
 
@@ -132,9 +97,8 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="card-body">
-                                            <form method="POST" action="" enctype="multipart/form-data">
-                                                <input type="hidden" name="_token"
-                                                    value="QzikhfB5RhL9odgFXj3QcGV1vVYpTTwuy43ulwVh">
+                                            <form method="POST" action="/cv1/store" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="row">
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
@@ -183,13 +147,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Tutup</button>
-                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

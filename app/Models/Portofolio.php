@@ -9,13 +9,13 @@ class Portofolio extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'portofolio';
 
     protected $fllable = array(
         'id_portofolio', 'nim', 'judul', 'link', 'bukti', 'deskripsi'
     );
 
-    public function mahasiswa(){
+    public function portofolio(){
         return belongsTo(mahasiswa::class, 'nim');
     }
 }
