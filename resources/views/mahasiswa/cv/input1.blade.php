@@ -114,11 +114,10 @@
                         </div>
                         <!-- Tombol untuk membuka modal -->
                         <div class="card-title text-end">
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                data-bs-target="#myModal">
+                            <a href="/mahasiswa/create-modal" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">
                                 <i class="bi bi-plus-circle"></i>
                                 Tambah Portofolio
-                            </button>
+                            </a>
                         </div>
 
                         <!-- Modal -->
@@ -190,7 +189,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Tutup</button>
-                                        <button type="button" class="btn btn-primary">Simpan</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
                                     </div>
                                 </div>
                             </div>

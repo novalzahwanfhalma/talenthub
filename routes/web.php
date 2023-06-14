@@ -138,6 +138,14 @@ Route::get('/cv1', function () {
     return view('mahasiswa/cv/input1');
 });
 
+Route::get('/mahasiswa/cv/input1', [StudentController::class, 'index'])
+    ->name('student.index');
+
+Route::get('/mahasiswa/cv/input1/', [PortofolioController::class, 'create'])
+    ->name('portofolio.create-modal');
+Route::POST('/mahasiswa/cv/input1', [PortofolioController::class, 'store'])
+    ->name('portofolio.store');
+
 Route::get('/cv2', function () {
     return view('mahasiswa/cv/input2');
 });
