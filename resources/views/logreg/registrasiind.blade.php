@@ -153,19 +153,16 @@
             <img src="{{ asset('style/assets/img/logothub.png') }}" alt="Logo">
         </div>
         <h2>Registrasi</h2>
-        <form>
+        <form action="{{ route('simpanregistrasiind') }}" method="POST">
             <h4>Industri</h4>
-
-            <label for="nim" id="nimLabel">NIM:</label>
-            <input type="text" id="nim" name="nim" required>
-
-            <label for="nama">Nama:</label>
+            @csrf
+            <label for="nama_industri">Nama:</label>
             <input type="text" id="nama" name="nama" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="username">Username:</label>
+            <input type="username" id="username" name="username" required>
 
-            <label for="no_hp">Nomor Handphone:</label>
+            <label for="contact">Nomor Handphone:</label>
             <input type="text" id="no_hp" name="no_hp" required>
 
             <label for="password">Password:</label>
@@ -176,7 +173,10 @@
             </div>
 
             <div class="button-container">
-                <a href="/lowonganind"><input type="submit" value="Daftar"></a>
+
+                <button class="btn btn-primary btn-block" type="submit" value="Daftar">Syubmitr</button>
+
+
             </div>
         </form>
     </div>

@@ -154,7 +154,7 @@
         <div class="logo-container">
             <img src="{{ asset('style/assets/img/logothub.png') }}" alt="Logo">
         </div>
-        <h2>Autentikasi</h2>
+        <h2>Registrasi</h2>
         <form action="{{ route('simpanregistrasi') }}" method="POST">
             <h4>Mahasiswa</h4>
             @csrf

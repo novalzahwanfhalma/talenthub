@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\IndustriController;
+use App\Http\Controllers\PortofolioController;
 use App\Models\Mahasiswa;
 
 /*
@@ -26,6 +27,14 @@ route::post('/simpanregistrasi', [MahasiswaController::class, 'store'])->name('s
 route::get('/login', [LoginController::class, 'halamanlogin'])->name('login');
 route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Registration routes for industry
+Route::get('/registrasiind', [LoginindController::class, 'registrasi'])->name('registrasiind');
+Route::post('/simpanregistrasiind', [IndustriController::class, 'store'])->name('simpanregistrasiind');
+Route::get('/loginind', [LoginindLController::class, 'halamanlogin'])->name('loginind');
+Route::post('/postloginind', [LoginindController::class, 'postlogin'])->name('postloginind');
+Route::get('/logoutind', [LoginindController::class, 'logout'])->name('logoutind');
+
 
 /*
 |--------------------------------------------------------------------------

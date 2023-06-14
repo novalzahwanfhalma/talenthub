@@ -2,33 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Industri;
 use Illuminate\Http\Request;
 
 class IndustriController extends Controller
 {
     public function create()
     {
-        return view('regis');
+        return view('regisind');
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'nama_industri' => 'required',
-            'username' => 'required|email|unique:industri',
+            'username' => 'required|unique:industri,username',
             'contact' => 'required',
-            'password' => 'required|min:12',
+            'password' => 'required|min:8'
             // tambahkan validasi lainnya sesuai kebutuhan
         ]);
 
-        $industri = new Industri();
-        $industri->nama_industri = $validatedData['nama'];
-        $industri->username = $validatedData['email'];
-        $industri->password = Hash::make($validatedData['password']);
-        $industri->contact = $validatedData['contact'];
-        // tambahkan atribut lainnya
-        $industri->save();
+        $industri = Industri::create([
+            'nama_industri' => $request->input('nama'),
+            'username' => $request->input('username'),
+            'contact' => $request->input('contact'),
+            'password' => bcrypt($request->input('password'))
+        ]);
 
-        return redirect()->back()->with('success', 'Registrasi berhasil');
+        if ($industri) {
+            return redirect()->back()->with('success', 'Registrasi berhasil');
+        } else {
+            return "gagal";
+        }
+    }
+    private function validateInd(Request $request)
+    {
+        return $request->validate([
+            'nama_industri' => 'required',
+            'username' => 'required|unique:industri,username',
+            'contact' => 'required',
+            'password' => 'required|min:8'
+        ]);
     }
 }

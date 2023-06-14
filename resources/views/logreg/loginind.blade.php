@@ -153,7 +153,8 @@
             <img src="{{ asset('style/assets/img/logothub.png') }}" alt="Logo">
         </div>
         <h2>Autentikasi</h2>
-        <form>
+        <form action="{{ route('postloginind') }}" method="POST">
+            @csrf
             <h4>Industri</h4>
 
             <label for="username">Username:</label>

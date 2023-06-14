@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\Models\User;
+use App\Models\User2;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class LoginindController extends Controller
 {
     public function halamanlogin()
     {
-        return view('Login.login');
+        return view('Loginind.loginind');
     }
 
     public function postlogin(Request $request)
@@ -26,7 +26,7 @@ class LoginController extends Controller
         $credentials = $request->only('username', 'password');
 
         if (auth()->attempt($credentials)) {
-            return redirect('/lowongan');
+            return redirect('/lowonganind');
         }
 
         return back()->withErrors('Invalid credentials');
@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     public function registrasi()
     {
-        return view('Login.registrasi');
+        return view('Loginind.registrasiind');
     }
 
     public function simpanregistrasi(Request $request)

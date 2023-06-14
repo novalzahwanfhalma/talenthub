@@ -2,17 +2,21 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Portofolio extends Model
+class Industri extends Authenticatable
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    /**
+     * The attributes that are mass assignable.
+     *
+     */
+    protected $table = 'industri';
+    protected $primaryKey = 'id_industri';
 
-    protected $fllable = array(
-        'user_id', 'id_industri', 'nama_industri', 'username', 'password', 'deskripsi_industri', 'kontak', 'alamat', 'foto'
-    );
-
+    protected $fillable = ['id_industri', 'username', 'password', 'nama_industri', 'alamat', 'contact', 'foto', 'deskripsi_industri'];
+    protected $hidden = ['password'];
 }
