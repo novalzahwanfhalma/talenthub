@@ -156,8 +156,8 @@
         <form>
             <h4>Industri</h4>
 
-            <label for="email">Email:</label>
-            <input type="email" id="username" name="username" required>
+            <label for="username">Username:</label>
+            <input type="username" id="username" name="username" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>

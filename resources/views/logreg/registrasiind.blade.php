@@ -152,7 +152,7 @@
         <div class="logo-container">
             <img src="{{ asset('style/assets/img/logothub.png') }}" alt="Logo">
         </div>
-        <h2>Autentikasi</h2>
+        <h2>Registrasi</h2>
         <form>
             <h4>Industri</h4>
 
