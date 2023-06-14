@@ -153,8 +153,7 @@
             <img src="{{ asset('style/assets/img/logothub.png') }}" alt="Logo">
         </div>
         <h2>Autentikasi</h2>
-        <form action="{{ route('postlogin') }}" method="POST">
-            @csrf 
+        <form>
             <h4>Mahasiswa</h4>
 
             <label for="username">Username:</label>
@@ -162,18 +161,16 @@
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+>>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
             <div class="checkbox-container">
                 <label for="new"><a href="/regis">Belum memiliki akun?</a></label>
             </div>
 
-            <<div class="button-container">
-
-                <button class="btn btn-primary btn-block" type="submit" value="Login">Syubmitr</button>
-
-
-    </div>
-    </form>
+            <div class="button-container">
+                <a href="/lowongan"><input type="submit" value="Login"></a>
+            </div>
+        </form>
     </div>
 
 
