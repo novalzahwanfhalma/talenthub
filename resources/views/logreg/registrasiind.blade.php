@@ -157,13 +157,13 @@
             <h4>Industri</h4>
             @csrf
             <label for="nama_industri">Nama:</label>
-            <input type="text" id="nama" name="nama" required>
+            <input type="text" id="nama" name="nama_industri" required>
 
             <label for="username">Username:</label>
             <input type="username" id="username" name="username" required>
 
             <label for="contact">Nomor Handphone:</label>
-            <input type="text" id="no_hp" name="no_hp" required>
+            <input type="text" id="no_hp" name="contact" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>

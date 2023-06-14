@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Industri;
+use App\Models\industri;
 use Illuminate\Http\Request;
 
 class IndustriController extends Controller
 {
     public function create()
     {
-        return view('regisind');
+        return view('regis');
     }
 
     public function store(Request $request)
@@ -23,10 +23,12 @@ class IndustriController extends Controller
         ]);
 
         $industri = Industri::create([
-            'nama_industri' => $request->input('nama'),
+            'nama_industri' => $request->input('nama_industri'),
             'username' => $request->input('username'),
             'contact' => $request->input('contact'),
-            'password' => bcrypt($request->input('password'))
+            'password' => bcrypt($request->input('password')),
+            'deskripsi_industri' => '-',
+
         ]);
 
         if ($industri) {

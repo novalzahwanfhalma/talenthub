@@ -25,9 +25,10 @@ class LoginindController extends Controller
 
         $credentials = $request->only('username', 'password');
 
-        if (auth()->attempt($credentials)) {
+        if (auth()->guard('industri')->attempt($credentials)) {
             return redirect('/lowonganind');
         }
+
 
         return back()->withErrors('Invalid credentials');
     }

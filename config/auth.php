@@ -40,7 +40,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'industri' => [
+            'driver' => 'session',
+            'provider' => 'industri',
+        ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -63,6 +69,12 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'industri' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Industri::class,
+            'table' => 'industri',
         ],
 
         // 'users' => [
