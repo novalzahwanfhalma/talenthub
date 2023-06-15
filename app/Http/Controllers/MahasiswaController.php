@@ -32,7 +32,10 @@ class MahasiswaController extends Controller
             'no_hp' => $request->input('no_hp'),
             'password' => bcrypt($request->input('password')),
             'email' => $request->input('email'),
-            'alamat' => $request->input('alamat')
+            'alamat' => $request->input('alamat'),
+            'ipk' => '-',
+            'foto' => '-',
+            
         ]);
 
         if ($mahasiswa) {

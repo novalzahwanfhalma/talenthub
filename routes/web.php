@@ -6,6 +6,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\IndustriController;
 use App\Http\Controllers\LoginindController;
 use App\Models\Mahasiswa;
+use App\Models\Portofolio;
 use App\Http\Controllers\PortofolioController;
 
 /*

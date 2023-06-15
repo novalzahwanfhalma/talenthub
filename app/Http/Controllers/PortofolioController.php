@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Portofolio;
+use App\Models\Mahasiswa;
+// use App\Http\Controllers\Mahasiswa;
 
 class PortofolioController extends Controller
 {
@@ -11,7 +13,7 @@ class PortofolioController extends Controller
     {
         $portofolio = Portofolio::all();
 
-        return view('mahasiswa/cv/input1', ['mhs_portofolio' => $portofolio]);
+        return view('mahasiswa/cv/input1', ['portofolio' => $portofolio]);
     }
 
     public function create()
@@ -41,30 +43,90 @@ class PortofolioController extends Controller
 
 
         ]);
+        
 
-        $portofolio = new Portofolio();
-            $portofolio->nim = "4342211017";
-            $portofolio->judul = $request->judul;
-            $portofolio->deskripsi = $request->deskripsi;
-            $portofolio->bukti = 'afagagfag';
-            $portofolio->link = $request->link;
+        $user = auth()->user();
+        if ($user) {
+            $mahasiswa = Mahasiswa::where('nim', $user->nim)->first();
+
+        
+            if ($mahasiswa) {
+                $portofolio = new Portofolio();
+                $portofolio->nim = mahasiswa::where('nim', auth()->user()->nim)->value('nim');
+                // Menggunakan model Mahasiswa untuk mendapatkan NIM
+                // $portofolio->nim = Mahasiswa::user()->nim;
+                
+                $portofolio->judul = $request->judul;
+                $portofolio->deskripsi = $request->deskripsi;
+                $portofolio->bukti = 'afagagfag';
+                $portofolio->link = $request->link;
+
+            // $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
+            // if ($mahasiswa) {
+            //     $portofolio->nim = $mahasiswa->nim;
+            //     $portofolio->save();
+            // } else {
+            //     // Tangani kasus ketika data mahasiswa tidak ditemukan
+            //     throw new \Exception('Data Mahasiswa tidak ditemukan');
+            // }
 
 
-        if ( $portofolio->save() ) {
-            return redirect('/mahasiswa/cv/input1')->with([
-                'notifikasi' => 'Data Berhasil disimpan !',
-                'type' => 'success'
-            ]);
-        } else {
-            return redirect()->back()->with([
-                'notifikasi' => 'Data gagal disimpan !',
-                'type' => 'error'
-            ]);
-        }
+                if ( $portofolio->save() ) {
+                    return back()->with([
+                        'notifikasi' => 'Data Berhasil disimpan !',
+                        'type' => 'success'
+                    ]);
+                } else {
+                    return redirect()->back()->with([
+                        'notifikasi' => 'Data gagal disimpan !',
+                        'type' => 'error'
+                    ]);
+                }
+
+            } else {
+                return redirect()->back()->with([
+                    'notifikasi' => 'Data mahasiswa tidak ditemukan!',
+                    'type' => 'error'
+                ]);
+            }
         // if ($mahasiswa) {
         //     return redirect()->back()->with('success', 'Registrasi berhasil');
         // } else {
         //     return "gagal";
         // }
+        }
+    }
+
+    public function destroy(string $nim)
+    {
+        // Menambahkan fungsi firstOrFail
+        $student = Portofolio::where(['nim' => $nim])->firstOrFail();
+        
+        // Mengambil data foto
+        $bukti = $portofolio->bukti;
+
+        if ($portofolio->count() < 1) {
+            return redirect('/student')->with([
+                'notifikasi' => 'Data siswa tidak ditemukan !',
+                'type' => 'error'
+            ]);
+        }
+
+            if ($portofolio->delete()) {
+
+                // Hapus file foto jika ada
+                if (!empty($bukti) && Storage::exists($bukti)) {
+                    Storage::delete($bukti);
+                }
+                return redirect('/student')->with([
+                    'notifikasi' => 'Data berhasil dihapus! ',
+                    'type' => 'success'
+                ]);
+        } else {
+            return redirect()->back()->with([
+                'notifikasi' => 'Data gagal dihapus! ',
+                'type' => 'error'
+            ]);
+        }
     }
 }
