@@ -6,6 +6,8 @@ use Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use function PHPSTORM_META\type;
+
 class LoginController extends Controller
 {
     public function halamanlogin()
@@ -36,7 +38,22 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+
+        return redirect('/login')->with([
+            'notifikasi' => 'Logout berhasil !',
+            'type' => 'success'
+        ]);
+    }
+
+    public function proses_logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/index');
     }
 
     public function registrasi()

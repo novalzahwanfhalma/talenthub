@@ -79,7 +79,8 @@
                         </div>
                         <!-- Tombol untuk membuka modal -->
                         <div class="card-title text-end">
-                            <a href="/mahasiswa/create-modal" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">
+                            <a href="/mahasiswa/create-modal" class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#myModal">
                                 <i class="bi bi-plus-circle"></i>
                                 Tambah Portofolio
                             </a>
@@ -106,9 +107,9 @@
                                                                     class="text-danger">
                                                                     *</i></label>
                                                             <input type="text"
-                                                                class="form-control form-control-sm p-2"
-                                                                name="judul" value=""
-                                                                placeholder="Masukkan Judul" fdprocessedid="zt264h">
+                                                                class="form-control form-control-sm p-2" name="judul"
+                                                                value="" placeholder="Masukkan Judul"
+                                                                fdprocessedid="zt264h">
                                                         </div>
                                                     </div>
 
@@ -124,8 +125,7 @@
                                                     </div>
 
                                                     <div class="form-group" id="ganti_foto_div" style="display:">
-                                                        <label for="nama">Bukti<b
-                                                                class="text-danger">*</b></label>
+                                                        <label for="nama">Bukti<b class="text-danger">*</b></label>
                                                         <input placeholder="Upload Foto" type="file"
                                                             accept="image/png, image/jpg, img/jepg" id="foto"
                                                             name="bukti"
@@ -147,12 +147,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
                                         </form>
                                     </div>
                                 </div>

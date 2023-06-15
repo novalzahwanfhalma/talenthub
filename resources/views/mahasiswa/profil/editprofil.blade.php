@@ -37,43 +37,8 @@
     class="app-default">
 
     <!-- ======= Header ======= -->
-<<<<<<< HEAD
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="img/logothub.png" alt="">
-                <span class="spn">TALENT HUB.</span>
-            </a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="/index">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowongan">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/student">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
-                    <li class="dropdown"><a href="#"><span>
-                                <div id="pp" class="mt-0 mb-0 ms-2">
-                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
-                                        class="rounded-circle img-fluid" style="width: 50px;" />
-                                </div>
-                            </span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/mhsprof">Profil & CV</a></li>
-                            <li><a href="/index">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar end-->
-
-        </div>
-    </header><!-- End Header -->
-=======
     @include('layouts/components/navbar')
     <!-- End Header -->
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main" style="text-align: center;">
 
@@ -157,7 +122,7 @@
                                                     <label class="required form-label">Nama<i class="text-danger">
                                                             *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="name" value="" placeholder="Masukkan Nama"
+                                                        name="name" value="{{ Auth::user()->nama_mhs }}" placeholder="Masukkan Nama"
                                                         fdprocessedid="zt264h">
                                                 </div>
                                             </div>
@@ -179,7 +144,7 @@
                                                     <label class="required form-label">NIM<i class="text-danger">
                                                             *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="name" value="" placeholder="Masukkan NIM"
+                                                        name="name" value="{{ Auth::user()->nim }}" placeholder="Masukkan NIM"
                                                         fdprocessedid="zt264h">
                                                 </div>
                                             </div>
@@ -292,7 +257,7 @@
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Alamat<i class="text-danger">
                                                             *</i></label>
-                                                    <textarea class="form-control form-control-sm p-2" name="address" placeholder="Alamat Perusahaan"
+                                                    <textarea class="form-control form-control-sm p-2" name="address" value="{{ Auth::user()->alamat }}" placeholder="Alamat Perusahaan"
                                                         style="height: 100px">
                                                         </textarea>
                                                 </div>
@@ -307,7 +272,7 @@
                                                     <label class="required form-label">Email<i class="text-danger">
                                                             *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="email" value="" placeholder="Masukkan Email"
+                                                        name="email" value="{{ Auth::user()->email }}" placeholder="Masukkan Email"
                                                         fdprocessedid="9fbpx">
                                                 </div>
                                             </div>
@@ -317,7 +282,7 @@
                                                     <label class="required form-label">Nomor Telepon<i
                                                             class="text-danger"> *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="phone" value=""
+                                                        name="phone" value="{{ Auth::user()->no_hp }}"
                                                         placeholder="Masukkan Nomor Telepon" fdprocessedid="c3jxsr">
                                                 </div>
                                             </div>

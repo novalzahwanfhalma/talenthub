@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function halaman_register() {
+    public function halaman_register()
+    {
         return view('auth/register');
     }
 
-    public function proses_register( Request $request) {
+    public function proses_register(Request $request)
+    {
         $validatedData = $request->validate([
             'nim' => 'required',
             'nama' => 'required',
@@ -37,7 +39,7 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
-        if ( $user->save() ) {
+        if ($user->save()) {
             return redirect()->back()->with([
                 'notifikasi' => 'Register Berhasil !',
                 'type' => 'success'

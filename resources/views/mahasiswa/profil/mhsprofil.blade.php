@@ -50,43 +50,8 @@
 <body>
 
     <!-- ======= Header ======= -->
-<<<<<<< HEAD
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="img/logothub.png" alt="">
-                <span class="spn">TALENT HUB.</span>
-            </a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="/index">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowongan">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/student">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
-                    <li class="dropdown"><a href="#"><span>
-                                <div id="pp" class="mt-0 mb-0 ms-2">
-                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
-                                        class="rounded-circle img-fluid" style="width: 50px;" />
-                                </div>
-                            </span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/mhsprof">Profil & CV</a></li>
-                            <li><a href="/index">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar end-->
-
-        </div>
-    </header><!-- End Header -->
-=======
     @include('layouts/components/navbar')
     <!-- End Header -->
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main">
 
@@ -138,17 +103,19 @@
                                             <div class="card-header bg-transparent text-center">
                                                 <img class="profile_img"
                                                     src="https://source.unsplash.com/600x300/?student" alt="student dp">
-                                                <h3>Bisma Arya Wardhana</h3>
+                                                <h3>{{ Auth::user()->nama_mhs }}</h3>
                                             </div>
                                             <div class="card-body">
-                                                <p class="mb-0"><strong class="pr-1">NIM:</strong>4342201029</p>
+                                                <p class="mb-0"><strong
+                                                        class="pr-1">NIM:</strong>{{ Auth::user()->nim }}</p>
                                                 <p class="mb-0"><strong class="pr-1">Program
                                                         Studi:</strong>Teknologi
                                                     Rekayasa Perangkat Lunak</p>
                                                 <p class="mb-0"><strong
-                                                        class="pr-1">Email:</strong>bistayo0@gmail.com
+                                                        class="pr-1">Email:</strong>{{ Auth::user()->email }}
                                                 </p>
-                                                <p class="mb-0"><strong class="pr-1">Kontak:</strong>0895691791791
+                                                <p class="mb-0"><strong
+                                                        class="pr-1">Kontak:</strong>{{ Auth::user()->no_hp }}
                                                 </p>
                                             </div>
                                         </div>
@@ -167,12 +134,12 @@
                                                     <tr>
                                                         <th width="30%">Nama</th>
                                                         <td width="2%">:</td>
-                                                        <td>Bisma Arya Wardhana</td>
+                                                        <td>{{ Auth::user()->nama_mhs }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">NIM</th>
                                                         <td width="2%">:</td>
-                                                        <td>4342201029</td>
+                                                        <td>{{ Auth::user()->nim }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Perguruan Tinggi</th>
@@ -207,17 +174,17 @@
                                                     <tr>
                                                         <th width="30%">Alamat</th>
                                                         <td width="2%">:</td>
-                                                        <td>Puri Agung 3 Blok B2 No 49</td>
+                                                        <td>{{ Auth::user()->alamat }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Email</th>
                                                         <td width="2%">:</td>
-                                                        <td>awbisma0@gmail.com</td>
+                                                        <td>{{ Auth::user()->email }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Nomor Telepon</th>
                                                         <td width="2%">:</td>
-                                                        <td>0895603635702</td>
+                                                        <td>{{ Auth::user()->no_hp }}</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -227,11 +194,7 @@
                                     <td>
                                         <form class="text-end">
                                             <button type="submit" class="btn btn-sm btn-warning mr-1"><a
-<<<<<<< HEAD
-                                                    href="/profilind" style="color: #fff">Kelola
-=======
                                                     href="/editprof" style="color: #fff">Kelola
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
                                                     Profil</a></button>
                                             <button type="submit" class="btn btn-sm btn-primary mr-1"><a
                                                     href="/lowongan" style="color: #fff">Simpan</a></button>

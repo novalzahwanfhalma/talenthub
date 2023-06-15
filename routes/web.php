@@ -27,14 +27,14 @@ route::get('/registrasi', [LoginController::class, 'registrasi'])->name('registr
 route::post('/simpanregistrasi', [MahasiswaController::class, 'store'])->name('simpanregistrasi');
 route::get('/login', [LoginController::class, 'halamanlogin'])->name('login');
 route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
-route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+route::post('/logout', [LoginController::class, 'proses_logout'])->name('logout');
 
 // Registration routes for industry
 Route::get('/registrasiind', [LoginindController::class, 'registrasi'])->name('registrasiind');
 Route::post('/simpanregistrasiind', [IndustriController::class, 'store'])->name('simpanregistrasiind');
 Route::get('/loginind', [LoginindLController::class, 'halamanlogin'])->name('loginind');
 Route::post('/postloginind', [LoginindController::class, 'postlogin'])->name('postloginind');
-Route::get('/logoutind', [LoginindController::class, 'logout'])->name('logoutind');
+Route::get('/logoutind', [LoginindController::class, 'proses_logout'])->name('logoutind');
 
 
 /*
@@ -44,19 +44,19 @@ Route::get('/logoutind', [LoginindController::class, 'logout'])->name('logoutind
 */
 
 Route::get('/login', function () {
-    return view('logreg/login');
+    return view('auth/login');
 });
 
 Route::get('/regis', function () {
-    return view('logreg/registrasi');
+    return view('auth/registrasi');
 });
 
 Route::get('/regisind', function () {
-    return view('logreg/registrasiind');
+    return view('auth/registrasiind');
 });
 
 Route::get('/loginind', function () {
-    return view('logreg/loginind');
+    return view('auth/loginind');
 });
 
 /*

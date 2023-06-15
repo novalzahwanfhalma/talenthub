@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Form Registrasi</title>
+    <title>Form Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,7 +46,7 @@
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #707070;
             border-radius: 8px;
             opacity: 0;
             animation: slideIn 1s forwards;
@@ -63,11 +63,9 @@
             animation: slideIn 1s forwards;
         }
 
-
-
         input[type="submit"] {
             background-color: #5e90ca;
-            color: #ffffff;
+            color: #fff;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
@@ -87,7 +85,7 @@
         .checkbox-container label {
             display: inline;
             font-size: 14px;
-            color: #ff0000;
+            color: #333;
         }
 
         /* Animasi Menarik */
@@ -154,44 +152,28 @@
         <div class="logo-container">
             <img src="{{ asset('style/assets/img/logothub.png') }}" alt="Logo">
         </div>
-        <h2>Registrasi</h2>
-        <form action="{{ route('simpanregistrasi') }}" method="POST">
-            <h4>Mahasiswa</h4>
+        <h2>Autentikasi</h2>
+        <form action="{{ route('postloginind') }}" method="POST">
             @csrf
-            <label for="nim" id="nimLabel">NIM:</label>
-            <input type="text" id="nim" name="nim" required>
-
-            <label for="nama">Nama:</label>
-            <input type="text" id="nama" name="nama" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <h4>Industri</h4>
 
             <label for="username">Username:</label>
             <input type="username" id="username" name="username" required>
 
-            <label for="no_hp">Nomor Handphone:</label>
-            <input type="text" id="no_hp" name="no_hp" required>
-
-            <label for="alamat">Alamat:</label>
-            <input type="alamat" id="alamat" name="alamat" required>
-
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-
             <div class="checkbox-container">
-                <label for="existing"><a href="/login">Sudah memiliki akun?</a></label>
+                <label for="new"><a href="/regisind">Belum memiliki akun?</a></label>
             </div>
 
             <div class="button-container">
-
-                <button class="btn btn-primary btn-block" type="submit" value="Daftar">Syubmitr</button>
-
-
+                <button name="submit" type="submit" class="btn btn-primary"
+                    style="background-color: #3aa7a9; color: #FFFFFF; border-radius: 30px; padding: 12px 24px; font-size: 18px;">Login</button>
             </div>
         </form>
     </div>
+
 
     <script>
         function hideNIMField() {

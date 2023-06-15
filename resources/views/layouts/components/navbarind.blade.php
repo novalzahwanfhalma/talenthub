@@ -1,3 +1,10 @@
+<style>
+    .dropdown-item.text-white:hover {
+        background-color: transparent;
+        color: #fff;
+    }
+</style>
+
 <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
@@ -11,16 +18,30 @@
                 <li><a class="nav-link scrollto" href="/lowonganind">Lowongan</a></li>
                 <li><a class="nav-link scrollto" href="/indmhs">Mahasiswa</a></li>
                 <li><a class="nav-link scrollto" href="/indind">Perusahaan</a></li>
-                <li class="dropdown"><a href="#"><span>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                        <span>
                             <div id="pp" class="mt-0 mb-0 ms-2">
                                 <img src="{{ asset('style/assets/img/noval.jpg') }}" class="rounded-circle img-fluid"
                                     style="width: 50px;" />
                             </div>
-                        </span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="/indprof">Profil & CV</a></li>
-                        <li><a href="/indexind">Log out</a></li>
+                        </span>
+                        <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <form action="/indprof">
+                                <button class="dropdown-item text-white">Profil & CV</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button class="dropdown-item text-white" type="submit">Logout</button>
+                            </form>
+                        </li>
                     </ul>
+
                 </li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

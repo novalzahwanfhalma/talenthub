@@ -40,6 +40,17 @@ class LoginindController extends Controller
         return redirect('/');
     }
 
+    public function proses_logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/index');
+    }
+
     public function registrasi()
     {
         return view('Loginind.registrasiind');

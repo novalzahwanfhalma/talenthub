@@ -14,7 +14,7 @@
                 <li><a class="nav-link scrollto" href="/LOGIN-DULU-BRO">Perusahaan</a></li>
                 <li class="dropdown"><a href="#"><span>
                             <div id="pp" class="mt-0 mb-0 ms-2">
-                                <img src="{{ asset('style/assets/img/noval.jpg') }}" class="rounded-circle img-fluid"
+                                <img src="{{ asset('style/assets/img/pp.jpg') }}" class="rounded-circle img-fluid"
                                     style="width: 50px;" />
                             </div>
                         </span> <i class="bi bi-chevron-down"></i></a>

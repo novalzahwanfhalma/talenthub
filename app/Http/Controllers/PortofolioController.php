@@ -37,20 +37,20 @@ class PortofolioController extends Controller
             'bukti.image' => 'Bukti harus berupa gambar.',
             'bukti.mimes' => 'Tipe file yang diizinkan adalah JPEG, JPG, dan PNG.',
             'bukti.max' => 'Ukuran file tidak boleh lebih dari 2 MB.',
-            
+
 
 
         ]);
 
         $portofolio = new Portofolio();
-            $portofolio->nim = "4342211017";
-            $portofolio->judul = $request->judul;
-            $portofolio->deskripsi = $request->deskripsi;
-            $portofolio->bukti = 'afagagfag';
-            $portofolio->link = $request->link;
+        $portofolio->nim = "4342211017";
+        $portofolio->judul = $request->judul;
+        $portofolio->deskripsi = $request->deskripsi;
+        $portofolio->bukti = 'afagagfag';
+        $portofolio->link = $request->link;
 
 
-        if ( $portofolio->save() ) {
+        if ($portofolio->save()) {
             return redirect('/mahasiswa/cv/input1')->with([
                 'notifikasi' => 'Data Berhasil disimpan !',
                 'type' => 'success'

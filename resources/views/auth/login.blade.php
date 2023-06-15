@@ -169,7 +169,7 @@
 
             <div class="button-container">
 
-                <button class="btn btn-primary btn-block" type="submit" value="Login">Syubmitr</button>
+                <button class="btn btn-primary btn-block" type="submit" value="Login" style="background-color: #3aa7a9; color: #FFFFFF; border-radius: 30px; padding: 12px 24px; font-size: 18px;">Login</button>
 
 
             </div>

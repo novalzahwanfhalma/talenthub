@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Form Login</title>
+    <title>Form Registrasi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,7 +46,7 @@
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid #707070;
+            border: 1px solid #3a3a3a;
             border-radius: 8px;
             opacity: 0;
             animation: slideIn 1s forwards;
@@ -65,7 +65,7 @@
 
         input[type="submit"] {
             background-color: #5e90ca;
-            color: #fff;
+            color: #ffffff;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
@@ -85,7 +85,7 @@
         .checkbox-container label {
             display: inline;
             font-size: 14px;
-            color: #333;
+            color: #ff0000;
         }
 
         /* Animasi Menarik */
@@ -152,27 +152,33 @@
         <div class="logo-container">
             <img src="{{ asset('style/assets/img/logothub.png') }}" alt="Logo">
         </div>
-        <h2>Autentikasi</h2>
-        <form action="{{ route('postloginind') }}" method="POST">
-            @csrf
+        <h2>Registrasi</h2>
+        <form action="{{ route('simpanregistrasiind') }}" method="POST">
             <h4>Industri</h4>
+            @csrf
+            <label for="nama_industri">Nama:</label>
+            <input type="text" id="nama" name="nama_industri" required>
 
             <label for="username">Username:</label>
             <input type="username" id="username" name="username" required>
+
+            <label for="contact">Nomor Handphone:</label>
+            <input type="text" id="no_hp" name="contact" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
             <div class="checkbox-container">
-                <label for="new"><a href="/regisind">Belum memiliki akun?</a></label>
+                <label for="existing"><a href="/loginind">Sudah memiliki akun?</a></label>
             </div>
 
             <div class="button-container">
-                <button name="submit" type="submit" class="btn btn-primary">Login</button>
+                <button class="btn btn-primary btn-block" type="submit" value="Daftar" style="background-color: #3aa7a9; color: #FFFFFF; border-radius: 30px; padding: 12px 24px; font-size: 18px;">Daftar</button>
             </div>
+
+
         </form>
     </div>
-
 
     <script>
         function hideNIMField() {

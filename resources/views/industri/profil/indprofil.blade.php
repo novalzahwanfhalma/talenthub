@@ -50,43 +50,8 @@
 <body>
 
     <!-- ======= Header ======= -->
-<<<<<<< HEAD
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="img/logothub.png" alt="">
-                <span class="spn">TALENT HUB.</span>
-            </a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="/indexind">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowonganind">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/indmhs">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/indind">Perusahaan</a></li>
-                    <li class="dropdown"><a href="#"><span>
-                                <div id="pp" class="mt-0 mb-0 ms-2">
-                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
-                                        class="rounded-circle img-fluid" style="width: 50px;" />
-                                </div>
-                            </span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/indprof">Profil & CV</a></li>
-                            <li><a href="/indexind">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar end-->
-
-        </div>
-    </header><!-- End Header -->
-=======
     @include('layouts/components/navbarind')
     <!-- End Header -->
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main">
         <section>
@@ -112,13 +77,14 @@
                                             <div class="card-header bg-transparent text-center">
                                                 <img class="profile_img"
                                                     src="https://source.unsplash.com/600x300/?student" alt="student dp">
-                                                <h3>PT. TRPL Industri</h3>
+                                                <h3>PT. TRPL Industri
+                                                </h3>
                                             </div>
                                             <div class="card-body">
                                                 <p class="mb-0"><strong class="pr-1">Email:</strong>
                                                     awbisma0@gmail.com</p>
                                                 <p class="mb-0"><strong class="pr-1">Kontak:</strong>
-                                                    0895691791791</p>
+                                                    082181574516</p>
                                                 <p class="mb-0"><strong class="pr-1">Website:</strong> -</p>
                                                 <div style="margin-top: 10px;">
                                                     <p>PT Asam Lambung adalah perusahaan yang membuat obat herbal untuk
@@ -154,7 +120,8 @@
                                                     <tr>
                                                         <th width="30%">Nama Perusahaan</th>
                                                         <td width="2%">:</td>
-                                                        <td>PT> TRPL Industri</td>
+                                                        <td>PT. TRPL Industri
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Tipe Perusahaan</th>
@@ -189,7 +156,8 @@
                                                     <tr>
                                                         <th width="30%">Nomor Telepon</th>
                                                         <td width="2%">:</td>
-                                                        <td>08**********</td>
+                                                        <td>0867184512487
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </div>
