@@ -100,6 +100,7 @@
                                         <div class="card-body">
                                             <form method="POST" action="/cv1/store" enctype="multipart/form-data">
                                                 @csrf
+                                                <input type="hidden" name="nim" value="{{ auth()->user()->nim }}">
                                                 <div class="row">
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
@@ -130,7 +131,7 @@
                                                             accept="image/png, image/jpg, img/jepg" id="foto"
                                                             name="bukti"
                                                             class="form-control @error('foto') is-invalid @enderror">
-                                                        @error('foto')
+                                                        @error('bukti')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
                                                     </div>
@@ -174,11 +175,38 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse ( $portofolio as $index => $data )
+                                        <tr>
+                                            <td>{{ $index+1 }}</td>
+                                            <td>{{ $data->judul }}</td>
+                                            <td>{{ $data->deskripsi }}</td>
+                                            <td>{{ $data->bukti }}</td>
+                                            <td>{{ $data->link }}</td>
+
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
+                                                    <i class="bi bi-search"></i>Edit</a>
+                                                    {{--href="/student/edit/{{ $data->nim }}"--}}
+                                                
+                                                <form method="POST" action="#">  
+                                                    @csrf @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                </form>
+                                                {{--action="/student/delete/{{ $data->nim }}"--}}
+                                            </td>
+                                        </tr> 
+                                    @empty
                                     <tr>
+                                        <td rowspan="100%">Tidak ada data untuk ditampilkan !</td>
+                                    </tr>
+                                    @endforelse
+
+                                    {{-- <tr>
                                         <td colspan="6" class="text-center">
                                             <h6 class="fw-bolder fs-7">Tidak ada data</h6>
                                         </td>
-                                    </tr>
+                                    </tr> --}}
+                                     
                                 </tbody>
                             </table>
                         </div>

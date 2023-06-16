@@ -154,17 +154,13 @@
                                                     <tr>
                                                         <th width="30%">Program Studi</th>
                                                         <td width="2%">:</td>
-                                                        <td>Teknologi Rekayasa Perangkat Lunak</td>
+                                                        <td> D4 Teknologi Rekayasa Perangkat Lunak</td>
                                                     </tr>
-                                                    <tr>
-                                                        <th width="30%">Jenjang</th>
-                                                        <td width="2%">:</td>
-                                                        <td>D4</td>
-                                                    </tr>
+                                                    
                                                     <tr>
                                                         <th width="30%">Status</th>
                                                         <td width="2%">:</td>
-                                                        <td>Mahasiswa</td>
+                                                        <td>Aktif</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Jenis Kelamin</th>
