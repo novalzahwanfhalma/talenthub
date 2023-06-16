@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Portofolio extends Model
+class Bahasa extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'bahasa';
+    protected $primaryKey = 'id_bahasa';
+
 
     protected $fllable = array(
-        'id_prestasi', 'nim', 'judul_prestasi', 'penyelenggara', 'deskripsi', 'tgl', 'lampiran_dokumen'
+        'id_bhs', 'nim', 'nama_bahasa', 'status', 'score', 'lampiran_bahasa'
     );
 
     public function mahasiswa(){

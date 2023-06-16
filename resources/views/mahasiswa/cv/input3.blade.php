@@ -42,6 +42,15 @@
         <!-- ======= Breadcrumbs ======= -->
         <section class="breadcrumbs" style="text-align: center;">
             <div class="container">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>                        
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <ol style="text-align: center;">
                     <li><a href="/cv1">Portofolio</a></li>
                     <li><a href="/cv2">Pendidikan</a></li>
@@ -96,9 +105,9 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="card-body">
-                                            <form method="POST" action="" enctype="multipart/form-data">
-                                                <input type="hidden" name="_token"
-                                                    value="QzikhfB5RhL9odgFXj3QcGV1vVYpTTwuy43ulwVh">
+                                            <form method="POST" action="cv3/store" enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="nim" value="{{ auth()->user()->nim }}">
                                                 <div class="row">
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
@@ -107,7 +116,7 @@
                                                                     *</i></label>
                                                             <input type="text"
                                                                 class="form-control form-control-sm p-2"
-                                                                name="name" value=""
+                                                                name="judul" value=""
                                                                 placeholder="Masukkan Judul" fdprocessedid="zt264h">
                                                         </div>
                                                     </div>
@@ -119,7 +128,7 @@
                                                                     *</i></label>
                                                             <input type="text"
                                                                 class="form-control form-control-sm p-2"
-                                                                name="name" value=""
+                                                                name="perusahaan" value=""
                                                                 placeholder="Masukkan Perusahaan"
                                                                 fdprocessedid="zt264h">
                                                         </div>
@@ -132,7 +141,7 @@
                                                                     *</i></label>
                                                             <input type="text"
                                                                 class="form-control form-control-sm p-2"
-                                                                name="name" value=""
+                                                                name="lokasi" value=""
                                                                 placeholder="Masukkan Lokasi" fdprocessedid="zt264h">
                                                         </div>
                                                     </div>
@@ -143,7 +152,7 @@
                                                                     class="text-danger">*</i></label>
                                                             <input type="date"
                                                                 class="form-control form-control-sm p-2"
-                                                                name="tanggal" value=""
+                                                                name="tgl_mulai" value=""
                                                                 placeholder="Masukkan Tanggal Mulai" fdprocessedid="zt264h">
                                                         </div>
                                                     </div>
@@ -154,41 +163,42 @@
                                                                     class="text-danger">*</i></label>
                                                             <input type="date"
                                                                 class="form-control form-control-sm p-2"
-                                                                name="tanggal" value=""
+                                                                name="tgl_selesai" value=""
                                                                 placeholder="Masukkan Tanggal Selesai" fdprocessedid="zt264h">
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-lg-6 p-3">
+                                                    <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
-                                                            <label class="required form-label">tipe<i
+                                                            <label class="required form-label">Tipe<i
                                                                     class="text-danger">
                                                                     *</i></label>
                                                             <select class="form-select form-select-sm p-2"
-                                                                name="company_category_id" tabindex="-1"
+                                                                name="tipe" tabindex="-1"
                                                                 aria-hidden="true">
                                                                 <option value="" disabled selected>Pilih Tipe
                                                                 </option>
                                                                 <option value="1">Magang
                                                                 </option>
-                                                                <option value="2">Full Time</option>
+                                                                <option value="2">Kontrak</option>
                                                                 <option value="3">Part Time
                                                                 </option>
-                                                                <option value="4">Kontrak</option>
+                                                                <option value="4">Full Time</option>
 
                                                             </select>
 
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Tutup</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Tutup</button>
-                                        <button type="button" class="btn btn-primary">Simpan</button>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -209,11 +219,39 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    @forelse ( $pengalaman as $index => $data )
+                                        <tr>
+                                            <td>{{ $index+1 }}</td>
+                                            <td>{{ $data->judul }}</td>
+                                            <td>{{ $data->perusahaan }}</td>
+                                            <td>{{ $data->lokasi }}</td>
+                                            <td>{{ $data->tgl_mulai }}</td>
+                                            <td>{{ $data->tgl_selesai }}</td>
+                                            <td>{{ $data->tipe }}</td>
+
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
+                                                    <i class="bi bi-search"></i>Edit</a>
+                                                    {{--href="/student/edit/{{ $data->nim }}"--}}
+                                                
+                                                <form method="POST" action="/cv3/delete/{{ $data->id_pengalaman }}">  
+                                                    @csrf @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                </form>
+                                                {{--action="/student/delete/{{ $data->nim }}"--}}
+                                            </td>
+                                            @empty
+                                            <td colspan="6" class="text-center">
+                                                <h6 class="fw-bolder fs-7">Tidak ada data</h6>
+                                            </td>
+                                        </tr> 
+                                   
+                                    @endforelse
+                                    {{-- <tr>
                                         <td colspan="6" class="text-center">
                                             <h6 class="fw-bolder fs-7">Tidak ada data</h6>
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                 </tbody>
                             </table>
                         </div>

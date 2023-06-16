@@ -3,84 +3,79 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Portofolio;
+use App\Models\Pengalaman;
 use App\Models\Mahasiswa;
-use Illuminate\Support\Facades\Storage;
-// use App\Http\Controllers\Mahasiswa;
 
-class PortofolioController extends Controller
+use Illuminate\Support\Facades\Storage;
+
+class PengalamanController extends Controller
 {
     public function index()
     {
-        $portofolio = Portofolio::all();
+        $pengalaman = Pengalaman::all();
 
-        return view('mahasiswa/cv/input1', ['portofolio' => $portofolio]);
+        return view('mahasiswa/cv/input3', ['pengalaman' => $pengalaman]);
     }
 
     public function create()
     {
-        return view('store_porto');
+        return view('store_pengalaman');
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
 
-
             'judul' => 'required',
-            'deskripsi' => 'required',
-            'bukti' => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'link' => ''
+            'perusahaan' => 'required',
+            'lokasi' => 'required',
+            'tgl_mulai' => 'required',
+            'tgl_selesai' => 'required',
+            'tipe' => 'required',
+            
 
         ], [
 
             'judul.required' => 'Judul sudah digunakan.',
-            'deskripsi.required' => 'Deskripsi harus diisi.',
-            'bukti.required' => 'Bukti harus di-upload.',
-            'bukti.image' => 'Bukti harus berupa gambar.',
-            'bukti.mimes' => 'Tipe file yang diizinkan adalah JPEG, JPG, dan PNG.',
-            'bukti.max' => 'Ukuran file tidak boleh lebih dari 2 MB.',
-
-
-
+            'perusahaan.required' => 'Nama Perusahaan harus diisi.',
+            'lokasi.required' => 'Lokasi harus diisi.',
+            'tgl_mulai.required' => 'Tanggal mulai harus diisi.',
+            'tgl_selesai.required' => 'Tanggal selesai harus diisi.',
+            'tipe.required' => 'Tipe pengalaman harus diisi.',
+            
         ]);
-
-
-        if ( $request->hasFile('bukti')) {
-            $bukti = $request->file('bukti')->store('public/bukti');
-            $bukti = basename($bukti);
-        } else {
-            $bukti = null;
-        }
+        
 
         $user = auth()->user();
         if ($user) {
             $mahasiswa = Mahasiswa::where('nim', $user->nim)->first();
 
-
+        
             if ($mahasiswa) {
-                $portofolio = new Portofolio();
-                $portofolio->nim = mahasiswa::where('nim', auth()->user()->nim)->value('nim');
+                $pengalaman = new Pengalaman();
+                $pengalaman->nim = mahasiswa::where('nim', auth()->user()->nim)->value('nim');
                 // Menggunakan model Mahasiswa untuk mendapatkan NIM
-                // $portofolio->nim = Mahasiswa::user()->nim;
-
-                $portofolio->judul = $request->judul;
-                $portofolio->deskripsi = $request->deskripsi;
-
-                $portofolio->bukti = $bukti ? 'bukti/' . $bukti : null;
-                $portofolio->link = $request->link;
+                // $pengalaman->nim = Mahasiswa::user()->nim;
+                
+                $pengalaman->judul = $request->judul;
+                $pengalaman->perusahaan = $request->perusahaan;
+                $pengalaman->lokasi = $request->lokasi;
+                $pengalaman->tgl_mulai = $request->tgl_mulai;
+                $pengalaman->tgl_selesai = $request->tgl_selesai;
+                $pengalaman->tipe = $request->tipe;
+                
 
             // $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
             // if ($mahasiswa) {
-            //     $portofolio->nim = $mahasiswa->nim;
-            //     $portofolio->save();
+            //     $pengalaman->nim = $mahasiswa->nim;
+            //     $pengalaman->save();
             // } else {
             //     // Tangani kasus ketika data mahasiswa tidak ditemukan
             //     throw new \Exception('Data Mahasiswa tidak ditemukan');
             // }
 
 
-                if ( $portofolio->save() ) {
+                if ( $pengalaman->save() ) {
                     return back()->with([
                         'notifikasi' => 'Data Berhasil disimpan !',
                         'type' => 'success'
@@ -106,28 +101,25 @@ class PortofolioController extends Controller
         }
     }
 
-    public function destroy(string $id_portofolio)
+    public function destroy(string $id_pengalaman)
     {
         // Menambahkan fungsi firstOrFail
-        $student = Portofolio::where(['nim' => $nim])->firstOrFail();
-
-        // Mengambil data foto
-        $bukti = $portofolio->bukti;
-
-        if ($portofolio->count() < 1) {
+        $pengalaman = Pengalaman::where(['id_pengalaman' => $id_pengalaman])->firstOrFail();
+        
+        if ($pengalaman->count() < 1) {
             return redirect()->back()->with([
                 'notifikasi' => 'Data siswa tidak ditemukan !',
                 'type' => 'error'
             ]);
         }
 
-            if ($portofolio->delete()) {
+            if ($pengalaman->delete()) {
 
-                // Hapus file foto jika ada
-                if (!empty($bukti) && Storage::exists($bukti)) {
-                    Storage::delete($bukti);
-                }
-                return redirect()->route('portofolio.index')->with([
+                // // Hapus file foto jika ada
+                // if (!empty($lampiran_pendidikan) && Storage::exists($lampiran_pendidikan)) {
+                //     Storage::delete($lampiran_pendidikan);
+                // }
+                return redirect()->route('pengalaman.index')->with([
                     'notifikasi' => 'Data berhasil dihapus! ',
                     'type' => 'success'
                 ]);
@@ -138,4 +130,6 @@ class PortofolioController extends Controller
             ]);
         }
     }
+
+
 }

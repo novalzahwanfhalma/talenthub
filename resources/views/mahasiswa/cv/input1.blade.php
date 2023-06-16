@@ -43,6 +43,15 @@
         <!-- ======= Breadcrumbs ======= -->
         <section class="breadcrumbs" style="text-align: center;">
             <div class="container">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <ol style="text-align: center;">
                     <li><a href="/cv1">Portofolio</a></li>
                     <li><a href="/cv2">Pendidikan</a></li>
@@ -119,9 +128,9 @@
                                                             <label class="required form-label">Deskripsi<i
                                                                     class="text-danger">
                                                                     *</i></label>
-                                                            <textarea class="form-control form-control-sm p-2" name="deskripsi" placeholder="Masukkan Deskripsi"
-                                                                style="height: 100px">
-                                                                </textarea>
+                                                            <textarea class="form-control" name="deskripsi" placeholder="Masukkan Deskripsi"
+                                                                minlength="4">
+                                                            </textarea>
                                                         </div>
                                                     </div>
 
@@ -187,27 +196,24 @@
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
                                                     <i class="bi bi-search"></i>Edit</a>
-                                                {{-- href="/student/edit/{{ $data->nim }}" --}}
+                                                    {{--href="/student/edit/{{ $data->nim }}"--}}
 
-                                                <form method="POST" action="#">
-                                                    @csrf @method('DELETE')
-                                                    <button type="submit"
-                                                        class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                <form method="POST" action="/cv1/delete/{{ $data->id_portofolio }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
                                                 </form>
                                                 {{-- action="/student/delete/{{ $data->nim }}" --}}
                                             </td>
+
+                                            @empty
+                                            <td colspan="6" class="text-center">
+                                                <h6 class="fw-bolder fs-7">Tidak ada data</h6>
+                                            </td>
                                         </tr>
-                                    @empty
-                                        <tr>
-                                            <td rowspan="100%">Tidak ada data untuk ditampilkan !</td>
-                                        </tr>
+
                                     @endforelse
 
-                                    {{-- <tr>
-                                        <td colspan="6" class="text-center">
-                                            <h6 class="fw-bolder fs-7">Tidak ada data</h6>
-                                        </td>
-                                    </tr> --}}
 
                                 </tbody>
                             </table>
