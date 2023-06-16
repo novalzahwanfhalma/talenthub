@@ -34,49 +34,23 @@
 <body>
 
     <!-- ======= Header ======= -->
-<<<<<<< HEAD
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="img/logothub.png" alt="">
-                <span class="spn">TALENT HUB.</span>
-            </a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="/index">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowongan">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/student">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
-                    <li class="dropdown"><a href="#"><span>
-                                <div id="pp" class="mt-0 mb-0 ms-2">
-                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
-                                        class="rounded-circle img-fluid" style="width: 50px;" />
-                                </div>
-                            </span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/mhsprof">Profil & CV</a></li>
-                            <li><a href="/index">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar end-->
-
-        </div>
-    </header><!-- End Header -->
-=======
     @include('layouts/components/navbar')
     <!-- End Header -->
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main" style="text-align: center;">
 
         <!-- ======= Breadcrumbs ======= -->
         <section class="breadcrumbs" style="text-align: center;">
             <div class="container">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>                        
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <ol style="text-align: center;">
                     <li><a href="/cv1">Portofolio</a></li>
                     <li><a href="/cv2">Pendidikan</a></li>
@@ -90,6 +64,7 @@
                                 style="color: #fff; background-color: #2168c5; border: none; border-radius: 7px;">
                                 <i class="bi bi-printer-fill"></i>
                                 Cetak CV
+
                             </button>
                         </a>
                     </li>
@@ -112,11 +87,10 @@
                         </div>
                         <!-- Tombol untuk membuka modal -->
                         <div class="card-title text-end">
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                data-bs-target="#myModal">
+                            <a href="/mahasiswa/create-modal" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">
                                 <i class="bi bi-plus-circle"></i>
                                 Tambah Prestasi
-                            </button>
+                            </a>
                         </div>
 
                         <!-- Modal -->
@@ -131,9 +105,9 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="card-body">
-                                            <form method="POST" action="" enctype="multipart/form-data">
-                                                <input type="hidden" name="_token"
-                                                    value="QzikhfB5RhL9odgFXj3QcGV1vVYpTTwuy43ulwVh">
+                                            <form method="POST" action="cv4/store" enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="nim" value="{{ auth()->user()->nim }}">
                                                 <div class="row">
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
@@ -142,7 +116,7 @@
                                                                     *</i></label>
                                                             <input type="text"
                                                                 class="form-control form-control-sm p-2"
-                                                                name="name" value=""
+                                                                name="judul_prestasi" value=""
                                                                 placeholder="Masukkan Judul Prestasi"
                                                                 fdprocessedid="zt264h">
                                                         </div>
@@ -153,7 +127,7 @@
                                                             <label class="required form-label">Deskripsi<i
                                                                     class="text-danger">
                                                                     *</i></label>
-                                                            <textarea class="form-control form-control-sm p-2" name="address" placeholder="Masukkan Deskripsi"
+                                                            <textarea class="form-control form-control-sm p-2" name="deskripsi" placeholder="Masukkan Deskripsi"
                                                                 style="height: 100px">
                                                                 </textarea>
                                                         </div>
@@ -161,12 +135,12 @@
 
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
-                                                            <label class="required form-label">Peyelenggara<i
+                                                            <label class="required form-label">Penyelenggara<i
                                                                     class="text-danger">
                                                                     *</i></label>
                                                             <input type="text"
                                                                 class="form-control form-control-sm p-2"
-                                                                name="name" value=""
+                                                                name="penyelenggara" value=""
                                                                 placeholder="Masukkan Penyelenggara"
                                                                 fdprocessedid="zt264h">
                                                         </div>
@@ -178,31 +152,32 @@
                                                                     class="text-danger">*</i></label>
                                                             <input type="date"
                                                                 class="form-control form-control-sm p-2"
-                                                                name="tanggal" value=""
+                                                                name="tgl" value=""
                                                                 placeholder="Masukkan Tanggal" fdprocessedid="zt264h">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group" id="ganti_foto_div" style="display:">
-                                                        <label for="nama">Bukti<b
+                                                        <label for="nama">Lampiran Dokumen<b
                                                                 class="text-danger">*</b></label>
                                                         <input placeholder="Upload Foto" type="file"
                                                             accept="image/png, image/jpg, img/jepg" id="foto"
-                                                            name="foto"
+                                                            name="lampiran_dokumen"
                                                             class="form-control @error('foto') is-invalid @enderror">
                                                         @error('foto')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
                                                     </div>
                                                 </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Tutup</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Tutup</button>
-                                        <button type="button" class="btn btn-primary">Simpan</button>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -222,11 +197,35 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse ( $prestasi as $index => $data )
                                     <tr>
+                                        <td>{{ $index+1 }}</td>
+                                        <td>{{ $data->judul_prestasi }}</td>
+                                        <td>{{ $data->deskripsi }}</td>
+                                        <td>{{ $data->penyelenggara }}</td>
+                                        <td>{{ $data->tgl }}</td>
+                                        <td>{{ $data->lampiran_dokumen }}</td>
+
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
+                                                <i class="bi bi-search"></i>Edit</a>
+                                                {{--href="/student/edit/{{ $data->nim }}"--}}
+                                            
+                                            <form method="POST" action="/cv4/delete/{{ $data->id_prestasi }}">  
+                                                @csrf 
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                            </form>
+                                            {{--action="/student/delete/{{ $data->nim }}"--}}
+                                        </td>
+
+                                        @empty
                                         <td colspan="6" class="text-center">
                                             <h6 class="fw-bolder fs-7">Tidak ada data</h6>
                                         </td>
-                                    </tr>
+                                    </tr> 
+                                    
+                                @endforelse
                                 </tbody>
                             </table>
                         </div>

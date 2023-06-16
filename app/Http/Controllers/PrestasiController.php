@@ -3,54 +3,57 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Portofolio;
+use App\Models\Prestasi;
 use App\Models\Mahasiswa;
-use Illuminate\Support\Facades\Storage;
-// use App\Http\Controllers\Mahasiswa;
 
-class PortofolioController extends Controller
+use Illuminate\Support\Facades\Storage;
+
+class PrestasiController extends Controller
 {
     public function index()
     {
-        $portofolio = Portofolio::all();
+        $prestasi = Prestasi::all();
 
-        return view('mahasiswa/cv/input1', ['portofolio' => $portofolio]);
+        return view('mahasiswa/cv/input4', ['prestasi' => $prestasi]);
     }
 
     public function create()
     {
-        return view('store_porto');
+        return view('store_prestasi');
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
 
-
-            'judul' => 'required',
+            'judul_prestasi' => 'required',
+            'penyelenggara' => 'required',
             'deskripsi' => 'required',
-            'bukti' => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'link' => ''
+            'tgl' => 'required',
+            'lampiran_dokumen' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            
 
         ], [
 
-            'judul.required' => 'Judul sudah digunakan.',
+            'judul_prestasi.required' => 'Judul Prestasi harus diisi.',
+            'penyelenggara.required' => 'Nama Penyelenggara harus diisi.',
             'deskripsi.required' => 'Deskripsi harus diisi.',
-            'bukti.required' => 'Bukti harus di-upload.',
-            'bukti.image' => 'Bukti harus berupa gambar.',
-            'bukti.mimes' => 'Tipe file yang diizinkan adalah JPEG, JPG, dan PNG.',
-            'bukti.max' => 'Ukuran file tidak boleh lebih dari 2 MB.',
+            'tgl.required' => 'Tanggal harus diisi.',
+            'lampiran_dokumen.required' => 'Lampiran dokumen harus diisi',
+            'lampiran_dokumen.image' => 'Lampiran harus berupa gambar.',
+            'lampiran_dokumen.mimes' => 'Tipe file yang diizinkan adalah JPEG, JPG, dan PNG.',
+            'lampiran_dokumen.max' => 'Ukuran file tidak boleh lebih dari 2 MB.',
             
 
 
         ]);
         
 
-        if ( $request->hasFile('bukti')) {
-            $bukti = $request->file('bukti')->store('public/bukti');
-            $bukti = basename($bukti);
+        if ( $request->hasFile('lampiran_dokumen')) {
+            $lampiran_dokumen = $request->file('lampiran_dokumen')->store('public/lampiran_dokumen');
+            $lampiran_dokumen = basename($lampiran_dokumen);
         } else {
-            $bukti = null;
+            $lampiran_dokumen = null;
         }
 
         $user = auth()->user();
@@ -59,28 +62,31 @@ class PortofolioController extends Controller
 
         
             if ($mahasiswa) {
-                $portofolio = new Portofolio();
-                $portofolio->nim = mahasiswa::where('nim', auth()->user()->nim)->value('nim');
+                $prestasi = new Prestasi();
+                $prestasi->nim = mahasiswa::where('nim', auth()->user()->nim)->value('nim');
                 // Menggunakan model Mahasiswa untuk mendapatkan NIM
-                // $portofolio->nim = Mahasiswa::user()->nim;
+                // $prestasi->nim = Mahasiswa::user()->nim;
                 
-                $portofolio->judul = $request->judul;
-                $portofolio->deskripsi = $request->deskripsi;
+                $prestasi->judul_prestasi = $request->judul_prestasi;
+                $prestasi->penyelenggara = $request->penyelenggara;
+                $prestasi->deskripsi = $request->deskripsi;
+                $prestasi->tgl = $request->tgl;
+                $prestasi->lampiran_dokumen = $lampiran_dokumen ? 'lamp_dok/' . $lampiran_dokumen : null;
                 
-                $portofolio->bukti = $bukti ? 'bukti/' . $bukti : null;
-                $portofolio->link = $request->link;
+
+                
 
             // $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
             // if ($mahasiswa) {
-            //     $portofolio->nim = $mahasiswa->nim;
-            //     $portofolio->save();
+            //     $prestasi->nim = $mahasiswa->nim;
+            //     $prestasi->save();
             // } else {
             //     // Tangani kasus ketika data mahasiswa tidak ditemukan
             //     throw new \Exception('Data Mahasiswa tidak ditemukan');
             // }
 
 
-                if ( $portofolio->save() ) {
+                if ( $prestasi->save() ) {
                     return back()->with([
                         'notifikasi' => 'Data Berhasil disimpan !',
                         'type' => 'success'
@@ -106,28 +112,29 @@ class PortofolioController extends Controller
         }
     }
 
-    public function destroy(string $id_portofolio)
+    public function destroy(string $id_prestasi)
     {
-        // Menambahkan fungsi firstOrFail
-        $portofolio = Portofolio::where(['id_portofolio' => $id_portofolio])->firstOrFail();
         
-        // Mengambil data bukti
-        $bukti = $portofolio->bukti;
+        // Menambahkan fungsi firstOrFail
+        $prestasi = Prestasi::where(['id_prestasi' => $id_prestasi])->firstOrFail();
+        
+        // Mengambil data $lampiran_dokumen
+        $lampiran_dokumen = $prestasi->lampiran_dokumen;
 
-        if ($portofolio->count() < 1) {
+        if ($prestasi->count() < 1) {
             return redirect()->back()->with([
                 'notifikasi' => 'Data siswa tidak ditemukan !',
                 'type' => 'error'
             ]);
         }
 
-            if ($portofolio->delete()) {
+            if ($prestasi->delete()) {
 
                 // Hapus file foto jika ada
-                if (!empty($bukti) && Storage::exists($bukti)) {
-                    Storage::delete($bukti);
+                if (!empty($lampiran_dokumen) && Storage::exists($lampiran_dokumen)) {
+                    Storage::delete($lampiran_dokumen);
                 }
-                return redirect()->route('portofolio.index')->with([
+                return redirect()->route('prestasi.index')->with([
                     'notifikasi' => 'Data berhasil dihapus! ',
                     'type' => 'success'
                 ]);
@@ -138,4 +145,5 @@ class PortofolioController extends Controller
             ]);
         }
     }
+
 }
