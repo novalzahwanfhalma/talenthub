@@ -29,48 +29,15 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('style/assets/css/style.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
 </head>
 
 <body>
 
     <!-- ======= Header ======= -->
-<<<<<<< HEAD
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="img/logothub.png" alt="">
-                <span class="spn">TALENT HUB.</span>
-            </a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="/indexind">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowonganind">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/indmhs">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/indind">Perusahaan</a></li>
-                    <li class="dropdown"><a href="#"><span>
-                                <div id="pp" class="mt-0 mb-0 ms-2">
-                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
-                                        class="rounded-circle img-fluid" style="width: 50px;" />
-                                </div>
-                            </span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/indprof">Profil & CV</a></li>
-                            <li><a href="/indexind">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar end-->
-
-        </div>
-    </header><!-- End Header -->
-=======
     @include('layouts/components/navbarind')
     <!-- End Header -->
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
     <br>
 
     <div class="container pt-5">
@@ -157,6 +124,22 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('style/assets/js/main.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+    @if (session('notifikasi'))
+        <script>
+            Swal.fire({
+                text: '{{ session('notifikasi') }}',
+                icon: '{{ session('type') }}',
+                confirmButtonText: 'OK',
+                timer: 2000,
+            });
+        </script>
+    @endif
+
+
+
+    @stack('body')
 
 </body>
 

@@ -75,8 +75,10 @@
                                     <div class="col-lg-4 py-3">
                                         <div class="card shadow-sm">
                                             <div class="card-header bg-transparent text-center">
-                                                <img class="profile_img"
-                                                    src="https://source.unsplash.com/600x300/?student" alt="student dp">
+                                                <div class="entry-img">
+                                                    <img src="{{ asset('style/assets/img/bisma.jpg') }}" alt=""
+                                                        class="img-fluid">
+                                                </div>
                                                 <h3>Bisma Arya Wardhana</h3>
                                             </div>
                                             <div class="card-body">

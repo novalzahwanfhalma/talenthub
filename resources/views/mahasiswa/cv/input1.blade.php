@@ -126,7 +126,8 @@
                                                     </div>
 
                                                     <div class="form-group" id="ganti_foto_div" style="display:">
-                                                        <label for="nama">Bukti<b class="text-danger">*</b></label>
+                                                        <label for="nama">Bukti<b
+                                                                class="text-danger">*</b></label>
                                                         <input placeholder="Upload Foto" type="file"
                                                             accept="image/png, image/jpg, img/jepg" id="foto"
                                                             name="bukti"
@@ -175,9 +176,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ( $portofolio as $index => $data )
+                                    @forelse ($portofolio as $index => $data)
                                         <tr>
-                                            <td>{{ $index+1 }}</td>
+                                            <td>{{ $index + 1 }}</td>
                                             <td>{{ $data->judul }}</td>
                                             <td>{{ $data->deskripsi }}</td>
                                             <td>{{ $data->bukti }}</td>
@@ -186,19 +187,20 @@
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
                                                     <i class="bi bi-search"></i>Edit</a>
-                                                    {{--href="/student/edit/{{ $data->nim }}"--}}
-                                                
-                                                <form method="POST" action="#">  
+                                                {{-- href="/student/edit/{{ $data->nim }}" --}}
+
+                                                <form method="POST" action="#">
                                                     @csrf @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                    <button type="submit"
+                                                        class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
                                                 </form>
-                                                {{--action="/student/delete/{{ $data->nim }}"--}}
+                                                {{-- action="/student/delete/{{ $data->nim }}" --}}
                                             </td>
-                                        </tr> 
+                                        </tr>
                                     @empty
-                                    <tr>
-                                        <td rowspan="100%">Tidak ada data untuk ditampilkan !</td>
-                                    </tr>
+                                        <tr>
+                                            <td rowspan="100%">Tidak ada data untuk ditampilkan !</td>
+                                        </tr>
                                     @endforelse
 
                                     {{-- <tr>
@@ -206,7 +208,7 @@
                                             <h6 class="fw-bolder fs-7">Tidak ada data</h6>
                                         </td>
                                     </tr> --}}
-                                     
+
                                 </tbody>
                             </table>
                         </div>

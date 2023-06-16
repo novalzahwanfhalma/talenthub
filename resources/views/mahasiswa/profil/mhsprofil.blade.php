@@ -156,7 +156,7 @@
                                                         <td width="2%">:</td>
                                                         <td> D4 Teknologi Rekayasa Perangkat Lunak</td>
                                                     </tr>
-                                                    
+
                                                     <tr>
                                                         <th width="30%">Status</th>
                                                         <td width="2%">:</td>
@@ -170,7 +170,7 @@
                                                     <tr>
                                                         <th width="30%">Alamat</th>
                                                         <td width="2%">:</td>
-                                                        <td>{{ Auth::user()->alamat }}</td>
+                                                        <td>{{ auth()->user()->alamat }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Email</th>

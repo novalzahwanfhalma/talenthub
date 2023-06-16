@@ -3,6 +3,7 @@
 
 <head>
     <title>Form Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -145,6 +146,7 @@
             /* Sesuaikan dengan tinggi maksimum yang diinginkan */
         }
     </style>
+    @stack('head')
 </head>
 
 <body>
@@ -173,24 +175,22 @@
             </div>
         </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+    @if (session('notifikasi'))
+        <script>
+            Swal.fire({
+                text: '{{ session('notifikasi') }}',
+                icon: '{{ session('type') }}',
+                confirmButtonText: 'OK',
+                timer: 2000,
+            });
+        </script>
+    @endif
 
 
-    <script>
-        function hideNIMField() {
-            var role = document.getElementById("role").value;
-            var nimField = document.getElementById("nim");
-            var nimLabel = document.getElementById("nimLabel");
 
-            if (role === "industri") {
-                nimField.value = "";
-                nimField.classList.add("hide");
-                nimLabel.textContent = "";
-            } else {
-                nimField.classList.remove("hide");
-                nimLabel.textContent = "NIM";
-            }
-        }
-    </script>
+    @stack('body')
+
 </body>
 
 </html>

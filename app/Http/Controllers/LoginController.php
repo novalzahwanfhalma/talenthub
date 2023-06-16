@@ -25,13 +25,19 @@ class LoginController extends Controller
             'password.required' => 'Password harus diisi',
         ]);
 
-        $credentials = $request->only('username', 'password');
 
-        if (auth()->attempt($credentials)) {
-            return redirect('/lowongan');
+
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+            return redirect('/lowongan')->with([
+                'notifikasi' => 'Selamat datang di Talent hub !',
+                'type' => 'success'
+            ]);
+        } else {
+            return back()->with([
+                'notifikasi' => 'Login gagal, username atau password salah !',
+                'type' => 'error'
+            ]);
         }
-
-        return back()->withErrors('Invalid credentials');
     }
 
 

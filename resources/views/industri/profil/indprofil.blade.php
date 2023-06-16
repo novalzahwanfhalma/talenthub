@@ -77,14 +77,14 @@
                                             <div class="card-header bg-transparent text-center">
                                                 <img class="profile_img"
                                                     src="https://source.unsplash.com/600x300/?student" alt="student dp">
-                                                <h3>PT. TRPL Industri
+                                                <h3>{{ Auth::guard('industri')->user()->nama_industri }}
                                                 </h3>
                                             </div>
                                             <div class="card-body">
                                                 <p class="mb-0"><strong class="pr-1">Email:</strong>
                                                     awbisma0@gmail.com</p>
                                                 <p class="mb-0"><strong class="pr-1">Kontak:</strong>
-                                                    082181574516</p>
+                                                    {{ Auth::guard('industri')->user()->contact }}</p>
                                                 <p class="mb-0"><strong class="pr-1">Website:</strong> -</p>
                                                 <div style="margin-top: 10px;">
                                                     <p>PT Asam Lambung adalah perusahaan yang membuat obat herbal untuk
@@ -120,7 +120,7 @@
                                                     <tr>
                                                         <th width="30%">Nama Perusahaan</th>
                                                         <td width="2%">:</td>
-                                                        <td>PT. TRPL Industri
+                                                        <td>{{ Auth::guard('industri')->user()->nama_industri }}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -156,7 +156,7 @@
                                                     <tr>
                                                         <th width="30%">Nomor Telepon</th>
                                                         <td width="2%">:</td>
-                                                        <td>0867184512487
+                                                        <td>{{ Auth::guard('industri')->user()->contact }}
                                                         </td>
                                                     </tr>
                                                 </table>

@@ -41,42 +41,8 @@
 <body>
 
     <!-- ======= Header ======= -->
-<<<<<<< HEAD
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="img/logothub.png" alt="">
-                <span class="spn">TALENT HUB.</span>
-            </a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="/indexind">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowonganind">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/indmhs">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/indind">Perusahaan</a></li>
-                    <li class="dropdown"><a href="#"><span>
-                                <div id="pp" class="mt-0 mb-0 ms-2">
-                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
-                                        class="rounded-circle img-fluid" style="width: 50px;" />
-                                </div>
-                            </span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/indprof">Profil & CV</a></li>
-                            <li><a href="/indexind">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar end-->
-        </div>
-    </header><!-- End Header -->
-=======
     @include('layouts/components/navbarind')
     <!-- End Header -->
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <main id="main">
         <!-- ======= Testimonials Section ======= -->
@@ -93,11 +59,7 @@
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
+
                                 <p>
                                     Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
                                     rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
@@ -114,11 +76,6 @@
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
                                 <p>
                                     Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
                                     cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
@@ -135,11 +92,6 @@
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
                                 <p>
                                     Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem
                                     veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint
@@ -151,54 +103,44 @@
                                     <h3>Khoiry Lithfi Dilan</h3>
                                     <h4>Back End Developer</h4>
                                 </div>
-                            </div>
-                        </div><!-- End testimonial item -->
+                        </div>
+                    </div><!-- End testimonial item -->
 
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
-                                <p>
-                                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim
-                                    fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem
-                                    dolore labore illum veniam.
-                                </p>
-                                <div class="profile mt-auto">
-                                    <img src="{{ asset('style/assets/img/fitri.jpg') }}" class="testimonial-img"
-                                        alt="">
-                                    <h3>Fitriani</h3>
-                                    <h4>Fullstack &amp; Primary Key</h4>
-                                </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <p>
+                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim
+                                fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem
+                                dolore labore illum veniam.
+                            </p>
+                            <div class="profile mt-auto">
+                                <img src="{{ asset('style/assets/img/fitri.jpg') }}" class="testimonial-img"
+                                    alt="">
+                                <h3>Fitriani</h3>
+                                <h4>Fullstack &amp; Primary Key</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
+                    </div><!-- End testimonial item -->
 
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
-                                <p>
-                                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
-                                    veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
-                                    culpa fore nisi cillum quid.
-                                </p>
-                                <div class="profile mt-auto">
-                                    <img src="{{ asset('style/assets/img/hanna.jpg') }}" class="testimonial-img"
-                                        alt="">
-                                    <h3>Hanna</h3>
-                                    <h4>Ananlisis</h4>
-                                </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <p>
+                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
+                                veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
+                                culpa fore nisi cillum quid.
+                            </p>
+                            <div class="profile mt-auto">
+                                <img src="{{ asset('style/assets/img/hanna.jpg') }}" class="testimonial-img"
+                                    alt="">
+                                <h3>Hanna</h3>
+                                <h4>Ananlisis</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
+                    </div><!-- End testimonial item -->
 
-                    </div>
-                    <div class="swiper-pagination"></div>
                 </div>
+                <div class="swiper-pagination"></div>
+            </div>
 
             </div>
 
@@ -222,8 +164,7 @@
                                             class="form-control border-0 bg-light">
                                         <div class="input-group-append">
                                             <button id="button-addon1" type="submit"
-                                                class="btn btn-link text-primary"><i
-                                                    class="bi bi-search"></i></button>
+                                                class="btn btn-link text-primary"><i class="bi bi-search"></i></button>
                                         </div>
                                     </div>
                                 </div>

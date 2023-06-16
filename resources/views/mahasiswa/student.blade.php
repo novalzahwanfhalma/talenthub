@@ -51,7 +51,7 @@
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header">
-                    <p>Mahasiswa dengan IPK tertinggi</p>
+                    <p>Mahasiswa unggulan</p>
                 </header>
 
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
@@ -59,11 +59,6 @@
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
                                 <p>
                                     Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
                                     rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
@@ -80,11 +75,6 @@
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
                                 <p>
                                     Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
                                     cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
@@ -101,11 +91,6 @@
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
                                 <p>
                                     Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem
                                     veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint
@@ -122,11 +107,6 @@
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
                                 <p>
                                     Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim
                                     fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem
@@ -143,11 +123,6 @@
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
-                                </div>
                                 <p>
                                     Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
                                     veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
@@ -188,8 +163,7 @@
                                             class="form-control border-0 bg-light">
                                         <div class="input-group-append">
                                             <button id="button-addon1" type="submit"
-                                                class="btn btn-link text-primary"><i
-                                                    class="bi bi-search"></i></button>
+                                                class="btn btn-link text-primary"><i class="bi bi-search"></i></button>
                                         </div>
                                     </div>
                                 </div>

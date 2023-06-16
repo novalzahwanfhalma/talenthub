@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MahasiswaController extends Controller
 {
@@ -35,13 +37,20 @@ class MahasiswaController extends Controller
             'alamat' => $request->input('alamat'),
             'ipk' => '-',
             'foto' => '-',
-            
+
         ]);
 
-        if ($mahasiswa) {
-            return redirect()->back()->with('success', 'Registrasi berhasil');
+
+        if ($mahasiswa->save()) {
+            return redirect()->back()->with([
+                'notifikasi' => 'Register berhasil !',
+                'type' => 'success'
+            ]);
         } else {
-            return "gagal";
+            return redirect()->back()->with([
+                'notifikasi' => 'Register gagal, silahkan coba lagi !',
+                'type' => 'error'
+            ]);
         }
     }
     private function validateMhs(Request $request)

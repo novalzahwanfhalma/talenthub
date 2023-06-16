@@ -37,43 +37,8 @@
     class="app-default">
 
     <!-- ======= Header ======= -->
-<<<<<<< HEAD
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="img/logothub.png" alt="">
-                <span class="spn">TALENT HUB.</span>
-            </a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="/indexind">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowonganind">Lowongan</a></li>
-                    <li><a class="nav-link scrollto" href="/indmhs">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/indind">Perusahaan</a></li>
-                    <li class="dropdown"><a href="#"><span>
-                                <div id="pp" class="mt-0 mb-0 ms-2">
-                                    <img src="{{ asset('style/assets/img/noval.jpg') }}"
-                                        class="rounded-circle img-fluid" style="width: 50px;" />
-                                </div>
-                            </span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/indprof">Profil & CV</a></li>
-                            <li><a href="/indexind">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar end-->
-
-        </div>
-    </header><!-- End Header -->
-=======
     @include('layouts/components/navbarind')
     <!-- End Header -->
->>>>>>> 56e74b71272f9340f66ed3f2d8cc4660bfdb61da
 
     <br>
     <br>
@@ -208,63 +173,6 @@
                                                 <h5 class="mb-10 pt-5 ps-1">Lokasi Pekerjaan</h5>
                                             </div>
 
-                                            <div class="col-lg-6 p-3">
-                                                <div class="form-group mb-10">
-                                                    <label class="required form-label">Provinsi<i class="text-danger">
-                                                            *</i></label>
-                                                    <select name="province_id" class="form-select form-select-sm p-2"
-                                                        data-placeholder="Pilih Provinsi"
-                                                        onchange="formCity(this, 'select[name=city_id]')"
-                                                        tabindex="-1" aria-hidden="true">
-                                                        <option value="" disabled selected>Pilih Provinsi
-                                                        </option>
-                                                        <option value="1">Aceh</option>
-                                                        <option value="2">Sumatera Utara</option>
-                                                        <option value="3">Sumatera Barat</option>
-                                                        <option value="4">Riau</option>
-                                                        <option value="5">Kepulauan Riau</option>
-                                                        <option value="6">Jambi</option>
-                                                        <option value="7">Bengkulu</option>
-                                                        <option value="8">Sumatera Selatan</option>
-                                                        <option value="9">Kepulauan Bangka Belitung</option>
-                                                        <option value="10">Lampung</option>
-                                                        <option value="11">Banten</option>
-                                                        <option value="12">Jawa Barat</option>
-                                                        <option value="13">DKI Jakarta</option>
-                                                        <option value="14">Jawa Tengah</option>
-                                                        <option value="15">Jawa Timur</option>
-                                                        <option value="16">DI Yogyakarta</option>
-                                                        <option value="17">Bali</option>
-                                                        <option value="18">Nusa Tenggara Barat</option>
-                                                        <option value="19">Nusa Tenggara Timur</option>
-                                                        <option value="20">Kalimantan Barat</option>
-                                                        <option value="21">Kalimantan Selatan</option>
-                                                        <option value="22">Kalimantan Tengah</option>
-                                                        <option value="23">Kalimantan Timur</option>
-                                                        <option value="24">Kalimantan Utara</option>
-                                                        <option value="25">Gorontalo</option>
-                                                        <option value="26">Sulawesi Selatan</option>
-                                                        <option value="27">Sulawesi Tenggara</option>
-                                                        <option value="28">Sulawesi Tengah</option>
-                                                        <option value="29">Sulawesi Utara</option>
-                                                        <option value="30">Sulawesi Barat</option>
-                                                        <option value="31">Maluku</option>
-                                                        <option value="32">Maluku Utara</option>
-                                                        <option value="33">Papua</option>
-                                                        <option value="34">Papua Barat</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6 p-3">
-                                                <label class="required form-label">Kota / Kabupaten</label>
-                                                <select name="city_id" class="form-select form-select-sm p-2"
-                                                    data-placeholder="Pilih Kota / Kabupaten" tabindex="-1"
-                                                    aria-hidden="true">
-                                                    <option value="">Pilih Kota / Kabupaten</option>
-                                                </select>
-                                            </div>
-
                                             <div class="col-lg-12 p-3">
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Alamat Lengkap<i
@@ -289,39 +197,6 @@
                                                             placeholder="Masukkan Minimal Gaji" inputmode="text"
                                                             fdprocessedid="9kodl">
                                                     </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-lg-6 p-3">
-                                                <div class="form-group mb-10">
-                                                    <label class="required form-label">Maksimal Gaji<i
-                                                            class="text-danger"> *</i></label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Rp.</span>
-                                                        <input type="text"
-                                                            class="form-control form-control-sm p-2 currencyIDR"
-                                                            name="salary_max" value=""
-                                                            placeholder="Masukkan Maksimal Gaji" inputmode="text"
-                                                            fdprocessedid="9kodl">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-lg-12 p-3">
-                                                <div class="form-group mb-10">
-                                                    <label class="required form-label">Status Menampilkan Gaji<i
-                                                            class="text-danger"> *</i></label>
-                                                    <select name="salary_disclosed"
-                                                        class="form-select form-select-sm p-2"
-                                                        data-placeholder="Pilih Status Menampilkan Gaji"
-                                                        tabindex="-1" aria-hidden="true">
-                                                        <option value="" disabled selected>Pilih Status
-                                                            Menampilkan Gaji</option>
-                                                        <option value="1">Tampilkan</option>
-                                                        <option value="0">Sembunyikan</option>
-                                                    </select>
                                                 </div>
                                             </div>
 
@@ -354,21 +229,6 @@
                                                         <span class="input-group-text"><i
                                                                 class="bi bi-calendar"></i></span>
                                                     </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-12 p-3">
-                                                <div class="form-group mb-10">
-                                                    <label class="required form-label">Status Pendaftaran<i
-                                                            class="text-danger"> *</i></label>
-                                                    <select name="is_active" class="form-select form-select-sm p-2"
-                                                        data-placeholder="Pilih Status Pendaftaran" tabindex="-1"
-                                                        aria-hidden="true">
-                                                        <option value="" disabled selected>Pilih Status
-                                                            Pendaftaran</option>
-                                                        <option value="1">Buka</option>
-                                                        <option value="0">Tutup</option>
-                                                    </select>
                                                 </div>
                                             </div>
 

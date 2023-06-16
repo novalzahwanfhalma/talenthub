@@ -3,6 +3,9 @@
 
 <head>
     <title>Form Registrasi</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -147,6 +150,7 @@
             /* Sesuaikan dengan tinggi maksimum yang diinginkan */
         }
     </style>
+    @stack('head')
 </head>
 
 <body>
@@ -159,25 +163,60 @@
             <h4>Mahasiswa</h4>
             @csrf
             <label for="nim" id="nimLabel">NIM:</label>
-            <input type="text" id="nim" name="nim" required>
+            <input type="text" id="nim" name="nim" class="form-control form-control-user"
+                @error('nim') is-invalid @enderror value="{{ old('nim') }}" required>
+
+            @error('nim')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
             <label for="nama">Nama:</label>
-            <input type="text" id="nama" name="nama" required>
+            <input type="text" id="nama" name="nama" class="form-control form-control-user"
+                @error('nama') is-invalid @enderror value="{{ old('nama') }}" required>
+
+            @error('nama')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" class="form-control form-control-user"
+                @error('email') is-invalid @enderror value="{{ old('email') }}" required>
+
+            @error('email')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
             <label for="username">Username:</label>
-            <input type="username" id="username" name="username" required>
+            <input type="username" id="username" name="username" class="form-control form-control-user"
+                @error('username') is-invalid @enderror value="{{ old('username') }}" required>
+
+            @error('username')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
             <label for="no_hp">Nomor Handphone:</label>
-            <input type="text" id="no_hp" name="no_hp" required>
+            <input type="text" id="no_hp" name="no_hp" class="form-control form-control-user"
+                @error('no_hp') is-invalid @enderror value="{{ old('no_hp') }}" required>
+
+            @error('no_hp')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
             <label for="alamat">Alamat:</label>
-            <input type="alamat" id="alamat" name="alamat" required>
+            <input type="alamat" id="alamat" name="alamat" class="form-control form-control-user"
+                @error('alamat') is-invalid @enderror value="{{ old('alamat') }}" required>
+
+            @error('alamat')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" class="form-control form-control-user"
+                @error('password') is-invalid @enderror value="{{ old('password') }}" required>
+
+            @error('password')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
 
             <div class="checkbox-container">
@@ -186,29 +225,52 @@
 
             <div class="button-container">
 
-                <button class="btn btn-primary btn-block" type="submit" value="Daftar" style="background-color: #3aa7a9; color: #FFFFFF; border-radius: 30px; padding: 12px 24px; font-size: 18px;">Daftar</button>
+                <button class="btn btn-primary btn-block" type="submit" value="Daftar"
+                    style="background-color: #3aa7a9; color: #FFFFFF; border-radius: 30px; padding: 12px 24px; font-size: 18px;">Daftar</button>
 
 
             </div>
         </form>
     </div>
 
-    <script>
-        function hideNIMField() {
-            var role = document.getElementById("role").value;
-            var nimField = document.getElementById("nim");
-            var nimLabel = document.getElementById("nimLabel");
 
-            if (role === "industri") {
-                nimField.value = "";
-                nimField.classList.add("hide");
-                nimLabel.textContent = "";
-            } else {
-                nimField.classList.remove("hide");
-                nimLabel.textContent = "NIM";
+    @stack('body')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+    <script>
+        // Function to display success notification
+        function showSuccessNotification(message) {
+            Swal.fire({
+                text: message,
+                icon: 'success',
+                confirmButtonText: 'OK',
+                timer: 2000
+            });
+        }
+
+        // Function to display error notification
+        function showErrorNotification(message) {
+            Swal.fire({
+                text: message,
+                icon: 'error',
+                confirmButtonText: 'OK',
+                timer: 2000
+            });
+        }
+
+        // Check if the session has success or error messages
+        const notifikasi = '{{ session('notifikasi') }}';
+        const type = '{{ session('type') }}';
+
+        // Display the appropriate notification based on the session message
+        if (notifikasi) {
+            if (type === 'success') {
+                showSuccessNotification(notifikasi);
+            } else if (type === 'error') {
+                showErrorNotification(notifikasi);
             }
         }
     </script>
+
 </body>
 
 </html>

@@ -1,4 +1,5 @@
-s<!DOCTYPE html>
+s
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -29,6 +30,8 @@ s<!DOCTYPE html>
     <!-- Template Main CSS File -->
     <link href="{{ asset('style/assets/css/style.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
     <!-- =======================================================
   * Template Name: FlexStart
   * Updated: Mar 10 2023 with Bootstrap v5.2.3
@@ -42,7 +45,7 @@ s<!DOCTYPE html>
 
     <!-- ======= Header ======= -->
     @include('layouts/components/navbar')
-<!-- End Header -->
+    <!-- End Header -->
 
     <main id="main">
         <!-- ======= Lowongan - blog ======= -->
@@ -322,6 +325,22 @@ s<!DOCTYPE html>
 
     <!-- Template Main JS File -->
     <script src="{{ asset('style/assets/js/main.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+    @if (session('notifikasi'))
+        <script>
+            Swal.fire({
+                text: '{{ session('notifikasi') }}',
+                icon: '{{ session('type') }}',
+                confirmButtonText: 'OK',
+                timer: 2000,
+            });
+        </script>
+    @endif
+
+
+
+    @stack('body')
 
 </body>
 

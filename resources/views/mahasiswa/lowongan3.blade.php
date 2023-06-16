@@ -56,7 +56,8 @@
                         <article class="entry">
 
                             <div class="entry-img">
-                                <img src="{{ asset('style/assets/img/fitri.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('style/assets/img/58676209.jpg') }}" alt=""
+                                    class="img-fluid">
                             </div>
 
                             <h2 class="entry-title">
@@ -64,7 +65,7 @@
                             </h2>
                             <div class="entry-content">
                                 <p><a href="/indprof2" style="color: #313030">
-                                        PT TRPL Industri
+                                        PT Technology Batam
                                     </a>
                                 </p>
                             </div>
@@ -74,18 +75,19 @@
                                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
                                             href="blog-single.html">100 orang</a></li>
                                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                            href="blog-single.html"><time datetime="2020-01-01">23 Maret - 10
-                                                Juni</time></a></li>
+                                            href="blog-single.html"><time datetime="2020-01-01">1 Juli - 11 Juli
+                                            </time></a></li>
                                 </ul>
                             </div>
 
                             <div class="entry-content">
                                 <p>
-                                    Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi
-                                    praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                                    Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde
-                                    soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur
-                                    assumenda perferendis dolore.
+                                    PT Technology Batam adalah perusahaan yang fokus pada pengembangan,
+                                    implementasi, dan penyediaan solusi teknologi informasi (TI) untuk memenuhi
+                                    kebutuhan perusahaan dan organisasi di berbagai sektor. PT tersebut secara
+                                    khusus mengkhususkan diri dalam bidang informatika, yang meliputi pengembangan
+                                    perangkat lunak, pengelolaan infrastruktur TI, keamanan informasi, analisis
+                                    data, dan layanan konsultasi TI.
                                 </p>
                             </div>
 
@@ -103,28 +105,17 @@
 
                             <div class="entry-content">
                                 <p>
-                                    1. Mempunyai kekuatan layaknya super hero.
+                                    1. Kualifikasi Pendidikan : SMK sederajat, S1.
                                 </p>
                                 <p>
-                                    2. Mampu menguasai dunia beserta isinya.
+                                    2. Keterampilan Teknis : Menguasai bahasa pemrogaman seperti html, javascript, dan
+                                    phyton.
                                 </p>
                                 <p>
-                                    3. Mampu menguasai bahasa semesta.
+                                    3. Mampu berpikir kritis
                                 </p>
                                 <p>
-                                    4. Memiliki ijazah sunda empire.
-                                </p>
-                                <p>
-                                    5. Mahasiswa prodi Teknologi Rekayasa Perangkat Lunak.
-                                </p>
-                                <p>
-                                    6. Memiliki nyawa tidak terbatas.
-                                </p>
-                                <p>
-                                    7. Belum pernah mendapatkan bintang 6 di gta.
-                                </p>
-                                <p>
-                                    8. bukan buronan KKB.
+                                    4. Mampu menguasai 3 bahasa utama di antaranya yaitu inggris, german, dan jepang.
                                 </p>
                             </div>
 

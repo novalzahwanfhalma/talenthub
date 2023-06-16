@@ -2,7 +2,9 @@
 <html>
 
 <head>
+
     <title>Form Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -145,6 +147,7 @@
             /* Sesuaikan dengan tinggi maksimum yang diinginkan */
         }
     </style>
+    @stack('head')
 </head>
 
 <body>
@@ -169,15 +172,31 @@
 
             <div class="button-container">
 
-                <button class="btn btn-primary btn-block" type="submit" value="Login" style="background-color: #3aa7a9; color: #FFFFFF; border-radius: 30px; padding: 12px 24px; font-size: 18px;">Login</button>
+                <button class="btn btn-primary btn-block" type="submit" value="Login"
+                    style="background-color: #3aa7a9; color: #FFFFFF; border-radius: 30px; padding: 12px 24px; font-size: 18px;">Login</button>
 
 
             </div>
         </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+    @if (session('notifikasi'))
+
+        <script>
+                Swal.fire({
+                    text: '{{ session('notifikasi') }}',
+                    icon: '{{ session('type') }}',
+                    confirmButtonText: 'OK',
+                    timer: 2000,
+                });
+
+        </script>
+    @endif
 
 
-    <script></script>
+
+    @stack('body')
+
 </body>
 
 </html>

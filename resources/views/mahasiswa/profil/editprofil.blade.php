@@ -206,23 +206,6 @@
 
                                             <div class="col-lg-6 p-3">
                                                 <div class="form-group mb-10">
-                                                    <label class="required form-label">Jenjang<i class="text-danger">
-                                                            *</i></label>
-                                                    <select class="form-select form-select-sm p-2"
-                                                        name="company_category_id" tabindex="-1" aria-hidden="true">
-                                                        <option value="" disabled selected>Pilih Jenjang
-                                                        </option>
-                                                        <option value="1">D3
-                                                        </option>
-                                                        <option value="2">D4</option>
-
-                                                    </select>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6 p-3">
-                                                <div class="form-group mb-10">
                                                     <label class="required form-label">Status<i class="text-danger">
                                                             *</i></label>
                                                     <select class="form-select form-select-sm p-2"

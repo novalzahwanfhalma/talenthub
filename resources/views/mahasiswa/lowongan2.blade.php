@@ -118,13 +118,12 @@
                             <article class="entry">
 
                                 <div class="entry-img">
-                                    <img src="{{ asset('style/assets/img/fitri.jpg') }}" alt=""
+                                    <img src="{{ asset('style/assets/img/58676209.jpg') }}" alt=""
                                         class="img-fluid">
                                 </div>
 
                                 <h2 class="entry-title">
-                                    <a href="/lowongan3">Dolorum optio tempore voluptas dignissimos cumque
-                                        fuga qui quibusdam quia</a>
+                                    <a href="/lowongan3">PT Technology Batam</a>
                                 </h2>
 
                                 <div class="entry-meta">
@@ -132,18 +131,19 @@
                                         <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
                                                 href="blog-single.html">Programming &amp; Software Development</a></li>
                                         <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                                href="blog-single.html"><time datetime="2020-01-01">Jan 1,
-                                                    2020</time></a></li>
+                                                href="blog-single.html"><time datetime="2020-01-01">Jul 1,
+                                                    2023</time></a></li>
                                     </ul>
                                 </div>
 
                                 <div class="entry-content">
                                     <p>
-                                        Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi
-                                        praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                                        Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde
-                                        soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur
-                                        assumenda perferendis dolore.
+                                        PT Technology Batam adalah perusahaan yang fokus pada pengembangan,
+                                        implementasi, dan penyediaan solusi teknologi informasi (TI) untuk memenuhi
+                                        kebutuhan perusahaan dan organisasi di berbagai sektor. PT tersebut secara
+                                        khusus mengkhususkan diri dalam bidang informatika, yang meliputi pengembangan
+                                        perangkat lunak, pengelolaan infrastruktur TI, keamanan informasi, analisis
+                                        data, dan layanan konsultasi TI.
                                     </p>
                                     <div class="read-more">
                                         <a href="/lowongan3">Lihat Detail</a>
@@ -155,12 +155,12 @@
                             <article class="entry">
 
                                 <div class="entry-img">
-                                    <img src="{{ asset('style/assets/img/hanna.jpg') }}" alt=""
+                                    <img src="{{ asset('style/assets/img/dc-ar19-0136-sld.jpg') }}" alt=""
                                         class="img-fluid">
                                 </div>
 
                                 <h2 class="entry-title">
-                                    <a href="blog-single.html">Nisi magni odit consequatur autem nulla dolorem</a>
+                                    <a href="blog-single.html">PT Sangkurier</a>
                                 </h2>
 
                                 <div class="entry-meta">
@@ -168,19 +168,18 @@
                                         <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
                                                 href="blog-single.html">Programming &amp; Software Development</a></li>
                                         <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                                href="blog-single.html"><time datetime="2020-01-01">Jan 1,
-                                                    2020</time></a></li>
+                                                href="blog-single.html"><time datetime="2020-01-01">Jul 22,
+                                                    2023</time></a></li>
                                     </ul>
                                 </div>
 
                                 <div class="entry-content">
                                     <p>
-                                        Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis
-                                        illum voluptatum et. Quo libero rerum voluptatem pariatur nam.
-                                        Ad impedit qui officiis est in non aliquid veniam laborum. Id ipsum qui aut.
-                                        Sit aliquam et quia molestias laboriosam. Tempora nam odit omnis eum
-                                        corrupti qui aliquid excepturi molestiae. Facilis et sint quos sed voluptas.
-                                        Maxime sed tempore enim omnis non alias odio quos distinctio.
+                                        PT Sangkurier adalah sebuah perusahaan teknologi informasi yang berfokus pada
+                                        pengembangan
+                                        solusi perangkat lunak untuk sektor perbankan. Mereka menyediakan produk dan
+                                        layanan yang dirancang khusus untuk memenuhi kebutuhan sistem informasi
+                                        perbankan modern.
                                     </p>
                                     <div class="read-more">
                                         <a href="blog-single.html">Lihat Detail</a>
@@ -192,13 +191,12 @@
                             <article class="entry">
 
                                 <div class="entry-img">
-                                    <img src="{{ asset('style/assets/img/bisma.jpg') }}" alt=""
-                                        class="img-fluid">
+                                    <img src="{{ asset('style/assets/img/jm-default1.7612af47.jpg') }}"
+                                        alt="" class="img-fluid">
                                 </div>
 
                                 <h2 class="entry-title">
-                                    <a href="blog-single.html">Possimus soluta ut id suscipit ea ut. In quo quia et
-                                        soluta libero sit sint.</a>
+                                    <a href="blog-single.html">PT Galleon</a>
                                 </h2>
 
                                 <div class="entry-meta">
@@ -206,18 +204,17 @@
                                         <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
                                                 href="blog-single.html">Programming &amp; Software Development</a></li>
                                         <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                                href="blog-single.html"><time datetime="2020-01-01">Jan 1,
-                                                    2020</time></a></li>
+                                                href="blog-single.html"><time datetime="2020-01-01">August 12,
+                                                    2023</time></a></li>
                                     </ul>
                                 </div>
 
                                 <div class="entry-content">
                                     <p>
-                                        Aut iste neque ut illum qui perspiciatis similique recusandae non. Fugit
-                                        autem dolorem labore omnis et. Eum temporibus fugiat voluptate enim tenetur
-                                        sunt omnis.
-                                        Doloremque est saepe laborum aut. Ipsa cupiditate ex harum at recusandae
-                                        nesciunt. Ut dolores velit.
+                                        PT Galleon adalah sebuah perusahaan teknologi informasi yang bergerak di bidang
+                                        pengembangan perangkat lunak khusus untuk industri e-commerce. Mereka
+                                        menyediakan solusi yang dirancang untuk mendukung operasional e-commerce,
+                                        memperbaiki pengalaman pengguna, dan meningkatkan efisiensi bisnis.
                                     </p>
                                     <div class="read-more">
                                         <a href="blog-single.html">Lihat Detail</a>
@@ -229,13 +226,12 @@
                             <article class="entry">
 
                                 <div class="entry-img">
-                                    <img src="{{ asset('style/assets/img/dilan.jpg') }}" alt=""
-                                        class="img-fluid">
+                                    <img src="{{ asset('style/assets/img/PT-Nusahadi-Citraharmonis-768x427.jpg') }}"
+                                        alt="" class="img-fluid">
                                 </div>
 
                                 <h2 class="entry-title">
-                                    <a href="blog-single.html">Non rem rerum nam cum quo minus. Dolor distinctio
-                                        deleniti explicabo eius exercitationem.</a>
+                                    <a href="blog-single.html">PT Natsuri</a>
                                 </h2>
 
                                 <div class="entry-meta">
@@ -243,20 +239,17 @@
                                         <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
                                                 href="blog-single.html">Programming &amp; Software Development</a></li>
                                         <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                                href="blog-single.html"><time datetime="2020-01-01">Jan 1,
-                                                    2020</time></a></li>
+                                                href="blog-single.html"><time datetime="2020-01-01">August 6,
+                                                    2023</time></a></li>
                                     </ul>
                                 </div>
 
                                 <div class="entry-content">
                                     <p>
-                                        Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque
-                                        quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste
-                                        omnis a qui.
-                                        Quia sed sunt. Ea asperiores expedita et et delectus voluptates rerum. Id
-                                        saepe ut itaque quod qui voluptas nobis porro rerum. Quam quia nesciunt qui
-                                        aut est non omnis. Inventore occaecati et quaerat magni itaque nam voluptas.
-                                        Voluptatem ducimus sint id earum ut nesciunt sed corrupti nemo.
+                                        PT Natsuri adalah perusahaan teknologi informasi yang berfokus pada pengembangan
+                                        sistem manajemen sumber daya manusia (HRM) berbasis cloud. Mereka menyediakan
+                                        solusi yang dirancang khusus untuk membantu perusahaan dalam mengelola proses
+                                        HRM secara efisien dan efektif.
                                     </p>
                                     <div class="read-more">
                                         <a href="blog-single.html">Lihat Detail</a>
@@ -264,104 +257,9 @@
                                 </div>
 
                             </article><!-- End blog entry -->
-
-                            <div class="blog-pagination">
-                                <ul class="justify-content-center">
-                                    <li><a href="#">1</a></li>
-                                    <li class="active"><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                </ul>
-                            </div>
 
                     </div><!-- End blog entries list -->
-
-                    <div class="col-lg-4">
-
-                        <div class="sidebar">
-
-                            <h3
-                                style="font-size: 24px; font-weight: bold; color: #5b5555; text-align: center; margin-top: 20px; margin-bottom: 40px;">
-                                Programming &amp; Software Development</h3>
-                            <h4 class="sidebar-tit">Kata kunci</h4>
-                            <form action="">
-                                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                                    <div class="input-group">
-                                        <input type="search" placeholder="Cari" aria-describedby="button-addon1"
-                                            class="form-control border-0 bg-light">
-                                        <div class="input-group-append">
-                                            <button id="button-addon1" type="submit"
-                                                class="btn btn-link text-primary"><i
-                                                    class="bi bi-search"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form><!-- End sidebar search formn-->
-
-                            <h4 class="sidebar-tit">Bidang pekerjaan</h4>
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Pilih Opsi
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Opsi 1</a>
-                                    <a class="dropdown-item" href="#">Opsi 2</a>
-                                    <a class="dropdown-item" href="#">Opsi 3</a>
-                                </div>
-                            </div>
-
-                            &nbsp;
-
-                            <h4 class="sidebar-tit">Status</h4>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">Karyawan Tetap</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">Magang</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">Paruh Waktu</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">Karyawan
-                                    Kontrak</label>
-                            </div>
-                            &nbsp;
-                            <!-- End sidebar categories-->
-
-                            <h3 class="sidebar-tit">Pengalaman</h3>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">Tingkat Pemula</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">Tingkat
-                                    Menengah</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value=""
-                                    id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">Tingkat Senior</label>
-                            </div><!-- End sidebar tags-->
-
-                        </div><!-- End sidebar -->
-
-                    </div><!-- End blog sidebar -->
-
                 </div>
-
             </div>
         </section><!-- End Blog Section -->
 
