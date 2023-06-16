@@ -109,7 +109,7 @@ class PortofolioController extends Controller
     public function destroy(string $id_portofolio)
     {
         // Menambahkan fungsi firstOrFail
-        $student = Portofolio::where(['nim' => $nim])->firstOrFail();
+        $portofolio = Portofolio::where(['id_portofolio' => $id_portofolio])->firstOrFail();
 
         // Mengambil data foto
         $bukti = $portofolio->bukti;

@@ -3,6 +3,7 @@
 
 <head>
     <title>Form Registrasi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -145,6 +146,7 @@
             /* Sesuaikan dengan tinggi maksimum yang diinginkan */
         }
     </style>
+    @stack('head')
 </head>
 
 <body>
@@ -157,45 +159,86 @@
             <h4>Industri</h4>
             @csrf
             <label for="nama_industri">Nama:</label>
-            <input type="text" id="nama" name="nama_industri" required>
+            <input type="text" id="nama" name="nama_industri" @error('nama_industri') is-invalid @enderror
+                value="{{ old('nama_industri') }}" required>
+
+            @error('nama_industri')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
             <label for="username">Username:</label>
-            <input type="username" id="username" name="username" required>
+            <input type="username" id="username" name="username" @error('username') is-invalid @enderror
+                value="{{ old('username') }}" required>
+
+            @error('username')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
             <label for="contact">Nomor Handphone:</label>
-            <input type="text" id="no_hp" name="contact" required>
+            <input type="text" id="no_hp" name="contact" @error('contact') is-invalid @enderror
+                value="{{ old('contact') }}" required>
+
+            @error('contact')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" @error('password') is-invalid @enderror
+                value="{{ old('password') }}" required>
+
+            @error('password')
+                <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
 
             <div class="checkbox-container">
                 <label for="existing"><a href="/loginind">Sudah memiliki akun?</a></label>
             </div>
 
             <div class="button-container">
-                <button class="btn btn-primary btn-block" type="submit" value="Daftar" style="background-color: #3aa7a9; color: #FFFFFF; border-radius: 30px; padding: 12px 24px; font-size: 18px;">Daftar</button>
+                <button class="btn btn-primary btn-block" type="submit" value="Daftar"
+                    style="background-color: #3aa7a9; color: #FFFFFF; border-radius: 30px; padding: 12px 24px; font-size: 18px;">Daftar</button>
             </div>
 
 
         </form>
     </div>
-
+    @stack('body')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
     <script>
-        function hideNIMField() {
-            var role = document.getElementById("role").value;
-            var nimField = document.getElementById("nim");
-            var nimLabel = document.getElementById("nimLabel");
+        // Function to display success notification
+        function showSuccessNotification(message) {
+            Swal.fire({
+                text: message,
+                icon: 'success',
+                confirmButtonText: 'OK',
+                timer: 2000
+            });
+        }
 
-            if (role === "industri") {
-                nimField.value = "";
-                nimField.classList.add("hide");
-                nimLabel.textContent = "";
-            } else {
-                nimField.classList.remove("hide");
-                nimLabel.textContent = "NIM";
+        // Function to display error notification
+        function showErrorNotification(message) {
+            Swal.fire({
+                text: message,
+                icon: 'error',
+                confirmButtonText: 'OK',
+                timer: 2000
+            });
+        }
+
+        // Check if the session has success or error messages
+        const notifikasi = '{{ session('notifikasi') }}';
+        const type = '{{ session('type') }}';
+
+        // Display the appropriate notification based on the session message
+        if (notifikasi) {
+            if (type === 'success') {
+                showSuccessNotification(notifikasi);
+            } else if (type === 'error') {
+                showErrorNotification(notifikasi);
             }
         }
     </script>
+
 </body>
 
 </html>

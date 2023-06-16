@@ -31,10 +31,16 @@ class IndustriController extends Controller
 
         ]);
 
-        if ($industri) {
-            return redirect()->back()->with('success', 'Registrasi berhasil');
+        if ($industri->save()) {
+            return redirect()->back()->with([
+                'notifikasi' => 'Register berhasil !',
+                'type' => 'success'
+            ]);
         } else {
-            return "gagal";
+            return redirect()->back()->with([
+                'notifikasi' => 'Register gagal, silahkan coba lagi !',
+                'type' => 'error'
+            ]);
         }
     }
     private function validateInd(Request $request)
