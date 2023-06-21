@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bidang_industri extends Model
+class Tipe_lowongan extends Model
 {
     use HasFactory;
 
-    protected $table = 'bidang_industri';
-    protected $primaryKey = 'id_bidang';
+    protected $table = 'tipe_lowongan';
+    protected $primaryKey = 'id_tipe';
 
     protected $fllable = array(
-        'id_bidang', 'nama_bidang', 'updated_at', 'created_at',
+        'id_tipe', 'nama_tipe', 'updated_at', 'created_at'
     );
 
 }

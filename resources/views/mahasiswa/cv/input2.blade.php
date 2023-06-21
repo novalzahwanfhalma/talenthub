@@ -155,12 +155,12 @@
 
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
-                                                            <label class="required form-label">Gelar<i
+                                                            <label class="required form-label">Jurusan<i
                                                                     class="text-danger">
                                                                     *</i></label>
                                                             <input type="text"
                                                                 class="form-control form-control-sm p-2"
-                                                                name="gelar" value=""
+                                                                name="jurusan" value=""
                                                                 placeholder="Masukkan Gelar" fdprocessedid="zt264h">
                                                         </div>
                                                     </div>
@@ -199,8 +199,8 @@
                                         <th class="min-w-500px">Institusi</th>
                                         <th class="min-w-200px">Tahun Mulai</th>
                                         <th class="min-w-200px">Tahun Selesai</th>
-                                        <th class="min-w-200px">Gelar</th>
-                                        <th class="min-w-200px">Lampiran Pendidikan</th>
+                                        <th class="min-w-200px">Jurusan</th>
+                                        <th class="min-w-200px">Lampiran</th>
                                         <th class="min-w-100px">Aksi</th>
                                     </tr>
                                 </thead>
@@ -211,17 +211,17 @@
                                             <td>{{ $data->institusi }}</td>
                                             <td>{{ $data->tahun_mulai }}</td>
                                             <td>{{ $data->tahun_selesai }}</td>
-                                            <td>{{ $data->gelar }}</td>
+                                            <td>{{ $data->jurusan }}</td>
                                             <td>{{ $data->lampiran_pendidikan }}</td>
 
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
-                                                    <i class="bi bi-search"></i>Edit</a>
+                                                    <i class="bi bi-search"></i> Edit</a>
                                                     {{--href="/student/edit/{{ $data->nim }}"--}}
 
                                                 <form method="POST" action="/cv2/delete/{{ $data->id_pendidikan }}">
                                                     @csrf @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1"><i class="bi bi-trash-fill"></i> Hapus</button>
                                                 </form>
                                                 {{--action="/student/delete/{{ $data->nim }}"--}}
                                             </td>

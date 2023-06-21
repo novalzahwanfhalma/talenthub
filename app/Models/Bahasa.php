@@ -14,7 +14,7 @@ class Bahasa extends Model
 
 
     protected $fllable = array(
-        'id_bhs', 'nim', 'nama_bahasa', 'status', 'score', 'lampiran_bahasa'
+        'id_bhs', 'nim', 'nama_bahasa', 'status', 'score', 'lampiran_bahasa', 'updated_at', 'created_at',
     );
 
     public function mahasiswa(){

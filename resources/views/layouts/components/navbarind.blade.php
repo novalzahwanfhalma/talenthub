@@ -15,7 +15,7 @@
         <!-- .navbar -->
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto" href="/lowonganind">Lowongan</a></li>
+                <li><a class="nav-link scrollto" href="/industri/lowongan_ind">Lowongan</a></li>
                 <li><a class="nav-link scrollto" href="/indmhs">Mahasiswa</a></li>
                 <li><a class="nav-link scrollto" href="/indind">Perusahaan</a></li>
                 <li class="dropdown">

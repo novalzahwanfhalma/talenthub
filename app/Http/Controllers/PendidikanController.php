@@ -29,7 +29,7 @@ class PendidikanController extends Controller
             'institusi' => 'required',
             'tahun_mulai' => 'required',
             'tahun_selesai' => 'required',
-            'gelar' => 'required',
+            'jurusan' => 'required',
             'lampiran_pendidikan' => 'required|image|mimes:jpeg,jpg,png|max:2048',
             
 
@@ -38,7 +38,7 @@ class PendidikanController extends Controller
             'institusi.required' => 'Institusi harus diisi.',
             'tahun_mulai.required' => 'Tahun mulai harus diisi.',
             'tahun_selesai.required' => 'Tahun selesai harus diisi.',
-            'gelar.required' => 'Gelar harus diisi.',
+            'jurusan.required' => 'Jurusan harus diisi.',
             'lampiran.required' => 'Lampiran harus di-upload.',
             'lampiran_pendidikan.image' => 'Bukti harus berupa gambar.',
             'lampiran_pendidikan.mimes' => 'Tipe file yang diizinkan adalah JPEG, JPG, dan PNG.',
@@ -70,7 +70,7 @@ class PendidikanController extends Controller
                 $pendidikan->institusi = $request->institusi;
                 $pendidikan->tahun_mulai = $request->tahun_mulai;
                 $pendidikan->tahun_selesai = $request->tahun_selesai;
-                $pendidikan->gelar = $request->gelar;
+                $pendidikan->jurusan = $request->jurusan;
                 $pendidikan->lampiran_pendidikan = $lampiran_pendidikan ? 'lamp_pddk/' . $lampiran_pendidikan : null;
                 
 

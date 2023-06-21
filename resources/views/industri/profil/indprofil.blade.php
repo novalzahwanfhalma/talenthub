@@ -78,7 +78,7 @@
                                                 <img class="profile_img"
                                                     src="https://source.unsplash.com/600x300/?student" alt="student dp">
                                                 <h3>{{ Auth::guard('industri')->user()->nama_industri }}
-                                                </h3>
+                                                </h3> 
                                             </div>
                                             <div class="card-body">
                                                 <p class="mb-0"><strong class="pr-1">Email:</strong>
@@ -170,7 +170,7 @@
                                                     href="/profilind" style="color: #fff">Kelola
                                                     Profil</a></button>
                                             <button type="submit" class="btn btn-sm btn-primary mr-1"><a
-                                                    href="/lowongan" style="color: #fff">Simpan</a></button>
+                                                    href="/industri/lowongan_ind" style="color: #fff">Simpan</a></button>
                                         </form>
                                     </td>
                                 </div>

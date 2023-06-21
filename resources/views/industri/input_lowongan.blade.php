@@ -45,6 +45,15 @@
     <br>
 
     <div class="container pt-5">
+        @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
         <div class="app-main flex-column flex-row-fluid" id="kt_app_main" style="background-color: #779cb4;">
             <div id="kt_app_content" class="app-content flex-column-fluid py-3 py-lg-6">
                 <div id="kt_app_content_container" class="app-container container-xxl">
@@ -59,17 +68,17 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <form method="POST" action="" enctype="multipart/form-data">
+                                    <form method="POST" action="/industri/inputind/store" enctype="multipart/form-data">
                                         <!--action utk kemana data dikirim, ingat han-->
-                                        <input type="hidden" name="_token"
-                                            value="504CL3EEhAetFJznRdQpgYaSncu1qrVgxNFgyVyH">
+                                        @csrf
+                                            <input type="hidden" name="id_industri" value="{{ auth()->guard('industri')->user()->id_industri }}">
                                         <div class="row">
                                             <div class="col-lg-12 p-3">
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Judul Lowongan<i
                                                             class="text-danger"> *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="title" value=""
+                                                        name="judul" value=""
                                                         placeholder="Masukkan Judul Lowongan" fdprocessedid="lgb33s">
                                                 </div>
                                             </div>
@@ -78,7 +87,7 @@
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Tipe Pekerjaan<i
                                                             class="text-danger"> *</i></label>
-                                                    <select name="job_type_id" class="form-select form-select-sm p-2"
+                                                    <select name="id_tipe" class="form-select form-select-sm p-2"
                                                         tabindex="-1" aria-hidden="true">
                                                         <option value="" selected disabled>Pilih Tipe Pekerjaan
                                                         </option>
@@ -91,32 +100,15 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 p-3">
-                                                <div class="form-group mb-10">
-                                                    <label class="required form-label">Bidang Pekerjaan<i
-                                                            class="text-danger"> *</i></label>
-                                                    <select name="job_field_id" class="form-select form-select-sm p-2"
-                                                        tabindex="-1" aria-hidden="true">
-                                                        <option value="" disabled selected>Pilih Bidang Pekerjaan
-                                                        </option>
-                                                        <option value="3">Hardware &amp; Digital Peripherals
-                                                        </option>
-                                                        <option value="5">Operation &amp; System Tools</option>
-                                                        <option value="7">IT Governance &amp; Management</option>
-                                                        <option value="11">IT Services Management System</option>
-                                                        <option value="35">Periklanan</option>
-                                                        <option value="8">IT Project Management</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            
 
                                             <div class="col-lg-6 p-3">
                                                 <div class="form-group mb-10">
-                                                    <label class="required form-label">Tingkat Jabatan<i
-                                                            class="text-danger"> *</i></label>
-                                                    <select name="job_level_id" class="form-select form-select-sm p-2"
+                                                    <label class="required form-label">Tingkat Pekerjaan
+                                                        <i class="text-danger"> *</i></label>
+                                                    <select name="id_level" class="form-select form-select-sm p-2"
                                                         tabindex="-1" aria-hidden="true">
-                                                        <option value="" disabled selected>Pilih Tingkat Jabatan
+                                                        <option value="" disabled selected>Pilih Tingkat Pekerjaan
                                                         </option>
                                                         <option value="1">Internship</option>
                                                         <option value="2">Entry Level</option>
@@ -128,47 +120,44 @@
 
                                             <div class="col-lg-6 p-3">
                                                 <div class="form-group mb-10">
-                                                    <label class="required form-label">Tahun Pengalaman Kerja<i
+                                                    <label class="required form-label">Bidang Pekerjaan<i
                                                             class="text-danger"> *</i></label>
-                                                    <input type="text" class="form-control form-control-sm p-2"
-                                                        name="experience_years"
-                                                        placeholder="Masukkan Tahun Pengalaman Kerja" value=""
-                                                        fdprocessedid="ahskkn">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-12 p-3">
-                                                <div class="form-group mb-10">
-                                                    <label class="required form-label">Deskripsi Pekerjaan (Minimal 500
-                                                        Karakter)<i class="text-danger"> *</i></label>
-                                                    <textarea id="description" name="description" class="form-control form-control-sm"></textarea>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-lg-12 p-3">
-                                                <div class="form-group mb-10">
-                                                    <label class="required form-label">Persyaratan Keahlian atau
-                                                        Keterampilan<i class="text-danger"> *</i></label>
-                                                    <select name="skills[]" class="form-select form-select-sm p-2"
-                                                        data-placeholder="Pilih Persyaratan Keahlian atau Keterampilan"
+                                                    <select name="id_bidang" class="form-select form-select-sm p-2"
                                                         tabindex="-1" aria-hidden="true">
-                                                        <option value="" selected disabled>Pilih Persyaratan
-                                                            Keahlian atau Keterampilan</option>
-                                                        <option value="1">.NET</option>
-                                                        <option value="2">A++</option>
-                                                        <option value="3">Abacus System</option>
-                                                        <option value="4">ABAP</option>
-                                                        <option value="5">ABODE ILLUSTRATOR</option>
-                                                        <option value="6">ACAD</option>
-                                                        <option value="7">ACCESS</option>
-                                                        <option value="8">Account Management</option>
-                                                        <option value="9">Account Servicing</option>
-                                                        <option value="10">Accounting</option>
+                                                        <option value="" disabled selected>Pilih Bidang Pekerjaan
+                                                        </option>
+                                                        <option value="1">Hardware &amp; Digital Peripherals
+                                                        </option>
+                                                        <option value="2">Operation &amp; System Tools</option>
+                                                        <option value="3">IT Governance &amp; Management</option>
+                                                        <option value="4">IT Services Management System</option>
+                                                        <option value="5">Periklanan</option>
+                                                        <option value="6">IT Project Management</option>
                                                     </select>
                                                 </div>
                                             </div>
 
+                                            <div class="col-lg-6 p-3">
+                                                <div class="form-group mb-10">
+                                                    <label class="required form-label">Daya Tampung<i
+                                                            class="text-danger"> *</i></label>
+                                                    <input type="text" class="form-control form-control-sm p-2"
+                                                        name="daya_tampung" value=""
+                                                        placeholder="Masukkan Judul Lowongan" fdprocessedid="lgb33s">
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="col-lg-12 p-3">
+                                                <div class="form-group mb-10">
+                                                    <label class="required form-label">Deskripsi Pekerjaan (Minimal 500
+                                                        Karakter)<i class="text-danger"> *</i></label>
+                                                    <textarea id="description" name="deskripsi" class="form-control form-control-sm"></textarea>
+                                                </div>
+                                            </div>
+
+
+                                        
                                             <div class="col-lg-12">
                                                 <h5 class="mb-10 pt-5 ps-1">Lokasi Pekerjaan</h5>
                                             </div>
@@ -177,7 +166,7 @@
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Alamat Lengkap<i
                                                             class="text-danger"> *</i></label>
-                                                    <textarea name="address" class="form-select form-select-sm p-2" placeholder="Masukkan Alamat Lengkap"></textarea>
+                                                    <textarea name="lokasi" class="form-select form-select-sm p-2" placeholder="Masukkan Alamat Lengkap"></textarea>
                                                 </div>
                                             </div>
 
@@ -193,7 +182,22 @@
                                                         <span class="input-group-text">Rp.</span>
                                                         <input type="text"
                                                             class="form-control form-control-sm p-2 currencyIDR"
-                                                            name="salary_min" value=""
+                                                            name="minimal_gaji" value=""
+                                                            placeholder="Masukkan Minimal Gaji" inputmode="text"
+                                                            fdprocessedid="9kodl">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-3">
+                                                <div class="form-group mb-10">
+                                                    <label class="required form-label">Maksimal Gaji<i
+                                                            class="text-danger"> *</i></label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">Rp.</span>
+                                                        <input type="text"
+                                                            class="form-control form-control-sm p-2 currencyIDR"
+                                                            name="maksimal_gaji" value=""
                                                             placeholder="Masukkan Minimal Gaji" inputmode="text"
                                                             fdprocessedid="9kodl">
                                                     </div>
@@ -209,8 +213,8 @@
                                                     <label class="required form-label">Tanggal Buka Pendaftaran<i
                                                             class="text-danger"> *</i></label>
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control form-control-sm p-2"
-                                                            name="registration_starts_at" value=""
+                                                        <input type="date" class="form-control form-control-sm p-2"
+                                                            name="tanggal_buka" value=""
                                                             placeholder="Masukkan Tanggal Buka Pendaftaran">
                                                         <span class="input-group-text"><i
                                                                 class="bi bi-calendar"></i></span>
@@ -223,8 +227,8 @@
                                                     <label class="required form-label">Tanggal Tutup Pendaftaran<i
                                                             class="text-danger"> *</i></label>
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control form-control-sm p-2"
-                                                            name="registration_ends_at" value=""
+                                                        <input type="date" class="form-control form-control-sm p-2"
+                                                            name="tanggal_tutup" value=""
                                                             placeholder="Masukkan Tanggal Tutup Pendaftaran">
                                                         <span class="input-group-text"><i
                                                                 class="bi bi-calendar"></i></span>
@@ -233,7 +237,7 @@
                                             </div>
 
                                             <div class="col-lg-12 p-3">
-                                                <a href="/lowongan_ind"
+                                                <a href="/industri/lowongan_ind"
                                                     class="btn btn-secondary btn-sm px-10 p-2">Batalkan</a>
                                                 <button type="submit"
                                                     class="btn btn-primary btn-sm px-10 p-2">Submit</button>

@@ -13,7 +13,7 @@ class Portofolio extends Model
     protected $primaryKey = 'id_portofolio';
 
     protected $fllable = array(
-        'id_portofolio', 'nim', 'judul', 'link', 'bukti', 'deskripsi'
+        'id_portofolio', 'nim', 'judul', 'link', 'bukti', 'deskripsi', 'updated_at', 'created_at',
     );
 
     public function mahasiswa()

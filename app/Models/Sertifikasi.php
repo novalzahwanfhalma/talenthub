@@ -14,7 +14,7 @@ class Sertifikasi extends Model
 
 
     protected $fllable = array(
-        'id_sertifikat', 'nim', 'judul', 'institusi', 'tahun', 'deskripsi', 'link'
+        'id_sertifikat', 'nim', 'judul', 'institusi', 'tahun', 'deskripsi', 'link', 'updated_at', 'created_at',
     );
 
     public function mahasiswa(){

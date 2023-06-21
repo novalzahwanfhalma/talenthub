@@ -41,6 +41,15 @@
     <br>
 
     <div class="container pt-5">
+        @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
         <div class="row">
             <div class="col-lg-11 mt-5 mb-5 mx-auto">
                 <div class="card border">
@@ -63,19 +72,43 @@
                                 <thead>
                                     <tr class="fw-bold fs-6 text-gray-800">
                                         <th class="min-w-0px">No</th>
-                                        <th class="min-w-500px">Nama Lowongan</th>
-
-                                        <th class="min-w-150px">Status Pendaftaran</th>
-                                        <th class="min-w-200px">Tanggal Dibuat</th>
+                                        <th class="min-w-500px">Judul</th>
+                                        <th class="min-w-150px">Daya Tampung</th>
+                                        <th class="min-w-200px">Tanggal Buka</th>
+                                        <th class="min-w-200px">Tanggal Tutup</th>
                                         <th class="min-w-100px">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td colspan="6" class="text-center">
-                                            <h6 class="fw-bolder fs-7">Tidak ada data</h6>
-                                        </td>
-                                    </tr>
+                                    @forelse ($lowongan as $index => $data)
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{ $data->judul }}</td>
+                                            <td>{{ $data->daya_tampung }}</td>
+                                            <td>{{ $data->tanggal_buka }}</td>
+                                            <td>{{ $data->tanggal_tutup }}</td>
+
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
+                                                    <i class="bi bi-search"></i>Edit</a>
+                                                    {{--href="/student/edit/{{ $data->nim }}"--}}
+
+                                                <form method="POST" action="inputind/delete/{{ $data->id_lowongan }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                </form>
+                                                {{-- action="/student/delete/{{ $data->nim }}" --}}
+                                                {{-- MODAL UNTUK PREVIEW --}}
+                                            </td>
+
+                                            @empty
+                                            <td colspan="6" class="text-center">
+                                                <h6 class="fw-bolder fs-7">Tidak ada data</h6>
+                                            </td>
+                                        </tr>
+
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

@@ -137,5 +137,106 @@ class PortofolioController extends Controller
                 'type' => 'error'
             ]);
         }
+    } 
+
+    public function edit(string $id)
+    {
+        $portofolio = Portofolio::where(['nim' => $nim ]);
+
+        if ( $portofolio->count() < 1 ) {
+            return redirect('/cv1/edit-modal')->with([
+                'notifikasi' => 'Data siswa tidak ditemukan !',
+                'type' => 'error'
+            ]);
+
+        }
+
+        return view('portofolio.index', ['portofolio' => $portofolio->first() ]);
     }
+
+    public function update(Request $request, string $nim)
+    {
+        $portofolio = Portofolio::where('nim', $nim)->firstOrFail();
+
+        // ddd($request->old_nim, $request->nim);
+        $validatedData = $request->validate([
+            'nim' => [
+                'required',
+                'unique:portofolios,nim,' . $request->old_nim . ',nim',
+            ],
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'bukti' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'link' => '-',
+        ], [
+            'judul.required' => 'Judul harus diisi.',
+            'deskripsi.required' => 'Deskripsi harus diisi.',
+            'bukti.required' => 'Bukti harus di-upload.',
+            'bukti.image' => 'Bukti harus berupa gambar.',
+            'bukti.mimes' => 'Tipe file yang diizinkan adalah JPEG, JPG, dan PNG.',
+            'bukti.max' => 'Ukuran file tidak boleh lebih dari 2 MB.',
+        ]);
+
+
+        // Cek Apakah Ganti Foto
+        if ($request->ganti_foto == 1) {
+            $request->validate([
+                'foto' => [
+                'required',
+                // validasi 
+                'mimes:jpeg,jpg,png',
+                'max:2048'
+
+                ]
+            ], [
+                'foto.required' => 'Foto harus di-upload.',
+                // lanjutan validasi
+                'foto.mimes' => 'Foto harus berformat jpeg, jpg, atau png.',
+                'foto.max' => 'Foto tidak boleh lebih dari 2 MB.',
+            ]);
+
+            if ($request->hasFile('foto')) {
+                $foto = $request->file('foto')->store('public/foto');
+                $foto = basename($foto);
+                $foto = 'foto/' . $foto;
+            } else {
+                $foto = null;
+            }
+        } else {
+            $foto = $portofolio->foto;
+        }
+
+        // Foto Lama
+        $old_foto = $portofolio->foto;
+        
+        $portofolio->nim = $request->nim;
+        $portofolio->judul = $request->judul;
+        $portofolio->deskripsi = $request->deskripsi;
+        $portofolio->bukti = $request->bukti;
+        $portofolio->link = $request->link;
+
+        $portofolio->foto = $foto ?? null;
+        
+        if ($portofolio->save()) {
+            
+            // Hapus file foto lama jika ada dan jika ganti foto
+            if ($request->ganti_foto == 1) {
+
+                if (!empty($old_foto) && Storage::exists($old_foto)) {
+                    Storage::delete($old_foto);
+                }
+            }
+            
+            return redirect('/cv1')->with([
+                'notifikasi' => 'Data Berhasil diedit !',
+                'type' => 'success'
+            ]);
+        } else {
+            return redirect()->back()->with([
+                    'notifikasi' => 'Data gagal diedit !',
+                    'type' => 'error'
+                ]);
+        }
+    }
+
 }

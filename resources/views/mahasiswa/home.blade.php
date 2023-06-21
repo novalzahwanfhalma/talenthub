@@ -142,7 +142,7 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto" href="/index">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/lowongan">Lowongan</a></li>
+                    <li><a class="nav-link scrollto" href="/industri/lowongan/">Lowongan</a></li>
                     <li><a class="nav-link scrollto" href="/student">Student</a></li>
                     <li><a class="nav-link scrollto" href="/perusahaan">Perusahaan</a></li>
                     <li class="dropdown"><a href="#"><span>

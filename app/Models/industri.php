@@ -18,5 +18,5 @@ class Industri extends Authenticatable
     protected $primaryKey = 'id_industri';
 
     protected $fillable = ['username', 'password', 'nama_industri', 'alamat', 'contact', 'foto', 'deskripsi_industri'];
-    protected $hidden = ['password'];
+    protected $hidden = ['password']; 
 }

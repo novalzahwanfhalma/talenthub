@@ -11,12 +11,18 @@ use App\Models\Pengalaman;
 use App\Models\Prestasi;
 use App\Models\Sertifikasi;
 use App\Models\Bahasa;
+use App\Models\Lowongan;
+use App\Models\Industri;
+use App\Models\Tipe_lowongan;
+use App\Models\Level_lowongan;
+use App\Models\Bidang_lowongan;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\SertifikasiController;
 use App\Http\Controllers\BahasaController;
+use App\Http\Controllers\LowonganController;
 
 
 /*
@@ -168,6 +174,8 @@ Route::get('/cv1', [PortofolioController::class, 'index'])->name('portofolio.ind
 // Route untuk menampilkan form tambah portofolio
 Route::get('/cv1/create-modal', [PortofolioController::class, 'create'])->name('portofolio.create');
 
+Route::get('/cv1/edit-modal', [PortofolioController::class, 'edit'])->name('portofolio.edit');
+
 // Route untuk menyimpan data portofolio
 Route::post('/cv1/store', [PortofolioController::class, 'store'])->name('portofolio.store');
 
@@ -269,13 +277,21 @@ Route::get('/aa', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('/lowonganind', function () {
-    return view('industri/lowongan_ind');
-});
 
 Route::get('/inputind', function () {
     return view('industri/input_lowongan');
 });
+
+Route::get('/industri/lowongan_ind', [LowonganController::class, 'index'])->name('lowongan.index');
+
+// Route untuk menampilkan form tambah lowongan
+Route::get('/industri/inputind', [LowonganController::class, 'create'])->name('lowongan.create');
+
+// Route untuk menyimpan data lowongan
+Route::post('/industri/inputind/store', [LowonganController::class, 'store'])->name('lowongan.store');
+
+Route::DELETE('/industri/inputind/delete/{id_lowongan}', [LowonganController::class, 'destroy'])
+    ->name('lowongan.destroy');
 
 /*
 |--------------------------------------------------------------------------

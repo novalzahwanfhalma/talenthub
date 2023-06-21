@@ -231,12 +231,12 @@
 
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
-                                                    <i class="bi bi-search"></i>Edit</a>
+                                                    <i class="bi bi-search"></i> Edit</a>
                                                     {{--href="/student/edit/{{ $data->nim }}"--}}
                                                 
                                                 <form method="POST" action="/cv3/delete/{{ $data->id_pengalaman }}">  
                                                     @csrf @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1"><i class="bi bi-trash-fill"></i> Hapus</button>
                                                 </form>
                                                 {{--action="/student/delete/{{ $data->nim }}"--}}
                                             </td>

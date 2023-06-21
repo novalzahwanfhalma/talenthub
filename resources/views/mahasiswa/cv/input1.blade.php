@@ -92,7 +92,7 @@
                                 data-bs-target="#myModal">
                                 <i class="bi bi-plus-circle"></i>
                                 Tambah Portofolio
-                            </a>
+                            </a> 
                         </div>
 
                         <!-- Modal -->
@@ -135,7 +135,7 @@
                                                     </div>
 
                                                     <div class="form-group" id="ganti_foto_div" style="display:">
-                                                        <label for="nama">Bukti<b
+                                                        <label for="nama">Bukti Lampiran<b
                                                                 class="text-danger">*</b></label>
                                                         <input placeholder="Upload Foto" type="file"
                                                             accept="image/png, image/jpg, img/jepg" id="foto"
@@ -148,7 +148,7 @@
 
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
-                                                            <label class="required form-label">Link<i
+                                                            <label class="form-label">Link<i
                                                                     class="text-danger">
                                                                     *</i></label>
                                                             <input type="text"
@@ -178,8 +178,8 @@
                                     <tr class="fw-bold fs-6 text-gray-800">
                                         <th class="min-w-0px">No</th>
                                         <th class="min-w-500px">Judul</th>
-                                        <th class="min-w-150px">Deskipsi</th>
-                                        <th class="min-w-200px">Bukti</th>
+                                        <th class="min-w-150px">Deskripsi</th>
+                                        <th class="min-w-200px">Lampiran</th>
                                         <th class="min-w-200px">Link</th>
                                         <th class="min-w-100px">Aksi</th>
                                     </tr>
@@ -194,14 +194,94 @@
                                             <td>{{ $data->link }}</td>
 
                                             <td>
-                                                <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
-                                                    <i class="bi bi-search"></i>Edit</a>
+                                                <a href="/mahasiswa/edit-modal" class="btn btn-sm btn-warning mx-1 my-1" data-bs-toggle="modal" data-bs-target="#EditModal">
+                                                    {{--data toggle dan data target untuk inisialisasi modal mana yang mau dipanggil
+                                                        dlm kasus ini memanggil data target pada div dengan nambahin id (isinya disamain)--}}
+                                                    <i class="bi bi-search"></i>  
+                                                     Edit</a>
+
+                                                    {{--EDIT MODAL--}}
+                                                    
+                                                    <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Portofolio</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="card-body">
+                                                                        <form action="/cv1/edit-modal{{ auth()->user()->nim }}" method="POST" enctype="multipart/form-data">
+                                                                            @csrf @method('PUT')
+                                                                            <input type="hidden" name="old_nim" value="{{ auth()->user()->nim }}">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-12 p-3">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label class="required form-label">Judul<i
+                                                                                                class="text-danger">
+                                                                                                *</i></label>
+                                                                                        <input type="text"
+                                                                                            class="form-control form-control-sm p-2  @error('judul') is-invalid @enderror" value="{{ $data->judul }}" name="judul"
+                                                                                            placeholder="Masukkan Judul"
+                                                                                            fdprocessedid="zt264h">
+                                                                                            @error('nama')
+                                                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                                                            @enderror
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-lg-12 p-3">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label class="required form-label">Deskripsi<i
+                                                                                                class="text-danger">
+                                                                                                *</i></label>
+                                                                                        <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" placeholder="Masukkan Deskripsi"
+                                                                                        >{{ $data->deskripsi }}</textarea>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="form-group" id="ganti_foto_div" style="display:">
+                                                                                    <label for="nama">Bukti Lampiran<b
+                                                                                            class="text-danger">*</b></label>
+                                                                                    <input placeholder="Upload Foto" type="file"
+                                                                                        accept="image/png, image/jpg, img/jepg" id="foto"
+                                                                                        name="bukti"
+                                                                                        class="form-control @error('bukti') is-invalid @enderror" value="{{ $data->bukti }}" >
+                                                                                    @error('bukti')
+                                                                                        <div class="invalid-feedback">{{ $data->bukti }}</div>
+                                                                                    @enderror
+                                                                                </div>
+
+                                                                                <div class="col-lg-12 p-3">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label class="form-label">Link<i
+                                                                                                class="text-danger">
+                                                                                                *</i></label>
+                                                                                        <input type="text"
+                                                                                            class="form-control form-control-sm p-2 @error('link') is-invalid @enderror" value="{{ $data->link }}"
+                                                                                            name="link"
+                                                                                            placeholder="Masukkan Link" fdprocessedid="zt264h">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Tutup</button>
+                                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     {{--href="/student/edit/{{ $data->nim }}"--}}
 
                                                 <form method="POST" action="/cv1/delete/{{ $data->id_portofolio }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1"><i class="bi bi-trash-fill"></i>Hapus</button>
                                                 </form>
                                                 {{-- action="/student/delete/{{ $data->nim }}" --}}
                                             </td>

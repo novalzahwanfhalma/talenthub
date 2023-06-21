@@ -28,7 +28,7 @@ class LoginController extends Controller
 
 
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-            return redirect('/lowongan')->with([
+            return redirect('/lowongan ')->with([
                 'notifikasi' => 'Selamat datang di Talent hub !',
                 'type' => 'success'
             ]);
