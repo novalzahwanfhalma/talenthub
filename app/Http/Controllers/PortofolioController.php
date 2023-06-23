@@ -46,7 +46,7 @@ class PortofolioController extends Controller
         ]);
 
 
-        if ( $request->hasFile('bukti')) {
+        if ($request->hasFile('bukti')) {
             $bukti = $request->file('bukti')->store('public/bukti');
             $bukti = basename($bukti);
         } else {
@@ -70,17 +70,17 @@ class PortofolioController extends Controller
                 $portofolio->bukti = $bukti ? 'bukti/' . $bukti : null;
                 $portofolio->link = $request->link;
 
-            // $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
-            // if ($mahasiswa) {
-            //     $portofolio->nim = $mahasiswa->nim;
-            //     $portofolio->save();
-            // } else {
-            //     // Tangani kasus ketika data mahasiswa tidak ditemukan
-            //     throw new \Exception('Data Mahasiswa tidak ditemukan');
-            // }
+                // $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
+                // if ($mahasiswa) {
+                //     $portofolio->nim = $mahasiswa->nim;
+                //     $portofolio->save();
+                // } else {
+                //     // Tangani kasus ketika data mahasiswa tidak ditemukan
+                //     throw new \Exception('Data Mahasiswa tidak ditemukan');
+                // }
 
 
-                if ( $portofolio->save() ) {
+                if ($portofolio->save()) {
                     return back()->with([
                         'notifikasi' => 'Data Berhasil disimpan !',
                         'type' => 'success'
@@ -91,18 +91,17 @@ class PortofolioController extends Controller
                         'type' => 'error'
                     ]);
                 }
-
             } else {
                 return redirect()->back()->with([
                     'notifikasi' => 'Data mahasiswa tidak ditemukan!',
                     'type' => 'error'
                 ]);
             }
-        // if ($mahasiswa) {
-        //     return redirect()->back()->with('success', 'Registrasi berhasil');
-        // } else {
-        //     return "gagal";
-        // }
+            // if ($mahasiswa) {
+            //     return redirect()->back()->with('success', 'Registrasi berhasil');
+            // } else {
+            //     return "gagal";
+            // }
         }
     }
 
@@ -121,16 +120,16 @@ class PortofolioController extends Controller
             ]);
         }
 
-            if ($portofolio->delete()) {
+        if ($portofolio->delete()) {
 
-                // Hapus file foto jika ada
-                if (!empty($bukti) && Storage::exists($bukti)) {
-                    Storage::delete($bukti);
-                }
-                return redirect()->route('portofolio.index')->with([
-                    'notifikasi' => 'Data berhasil dihapus! ',
-                    'type' => 'success'
-                ]);
+            // Hapus file foto jika ada
+            if (!empty($bukti) && Storage::exists($bukti)) {
+                Storage::delete($bukti);
+            }
+            return redirect()->route('portofolio.index')->with([
+                'notifikasi' => 'Data berhasil dihapus! ',
+                'type' => 'success'
+            ]);
         } else {
             return redirect()->back()->with([
                 'notifikasi' => 'Data gagal dihapus! ',

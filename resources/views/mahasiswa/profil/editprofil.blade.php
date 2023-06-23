@@ -45,6 +45,15 @@
         <!-- ======= Breadcrumbs ======= -->
         <section class="breadcrumbs" style="text-align: center;">
             <div class="container">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <ol style="text-align: center;">
                     <li><a href="/cv1">Portofolio</a></li>
                     <li><a href="/cv2">Pendidikan</a></li>
@@ -53,9 +62,10 @@
                     <li><a href="/cv5">Sertifikat</a></li>
                     <li><a href="/cv6">Bahasa</a></li>
                     <li>
-                        <a>
+                        <a href="/laporan">
                             <button onclick="cetakPDF()"
                                 style="color: #fff; background-color: #2168c5; border: none; border-radius: 7px;">
+                                <i class="bi bi-printer-fill"></i>
                                 Cetak CV
                             </button>
                         </a>
@@ -67,6 +77,15 @@
     </main>
 
     <div class="container pt-5">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="app-main flex-column flex-row-fluid" id="kt_app_main" style="background-color: #779cb4;">
             <div id="kt_app_content" class="app-content flex-column-fluid py-3 py-lg-6">
                 <div id="kt_app_content_container" class="app-container container-xxl">
@@ -84,9 +103,9 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <form method="POST" action="" enctype="multipart/form-data">
-                                        <input type="hidden" name="_token"
-                                            value="QzikhfB5RhL9odgFXj3QcGV1vVYpTTwuy43ulwVh">
+                                    <form method="POST" action="/mahasiswa/profil/editprofil/{{ $mahasiswa->nim }}"
+                                        enctype="multipart/form-data">
+                                        @csrf @method('PUT')
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <h5 class="mb-10 pt-5 ps-1">Foto Profil</h5>
@@ -122,40 +141,56 @@
                                                     <label class="required form-label">Nama<i class="text-danger">
                                                             *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="name" value="{{ Auth::user()->nama_mhs }}" placeholder="Masukkan Nama"
-                                                        fdprocessedid="zt264h">
+                                                        name="nama_mhs"
+                                                        value="{{ old('nama_mhs', $mahasiswa->nama_mhs) }}"
+                                                        placeholder="Masukkan Nama" fdprocessedid="zt264h">
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-12 p-3">
                                                 <div class="form-group mb-10">
-                                                    <label class="required form-label">Perguruan Tinggi<i
+                                                    <label class="required form-label">Deskripsi<i
                                                             class="text-danger">
                                                             *</i></label>
-                                                    <input type="text" class="form-control form-control-sm p-2"
-                                                        name="name" value=""
-                                                        placeholder="Masukkan Perguruan Tinggi"
-                                                        fdprocessedid="zt264h">
+                                                    <textarea class="form-control form-control-sm p-2" name="deskripsi"
+                                                        value="{{ old('deskripsi', $mahasiswa->deskripsi) }}" placeholder="Alamat Perusahaan" style="height: 100px">
+                                                        </textarea>
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-12 p-3">
+                                            <div class="col-lg-4 p-3">
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">NIM<i class="text-danger">
                                                             *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="name" value="{{ Auth::user()->nim }}" placeholder="Masukkan NIM"
-                                                        fdprocessedid="zt264h">
+                                                        name="nim" value="{{ old('nim', $mahasiswa->nim) }}"
+                                                        placeholder="Masukkan NIM" fdprocessedid="zt264h" disabled>
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-12 p-3">
+                                            <div class="col-lg-4 p-3">
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">IPK<i class="text-danger">
                                                             *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="name" value="" placeholder="Masukkan IPK"
-                                                        fdprocessedid="zt264h">
+                                                        name="ipk" value="{{ old('ipk', $mahasiswa->ipk) }}"
+                                                        placeholder="Masukkan IPK" fdprocessedid="zt264h">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 p-3">
+                                                <div class="form-group mb-10">
+                                                    <label class="required form-label">Jenis Kelamin<i
+                                                            class="text-danger">
+                                                            *</i></label>
+                                                    <select class="form-select form-select-sm p-2"
+                                                        name="jenis_kelamin" tabindex="-1" aria-hidden="true">
+                                                        <option value="0" disabled selected>Pilih Jenis Kelamin
+                                                        </option>
+                                                        <option value="Laki - laki">Laki - laki</option>
+                                                        <option value="Perempuan">Perempuan</option>
+                                                    </select>
+
                                                 </div>
                                             </div>
 
@@ -163,41 +198,15 @@
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Program Studi<i
                                                             class="text-danger"> *</i></label>
-                                                    <select class="form-select form-select-sm p-2"
-                                                        name="company_type_id" placeholder="Pilih Tipe Perusahaan"
-                                                        tabindex="-1" aria-hidden="true">
+                                                    <select class="form-select form-select-sm p-2" name="id_prodi"
+                                                        placeholder="Pilih Tipe Perusahaan" tabindex="-1"
+                                                        aria-hidden="true">
                                                         <option value="" selected disabled>Pilih Program Studi
                                                         </option>
-                                                        <option value="1">Teknik Informatika</option>
-                                                        <option value="2">Teknik Geomatika</option>
-                                                        <option value="3">Teknik Animasi</option>
-                                                        <option value="4">Teknik Multimedia Dan Jaringan</option>
-                                                        <option value="5">Rekayasa Keamanan Siber</option>
-                                                        <option value="6">Teknologi Rekayasa Perangkat Lunak
-                                                        </option>
-                                                        <option value="7">Akutansi</option>
-                                                        <option value="8">Akutansi Manajerial</option>
-                                                        <option value="9">Administrasi Bisnis Terapan</option>
-                                                        <option value="10">Logistik Perdagangan Internasional
-                                                        </option>
-                                                        <option value="11">Administrasi Bisnis Terapan
-                                                            (Internasional Class)</option>
-                                                        <option value="12">Jalur Cepat Distribusi Barang</option>
-                                                        <option value="13">Teknik Elektronika Manufaktur</option>
-                                                        <option value="14">Teknologi Rekayasa Elektronika</option>
-                                                        <option value="15">Teknik Intrumentasi</option>
-                                                        <option value="16">Teknik Mekatronika</option>
-                                                        <option value="17">Teknologi Rekayasa Pembangkit Energi
-                                                        </option>
-                                                        <option value="18">Teknik Robotika</option>
-                                                        <option value="19">Teknik Elektro</option>
-                                                        <option value="20">Teknik Mesin</option>
-                                                        <option value="21">Teknik Perawatann Pesawat Udara</option>
-                                                        <option value="22">Teknologi Rekayasa Kontruksi Perkapalan
-                                                        </option>
-                                                        <option value="23">Teknologi Rekayasa pengelasan Dan
-                                                            Fabrikasi</option>
-                                                        <option value="24">Program Profesi Insinyur</option>
+                                                        @foreach ($prodi as $item)
+                                                            <option value="{{ $item->id_prodi }}">
+                                                                {{ $item->nama_prodi }}</option>
+                                                        @endforeach
                                                     </select>
 
 
@@ -208,29 +217,13 @@
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Status<i class="text-danger">
                                                             *</i></label>
-                                                    <select class="form-select form-select-sm p-2"
-                                                        name="company_volume_id" tabindex="-1" aria-hidden="true">
+                                                    <select class="form-select form-select-sm p-2" name="status"
+                                                        tabindex="-1" aria-hidden="true">
                                                         <option value="" disabled selected>Pilih Status
                                                         </option>
-                                                        <option value="1">Aktif</option>
-                                                        <option value="3">Cuti</option>
-                                                        <option value="4">Lulus</option>
-                                                    </select>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6 p-3">
-                                                <div class="form-group mb-10">
-                                                    <label class="required form-label">Jenis Kelamin<i
-                                                            class="text-danger">
-                                                            *</i></label>
-                                                    <select class="form-select form-select-sm p-2" name="city_id"
-                                                        tabindex="-1" aria-hidden="true">
-                                                        <option value="88" disabled selected>Pilih Jenis Kelamin
-                                                        </option>
-                                                        <option value="88">Pria</option>
-                                                        <option value="89">Wanita</option>
+                                                        <option value="Aktif">Aktif</option>
+                                                        <option value="Cuti">Cuti</option>
+                                                        <option value="Lulus">Lulus</option>
                                                     </select>
 
                                                 </div>
@@ -240,8 +233,8 @@
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Alamat<i class="text-danger">
                                                             *</i></label>
-                                                    <textarea class="form-control form-control-sm p-2" name="address" value="{{ Auth::user()->alamat }}" placeholder="Alamat Perusahaan"
-                                                        style="height: 100px">
+                                                    <textarea class="form-control form-control-sm p-2" name="alamat" value="{{ old('alamat', $mahasiswa->alamat) }}"
+                                                        placeholder="Alamat Perusahaan" style="height: 100px">
                                                         </textarea>
                                                 </div>
                                             </div>
@@ -255,8 +248,8 @@
                                                     <label class="required form-label">Email<i class="text-danger">
                                                             *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="email" value="{{ Auth::user()->email }}" placeholder="Masukkan Email"
-                                                        fdprocessedid="9fbpx">
+                                                        name="email" value="{{ old('email', $mahasiswa->email) }}"
+                                                        placeholder="Masukkan Email" fdprocessedid="9fbpx">
                                                 </div>
                                             </div>
 
@@ -265,7 +258,7 @@
                                                     <label class="required form-label">Nomor Telepon<i
                                                             class="text-danger"> *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="phone" value="{{ Auth::user()->no_hp }}"
+                                                        name="no_hp" value="{{ old('no_hp', $mahasiswa->no_hp) }}"
                                                         placeholder="Masukkan Nomor Telepon" fdprocessedid="c3jxsr">
                                                 </div>
                                             </div>
@@ -280,14 +273,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="card-footer">
-                                    <div class="card-title d-flex align-items-center mt-3">
-                                        <!-- mt-3 ditambahin utk padding atas-->
-                                        <h4 class="fw-bold">
 
-                                        </h4>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

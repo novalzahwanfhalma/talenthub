@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class bidang_industri extends Model
+class tipe_industri extends Model
 {
     use HasFactory;
 
-    protected $table = 'bidang_industri';
+    protected $table = 'tipe_industri';
 
     protected $fllable = array(
-        'id_bidang', 'nama_bidang'
+        'id_tipe', 'nama_tipe'
     );
 
 }

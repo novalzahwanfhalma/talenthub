@@ -29,25 +29,25 @@ class PendidikanController extends Controller
             'institusi' => 'required',
             'tahun_mulai' => 'required',
             'tahun_selesai' => 'required',
-            'gelar' => 'required',
+            'jurusan' => 'required',
             'lampiran_pendidikan' => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            
+
 
         ], [
 
             'institusi.required' => 'Institusi harus diisi.',
             'tahun_mulai.required' => 'Tahun mulai harus diisi.',
             'tahun_selesai.required' => 'Tahun selesai harus diisi.',
-            'gelar.required' => 'Gelar harus diisi.',
+            'jurusan.required' => 'Jurusan harus diisi.',
             'lampiran.required' => 'Lampiran harus di-upload.',
             'lampiran_pendidikan.image' => 'Bukti harus berupa gambar.',
             'lampiran_pendidikan.mimes' => 'Tipe file yang diizinkan adalah JPEG, JPG, dan PNG.',
             'lampiran_pendidikan.max' => 'Ukuran file tidak boleh lebih dari 2 MB.',
-            
+
 
 
         ]);
-        
+
 
         if ( $request->hasFile('lampiran_pendidikan')) {
             $lampiran_pendidikan = $request->file('lampiran_pendidikan')->store('public/lampiran_pendidikan');
@@ -60,21 +60,21 @@ class PendidikanController extends Controller
         if ($user) {
             $mahasiswa = Mahasiswa::where('nim', $user->nim)->first();
 
-        
+
             if ($mahasiswa) {
                 $pendidikan = new Pendidikan();
                 $pendidikan->nim = mahasiswa::where('nim', auth()->user()->nim)->value('nim');
                 // Menggunakan model Mahasiswa untuk mendapatkan NIM
                 // $pendidikan->nim = Mahasiswa::user()->nim;
-                
+
                 $pendidikan->institusi = $request->institusi;
                 $pendidikan->tahun_mulai = $request->tahun_mulai;
                 $pendidikan->tahun_selesai = $request->tahun_selesai;
-                $pendidikan->gelar = $request->gelar;
+                $pendidikan->jurusan = $request->jurusan;
                 $pendidikan->lampiran_pendidikan = $lampiran_pendidikan ? 'lamp_pddk/' . $lampiran_pendidikan : null;
-                
 
-                
+
+
 
             // $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
             // if ($mahasiswa) {
@@ -116,7 +116,7 @@ class PendidikanController extends Controller
     {
         // Menambahkan fungsi firstOrFail
         $pendidikan = Pendidikan::where(['id_pendidikan' => $id_pendidikan])->firstOrFail();
-        
+
         // Mengambil data $lampiran_pendidikan
         $lampiran_pendidikan = $pendidikan->lampiran_pendidikan;
 

@@ -17,7 +17,8 @@ use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\SertifikasiController;
 use App\Http\Controllers\BahasaController;
-
+use App\Http\Controllers\ProfilemhsController;
+use App\Models\Industri;
 
 /*
 |--------------------------------------------------------------------------
@@ -249,12 +250,33 @@ Route::post('/cv6/store', [BahasaController::class, 'store'])->name('bahasa.stor
 Route::DELETE('/cv6/delete/{id_bahasa}', [BahasaController::class, 'destroy'])
     ->name('bahasa.destroy');
 
+
+// update user
+// Route::get('/editprof', function () {
+// $mhs;
+// return view('mahasiswa/profil/editprofil',
+// ['mahasiswa' => $mhs]
+// );
+// });
+
+// Route::get('/editprof', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+
+Route::get('/mahasiswa/profil/editprofil/', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+
+Route::put('/mahasiswa/profil/editprofil/{nim}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+
+
+
+Route::get('/industri/profil/profil_ind/', [IndustriController::class, 'edit'])->name('industri.edit');
+
+Route::put('/industri/profil/profil_ind/{id_industri}', [IndustriController::class, 'update'])->name('industri.update');
+
+
 /*
 |--------------------------------------------------------------------------
 | lainnya
 |--------------------------------------------------------------------------
 */
-
 Route::get('/test', function () {
     return view('mahasiswa/test');
 });
@@ -288,7 +310,7 @@ Route::get('/indprof', function () {
 });
 
 Route::get('/profilind', function () {
-    return view('industri/profil_ind');
+    return view('industri/profil/profil_ind');
 });
 
 Route::get('/mhsprof2', function () {

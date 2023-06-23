@@ -82,17 +82,15 @@
                                             </div>
                                             <div class="card-body">
                                                 <p class="mb-0"><strong class="pr-1">Email:</strong>
-                                                    awbisma0@gmail.com</p>
+                                                    {{ Auth::guard('industri')->user()->email }}</p>
                                                 <p class="mb-0"><strong class="pr-1">Kontak:</strong>
                                                     {{ Auth::guard('industri')->user()->contact }}</p>
-                                                <p class="mb-0"><strong class="pr-1">Website:</strong> -</p>
-                                                <div style="margin-top: 10px;">
-                                                    <p>PT Asam Lambung adalah perusahaan yang membuat obat herbal untuk
-                                                        mencegah terjadinya Asam Lambung</p>
-                                                </div>
+                                                <p class="mb-0"><strong class="pr-1">Website:</strong>
+                                                    {{ Auth::guard('industri')->user()->website }}</p>
+
                                                 <div class="social-icons"
                                                     style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
-                                                    <a href="https://www.facebook.com/your-page" target="_blank"
+                                                    <a href="{{ Auth::guard('industri')->user()->facebook }}" target="_blank"
                                                         style="margin-right: 10px;"><i class="fab fa-facebook"
                                                             style="font-size: 24px;"></i></a>
                                                     <a href="https://www.instagram.com/your-account" target="_blank"
@@ -126,32 +124,19 @@
                                                     <tr>
                                                         <th width="30%">Tipe Perusahaan</th>
                                                         <td width="2%">:</td>
-                                                        <td>-</td>
+                                                        <td>{{ \App\Models\tipe_industri::where('id_tipe', Auth::guard('industri')->user()->id_tipe)->first()->nama_tipe }}
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Sektor Usaha</th>
                                                         <td width="2%">:</td>
-                                                        <td>-</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th width="30%">Jumlah Pegawai</th>
-                                                        <td width="2%">:</td>
-                                                        <td>-</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th width="30%">Provinsi</th>
-                                                        <td width="2%">:</td>
-                                                        <td>Kepulauan Riau</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th width="30%">Kota / Kabupaten</th>
-                                                        <td width="2%">:</td>
-                                                        <td>Batam</td>
+                                                        <td>{{ \App\Models\bidang_industri::where('id_bidang', Auth::guard('industri')->user()->id_bidang)->first()->nama_bidang }}
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Email</th>
                                                         <td width="2%">:</td>
-                                                        <td>trplindustri@gmail.com</td>
+                                                        <td>{{ Auth::guard('industri')->user()->email }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Nomor Telepon</th>
@@ -167,10 +152,11 @@
                                     <td>
                                         <form class="text-end">
                                             <button type="submit" class="btn btn-sm btn-warning mr-1"><a
-                                                    href="/profilind" style="color: #fff">Kelola
+                                                    href="/industri/profil/profil_ind" style="color: #fff">
+                                                    Kelola
                                                     Profil</a></button>
                                             <button type="submit" class="btn btn-sm btn-primary mr-1"><a
-                                                    href="/lowongan" style="color: #fff">Simpan</a></button>
+                                                    href="/lowonganind" style="color: #fff">Simpan</a></button>
                                         </form>
                                     </td>
                                 </div>

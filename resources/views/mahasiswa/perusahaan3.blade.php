@@ -56,7 +56,8 @@
                         <article class="entry">
 
                             <div class="entry-img">
-                                <img src="{{ asset('style/assets/img/fitri.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('style/assets/img/58676209.jpg') }}" alt=""
+                                    class="img-fluid">
                             </div>
 
                             <h2 class="entry-title">
@@ -72,11 +73,12 @@
 
                             <div class="entry-content">
                                 <p>
-                                    Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi
-                                    praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                                    Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde
-                                    soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur
-                                    assumenda perferendis dolore.
+                                    PT TRPL Industri adalah perusahaan yang fokus pada pengembangan,
+                                    implementasi, dan penyediaan solusi teknologi informasi (TI) untuk memenuhi
+                                    kebutuhan perusahaan dan organisasi di berbagai sektor. PT tersebut secara
+                                    khusus mengkhususkan diri dalam bidang informatika, yang meliputi pengembangan
+                                    perangkat lunak, pengelolaan infrastruktur TI, keamanan informasi, analisis
+                                    data, dan layanan konsultasi TI.
                                 </p>
                             </div>
 

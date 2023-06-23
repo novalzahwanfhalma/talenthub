@@ -109,8 +109,8 @@
                                                 <p class="mb-0"><strong
                                                         class="pr-1">NIM:</strong>{{ Auth::user()->nim }}</p>
                                                 <p class="mb-0"><strong class="pr-1">Program
-                                                        Studi:</strong>Teknologi
-                                                    Rekayasa Perangkat Lunak</p>
+                                                        Studi:</strong>{{ \App\Models\Prodi::where('id_prodi', Auth::user()->id_prodi)->first()->nama_prodi }}
+                                                </p>
                                                 <p class="mb-0"><strong
                                                         class="pr-1">Email:</strong>{{ Auth::user()->email }}
                                                 </p>
@@ -142,30 +142,31 @@
                                                         <td>{{ Auth::user()->nim }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th width="30%">Perguruan Tinggi</th>
+                                                        <th width="30%">Deskripsi</th>
                                                         <td width="2%">:</td>
-                                                        <td>Politeknik Negeri Batam</td>
+                                                        <td>{{ Auth::user()->deskripsi }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">IPK</th>
                                                         <td width="2%">:</td>
-                                                        <td>Belum diketahui</td>
+                                                        <td>{{ Auth::user()->ipk }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Program Studi</th>
                                                         <td width="2%">:</td>
-                                                        <td> D4 Teknologi Rekayasa Perangkat Lunak</td>
+                                                        <td>{{ \App\Models\Prodi::where('id_prodi', Auth::user()->id_prodi)->first()->nama_prodi }}
+                                                        </td>
                                                     </tr>
 
                                                     <tr>
                                                         <th width="30%">Status</th>
                                                         <td width="2%">:</td>
-                                                        <td>Aktif</td>
+                                                        <td>{{ Auth::user()->status }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Jenis Kelamin</th>
                                                         <td width="2%">:</td>
-                                                        <td>Laki-laki</td>
+                                                        <td>{{ Auth::user()->jenis_kelamin }}</td>
                                                     </tr>
                                                     <tr>
                                                         <th width="30%">Alamat</th>
@@ -190,7 +191,7 @@
                                     <td>
                                         <form class="text-end">
                                             <button type="submit" class="btn btn-sm btn-warning mr-1"><a
-                                                    href="/editprof" style="color: #fff">Kelola
+                                                    href="/mahasiswa/profil/editprofil" style="color: #fff">Kelola
                                                     Profil</a></button>
                                             <button type="submit" class="btn btn-sm btn-primary mr-1"><a
                                                     href="/lowongan" style="color: #fff">Simpan</a></button>

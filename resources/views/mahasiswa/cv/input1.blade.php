@@ -47,7 +47,7 @@
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li>{{$error}}</li>
+                                <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -128,8 +128,7 @@
                                                             <label class="required form-label">Deskripsi<i
                                                                     class="text-danger">
                                                                     *</i></label>
-                                                            <textarea class="form-control" name="deskripsi" placeholder="Masukkan Deskripsi"
-                                                                minlength="4">
+                                                            <textarea class="form-control" name="deskripsi" placeholder="Masukkan Deskripsi" minlength="4">
                                                             </textarea>
                                                         </div>
                                                     </div>
@@ -196,22 +195,22 @@
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
                                                     <i class="bi bi-search"></i>Edit</a>
-                                                    {{--href="/student/edit/{{ $data->nim }}"--}}
+                                                {{-- href="/student/edit/{{ $data->nim }}" --}}
 
                                                 <form method="POST" action="/cv1/delete/{{ $data->id_portofolio }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                    <button type="submit"
+                                                        class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
                                                 </form>
                                                 {{-- action="/student/delete/{{ $data->nim }}" --}}
                                             </td>
 
-                                            @empty
+                                        @empty
                                             <td colspan="6" class="text-center">
                                                 <h6 class="fw-bolder fs-7">Tidak ada data</h6>
                                             </td>
                                         </tr>
-
                                     @endforelse
 
 

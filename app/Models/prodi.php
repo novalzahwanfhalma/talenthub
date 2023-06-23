@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Portofolio extends Model
+class Prodi extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'prodi';
 
     protected $fllable = array(
-        'id_prodi', 'prodi'
+        'id_prodi', 'nama_prodi'
     );
 
-    public function mahasiswa(){
+    public function mahasiswa()
+    {
         return belongsTo(mahasiswa::class, 'nim');
     }
+    
 }
