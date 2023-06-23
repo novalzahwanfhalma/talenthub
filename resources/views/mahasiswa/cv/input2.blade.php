@@ -215,9 +215,109 @@
                                             <td>{{ $data->lampiran_pendidikan }}</td>
 
                                             <td>
-                                                <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
+                                                <a href="/mahasiswa/edit-modal" class="btn btn-sm btn-warning mx-1 my-1" data-bs-toggle="modal" data-bs-target="#EditModal">
                                                     <i class="bi bi-search"></i> Edit</a>
                                                     {{--href="/student/edit/{{ $data->nim }}"--}}
+
+
+                                                    {{--EDIT MODAL--}}
+
+                                                    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Pendidikan</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="card-body">
+                                                                        <form method="POST" action="/cv2/edit-modal/{{ $data->id_pendidikan }}" enctype="multipart/form-data">
+                                                                            @csrf  @method('PUT')
+                                                                            <input type="hidden" name="nim" value="{{ auth()->user()->nim }}">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-12 p-3">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label class="required form-label">Institusi<i
+                                                                                                class="text-danger">
+                                                                                                *</i></label>
+                                                                                        <input type="text"
+                                                                                            class="form-control form-control-sm p-2 @error('judul') is-invalid @enderror" value="{{ $data->judul }}" name="judul" name="institusi"
+                                                                                            value="" placeholder="Masukkan Institusi"
+                                                                                            fdprocessedid="zt264h">
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-lg-12 p-3">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label class="required form-label">Tahun Mulai<i
+                                                                                                class="text-danger">*</i></label>
+                                                                                                <select class="form-control form-control-sm p-2" name="tahun_mulai" placeholder="Masukkan Tahun Selesai" fdprocessedid="zt264h">
+                                                                                                    <?php
+                                                                                                    $currentYear = date('Y');
+                                                                                                    for ($i = $currentYear; $i >= 1900; $i--) {
+                                                                                                        echo "<option value=\"$i\">$i</option>";
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </select>
+
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-lg-12 p-3">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label class="required form-label">Tahun Selesai<i
+                                                                                                class="text-danger">*</i></label>
+                                                                                                <select class="form-control form-control-sm p-2" name="tahun_selesai" placeholder="Masukkan Tahun Selesai" fdprocessedid="zt264h">
+                                                                                                    <?php
+                                                                                                    $currentYear = date('Y');
+                                                                                                    for ($i = $currentYear; $i >= 1900; $i--) {
+                                                                                                        echo "<option value=\"$i\">$i</option>";
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </select>
+
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-lg-12 p-3">
+                                                                                    <div class="form-group mb-10">
+                                                                                        <label class="required form-label">Jurusan<i
+                                                                                                class="text-danger">
+                                                                                                *</i></label>
+                                                                                        <input type="text"
+                                                                                            class="form-control form-control-sm p-2"
+                                                                                            name="jurusan" value=""
+                                                                                            placeholder="Masukkan Gelar" fdprocessedid="zt264h">
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="form-group" id="ganti_foto_div" style="display:">
+                                                                                    <label for="nama">Lampiran Pendidikan<b
+                                                                                            class="text-danger">*</b></label>
+                                                                                    <input placeholder="Upload Foto" type="file"
+                                                                                        accept="image/png, image/jpg, img/jepg" id="foto"
+                                                                                        name="lampiran_pendidikan"
+                                                                                        class="form-control @error('lampiran_pendidikan') is-invalid @enderror">
+                                                                                    @error('lampiran_pendidikan')
+                                                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                                                    @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary"
+                                                                                    data-bs-dismiss="modal">Tutup</button>
+                                                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
 
                                                 <form method="POST" action="/cv2/delete/{{ $data->id_pendidikan }}">
                                                     @csrf @method('DELETE')

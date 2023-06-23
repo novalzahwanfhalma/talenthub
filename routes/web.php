@@ -174,7 +174,7 @@ Route::get('/cv1', [PortofolioController::class, 'index'])->name('portofolio.ind
 // Route untuk menampilkan form tambah portofolio
 Route::get('/cv1/create-modal', [PortofolioController::class, 'create'])->name('portofolio.create');
 
-Route::get('/cv1/edit-modal', [PortofolioController::class, 'edit'])->name('portofolio.edit');
+Route::PUT('/cv1/edit-modal/{id_portofolio}', [PortofolioController::class, 'update'])->name('portofolio.update');
 
 // Route untuk menyimpan data portofolio
 Route::post('/cv1/store', [PortofolioController::class, 'store'])->name('portofolio.store');
@@ -208,6 +208,8 @@ Route::get('/cv3/create-modal', [PengalamanController::class, 'create'])->name('
 
 // Route untuk menyimpan data pengalaman
 Route::post('/cv3/store', [PengalamanController::class, 'store'])->name('pengalaman.store');
+
+Route::PUT('/cv3/edit-modal/{id_pengalaman}', [PengalamanController::class, 'update'])->name('pengalaman.update');
 
 Route::DELETE('/cv3/delete/{id_pengalaman}', [PengalamanController::class, 'destroy'])
     ->name('pengalaman.destroy');
@@ -293,6 +295,10 @@ Route::post('/industri/inputind/store', [LowonganController::class, 'store'])->n
 Route::DELETE('/industri/inputind/delete/{id_lowongan}', [LowonganController::class, 'destroy'])
     ->name('lowongan.destroy');
 
+Route::get('/lowongan/edit_lowongan/{id_lowongan}', [LowonganController::class, 'edit'])
+    ->name('lowongan.edit');
+Route::PUT('/lowongan/edit_lowongan/{id_lowongan}', [LowonganController::class, 'update'])
+    ->name('lowongan.update');
 /*
 |--------------------------------------------------------------------------
 | industri (PROFILE)

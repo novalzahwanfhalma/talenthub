@@ -131,5 +131,67 @@ class PengalamanController extends Controller
         }
     }
 
+    public function update(Request $request, string $id_pengalaman)
+    {
+        $pengalaman = Pengalaman::where('id_pengalaman', $id_pengalaman)->firstOrFail();
+
+        // ddd($request->old_nim, $request->nim);
+        $validatedData = $request->validate([
+            'nim' => [
+                'required',
+                // 'unique:pengalaman,nim,' . $request->old_nim . ',nim',
+            ],
+            'judul' => 'required',
+            'perusahaan' => 'required',
+            'lokasi' => 'required',
+            'tgl_mulai' => 'required',
+            'tgl_selesai' => 'required',
+            'tipe' => 'required',
+            
+
+        ], [
+
+            'nim.required' => 'NIM harus diisi.',
+            'judul.required' => 'Judul sudah digunakan.',
+            'perusahaan.required' => 'Nama Perusahaan harus diisi.',
+            'lokasi.required' => 'Lokasi harus diisi.',
+            'tgl_mulai.required' => 'Tanggal mulai harus diisi.',
+            'tgl_selesai.required' => 'Tanggal selesai harus diisi.',
+            'tipe.required' => 'Tipe pengalaman harus diisi.',
+            
+        ]);
+        
+
+        $pengalaman->nim = $request->nim;
+        $pengalaman->judul = $request->judul;
+        $pengalaman->perusahaan = $request->perusahaan;
+        $pengalaman->lokasi = $request->lokasi;
+        $pengalaman->tgl_mulai = $request->tgl_mulai;
+        $pengalaman->tgl_selesai = $request->tgl_selesai;
+        $pengalaman->tipe = $request->tipe;
+
+        // $pengalaman->bukti = $bukti ?? null;
+        
+        if ($pengalaman->save()) {
+            
+            // // Hapus file bukti lama jika ada dan jika ganti bukti
+            // if ($request->ganti_bukti == 1) {
+
+            //     if (!empty($old_bukti) && Storage::exists($old_bukti)) {
+            //         Storage::delete($old_bukti);
+            //     }
+            // }
+            
+            return back()->with([
+                'notifikasi' => 'Data Berhasil diedit !',
+                'type' => 'success'
+            ]);
+        } else {
+            return back()->with([
+                    'notifikasi' => 'Data gagal diedit !',
+                    'type' => 'error'
+                ]);
+        }
+    }
 
 }

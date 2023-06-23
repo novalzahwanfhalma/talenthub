@@ -62,15 +62,15 @@
                             <div class="card border">
                                 <div class="card-header">
                                     <div class="card-title mt-3">
-                                        <h4 class="fw-bold"><i class="bi bi-briefcase text-dark fs-3 me-2"></i>Tambah
-                                            Lowongan Pekerjaan</h4>
+                                        <h4 class="fw-bold"><i class="bi bi-briefcase text-dark fs-3 me-2"></i>
+                                            Edit Lowongan Pekerjaan</h4>
                                     </div>
                                 </div>
 
                                 <div class="card-body">
-                                    <form method="POST" action="/industri/inputind/store" enctype="multipart/form-data">
+                                    <form method="POST" action="/lowongan/edit_lowongan/{{ $lowongan->id_lowongan }}" enctype="multipart/form-data">
                                         <!--action utk kemana data dikirim, ingat han-->
-                                        @csrf
+                                        @csrf @method('PUT')
                                             <input type="hidden" name="id_industri" value="{{ auth()->guard('industri')->user()->id_industri }}">
                                         <div class="row">
                                             <div class="col-lg-12 p-3">
@@ -78,7 +78,7 @@
                                                     <label class="required form-label">Judul Lowongan<i
                                                             class="text-danger"> *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="judul" value=""
+                                                        name="judul" value="{{ $lowongan->judul }}"
                                                         placeholder="Masukkan Judul Lowongan" fdprocessedid="lgb33s">
                                                 </div>
                                             </div>
@@ -91,11 +91,11 @@
                                                         tabindex="-1" aria-hidden="true">
                                                         <option value="" selected disabled>Pilih Tipe Pekerjaan
                                                         </option>
-                                                        <option value="1">Karyawan Kontrak</option>
-                                                        <option value="2">Karyawan Tetap</option>
-                                                        <option value="3">Magang</option>
-                                                        <option value="4">Paruh Waktu</option>
-                                                        <option value="5">Remote</option>
+                                                        <option value="1" {{ $lowongan->id_tipe == '1' ? 'selected' : '' }}>Karyawan Kontrak</option>
+                                                        <option value="2" {{ $lowongan->id_tipe == '2' ? 'selected' : '' }}>Karyawan Tetap</option>
+                                                        <option value="3" {{ $lowongan->id_tipe == '3' ? 'selected' : '' }}>Magang</option>
+                                                        <option value="4" {{ $lowongan->id_tipe == '4' ? 'selected' : '' }}>Paruh Waktu</option>
+                                                        <option value="5" {{ $lowongan->id_tipe == '5' ? 'selected' : '' }}>Remote</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -110,10 +110,10 @@
                                                         tabindex="-1" aria-hidden="true">
                                                         <option value="" disabled selected>Pilih Tingkat Pekerjaan
                                                         </option>
-                                                        <option value="1">Internship</option>
-                                                        <option value="2">Entry Level</option>
-                                                        <option value="3">Mid Level</option>
-                                                        <option value="4">Senior Level</option>
+                                                        <option value="1" {{ $lowongan->id_level == '1' ? 'selected' : '' }}>Internship</option>
+                                                        <option value="2" {{ $lowongan->id_level == '2' ? 'selected' : '' }}>Entry Level</option>
+                                                        <option value="3" {{ $lowongan->id_level == '3' ? 'selected' : '' }}>Mid Level</option>
+                                                        <option value="4" {{ $lowongan->id_level == '4' ? 'selected' : '' }}>Senior Level</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -126,16 +126,16 @@
                                                         tabindex="-1" aria-hidden="true">
                                                         <option value="" disabled selected>Pilih Bidang Pekerjaan
                                                         </option>
-                                                        <option value="1">Programming &amp; Software Development
+                                                        <option value="1" {{ $lowongan->id_bidang == '1' ? 'selected' : '' }}>Programming &amp; Software Development
                                                         </option>
-                                                        <option value="2">IT Consultancy &amp; Advisory</option>
-                                                        <option value="3">Network &amp; Infrastructure</option>
-                                                        <option value="4">Data Management System</option>
-                                                        <option value="5">IT Security &amp; Compliance</option>
-                                                        <option value="6">Information System &amp; Technology Development</option>
-                                                        <option value="7">Sales</option>
-                                                        <option value="8">Desain Komunikasi Visual</option>
-                                                        <option value="9">Administrasi</option>
+                                                        <option value="2" {{ $lowongan->id_bidang == '2' ? 'selected' : '' }}>IT Consultancy &amp; Advisory</option>
+                                                        <option value="3" {{ $lowongan->id_bidang == '3' ? 'selected' : '' }}>Network &amp; Infrastructure</option>
+                                                        <option value="4" {{ $lowongan->id_bidang == '4' ? 'selected' : '' }}>Data Management System</option>
+                                                        <option value="5" {{ $lowongan->id_bidang == '5' ? 'selected' : '' }}>IT Security &amp; Compliance</option>
+                                                        <option value="6" {{ $lowongan->id_bidang == '6' ? 'selected' : '' }}>Information System &amp; Technology Development</option>
+                                                        <option value="7" {{ $lowongan->id_bidang == '7' ? 'selected' : '' }}>Sales</option>
+                                                        <option value="8" {{ $lowongan->id_bidang == '8' ? 'selected' : '' }}>Desain Komunikasi Visual</option>
+                                                        <option value="9" {{ $lowongan->id_bidang == '9' ? 'selected' : '' }}>Administrasi</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -145,7 +145,7 @@
                                                     <label class="required form-label">Daya Tampung<i
                                                             class="text-danger"> *</i></label>
                                                     <input type="text" class="form-control form-control-sm p-2"
-                                                        name="daya_tampung" value=""
+                                                        name="daya_tampung" value="{{ $lowongan->daya_tampung }}"
                                                         placeholder="Masukkan Judul Lowongan" fdprocessedid="lgb33s">
                                                 </div>
                                             </div>
@@ -155,7 +155,7 @@
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Kriteria (Minimal 500
                                                         Karakter)<i class="text-danger"> *</i></label>
-                                                    <textarea id="description" name="kriteria" class="form-control form-control-sm p-2" rows="7" oninput="countCharacters()"></textarea>
+                                                    <textarea id="description" name="kriteria" class="form-control form-control-sm p-2" rows="7" oninput="countCharacters()">{{ $lowongan->kriteria }}</textarea>
                                                     <span id="characterCount">0</span> characters
                                                 </div>
                                             </div>
@@ -169,7 +169,7 @@
                                             <div class="col-lg-12 p-3">
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Alamat Lengkap<i class="text-danger"> *</i></label>
-                                                    <textarea name="lokasi" class="form-select form-select-sm p-2" placeholder="Masukkan Alamat Lengkap"></textarea>
+                                                    <textarea name="lokasi" class="form-select form-select-sm p-2" placeholder="Masukkan Alamat Lengkap">{{ $lowongan->lokasi }}</textarea>
                                                 </div>
                                             </div>
 
@@ -183,7 +183,7 @@
                                                             class="text-danger"> *</i></label>
                                                     <div class="input-group">
                                                         <span class="input-group-text">Rp.</span>
-                                                        <input type="text" class="form-control form-control-sm p-2 currencyIDR" name="minimal_gaji" value="" placeholder="Masukkan Minimal Gaji" inputmode="text"
+                                                        <input type="text" class="form-control form-control-sm p-2 currencyIDR" name="minimal_gaji" value="{{ $lowongan->minimal_gaji }}" placeholder="Masukkan Minimal Gaji" inputmode="text"
                                                             fdprocessedid="9kodl">
                                                     </div>
                                                 </div>
@@ -194,7 +194,7 @@
                                                     <label class="required form-label">Maksimal Gaji<i class="text-danger"> *</i></label>
                                                     <div class="input-group">
                                                         <span class="input-group-text">Rp.</span>
-                                                        <input type="text" class="form-control form-control-sm p-2 currencyIDR" name="maksimal_gaji" value=""
+                                                        <input type="text" class="form-control form-control-sm p-2 currencyIDR" name="maksimal_gaji" value="{{ $lowongan->maksimal_gaji }}"
                                                             placeholder="Masukkan Minimal Gaji" inputmode="text" fdprocessedid="9kodl">
                                                     </div>
                                                 </div>
@@ -208,7 +208,7 @@
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Tanggal Buka Pendaftaran<i class="text-danger"> *</i></label>
                                                     <div class="input-group">
-                                                        <input class="form-control form-control-sm p-2" name="tanggal_buka" value="" placeholder="Masukkan Tanggal Buka Pendaftaran">
+                                                        <input class="form-control form-control-sm p-2" name="tanggal_buka" value="{{ $lowongan->tanggal_buka }}" placeholder="Masukkan Tanggal Buka Pendaftaran">
                                                         <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                                                     </div>
                                                 </div>
@@ -219,7 +219,7 @@
                                                     <label class="required form-label">Tanggal Tutup Pendaftaran<i
                                                             class="text-danger"> *</i></label>
                                                     <div class="input-group">
-                                                        <input class="form-control form-control-sm p-2" name="tanggal_tutup" value="" placeholder="Masukkan Tanggal Tutup Pendaftaran">
+                                                        <input class="form-control form-control-sm p-2" name="tanggal_tutup" value="{{ $lowongan->tanggal_tutup }}" placeholder="Masukkan Tanggal Tutup Pendaftaran">
                                                         <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                                                     </div>
                                                 </div>

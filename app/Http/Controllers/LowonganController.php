@@ -29,7 +29,7 @@ class LowonganController extends Controller
 
             'judul' => 'required',
             'daya_tampung' => 'required',
-            'deskripsi' => 'required',
+            'kriteria' => 'required',
             'lokasi' => 'required',
             'tanggal_buka' => 'required',
             'tanggal_tutup' => 'required',
@@ -43,7 +43,7 @@ class LowonganController extends Controller
 
             'judul.required' => 'Judul harus diisi.',
             'daya_tampung.required' => 'Daya Tampung harus diisi.',
-            'deskripsi.required' => 'Deskripsi harus diisi.',
+            'kriteria.required' => 'Deskripsi harus diisi.',
             'lokasi.required' => 'Lokasi harus diisi.',
             'tanggal_buka.required' => 'Tanggal buka harus diisi.',
             'tanggal_tutup.required' => 'Tanggal tutup harus diisi.',
@@ -68,7 +68,7 @@ class LowonganController extends Controller
                 
                 $lowongan->judul = $request->judul;
                 $lowongan->daya_tampung = $request->daya_tampung;
-                $lowongan->deskripsi = $request->deskripsi;
+                $lowongan->kriteria = $request->kriteria;
                 $lowongan->lokasi = $request->lokasi;
                 $lowongan->tanggal_buka = $request->tanggal_buka;
                 $lowongan->tanggal_tutup = $request->tanggal_tutup;
@@ -132,5 +132,84 @@ class LowonganController extends Controller
             ]);
         }
     }
+
+    public function edit(string $id_lowongan)
+    {
+        $lowongan = Lowongan::where(['id_lowongan' => $id_lowongan ]);
+
+        if ( $lowongan->count() < 1 ) {
+            return redirect('/lowongan_ind')->with([
+                'notifikasi' => 'Data siswa tidak ditemukan !',
+                'type' => 'error'
+            ]);
+ 
+        }
+
+        return view('/industri/edit_lowongan', ['lowongan' => $lowongan->first() ]);
+    }
+
+    public function update(Request $request, string $id_lowongan)
+    {
+        $lowongan = Lowongan::where('id_lowongan', $id_lowongan)->firstOrFail();
+
+        // ddd($request->old_nim, $request->nim);
+        $validatedData = $request->validate([
+            
+            'judul' => 'required',
+            'daya_tampung' => 'required',
+            'kriteria' => 'required',
+            'lokasi' => 'required',
+            'tanggal_buka' => 'required',
+            'tanggal_tutup' => 'required',
+            'minimal_gaji' => 'required',
+            'maksimal_gaji' => 'required',
+            'id_tipe' => 'required',
+            'id_level' => 'required',
+            'id_bidang' => 'required',
+        ], [
+
+            
+            'judul.required' => 'Judul harus diisi.',
+            'daya_tampung.required' => 'Daya Tampung harus diisi.',
+            'kriteria.required' => 'Deskripsi harus diisi.',
+            'lokasi.required' => 'Lokasi harus diisi.',
+            'tanggal_buka.required' => 'Tanggal buka harus diisi.',
+            'tanggal_tutup.required' => 'Tanggal tutup harus diisi.',
+            'minimal_gaji.required' => 'Minimal gaji harus diisi.',
+            'maksimal_gaji.required' => 'Maksimal gaji harus diisi.',
+            'id_tipe.required' => 'Tipe harus diisi.',
+            'id_level.required' => 'Level harus diisi.',
+            'id_bidang.required' => 'Bidang harus diisi.',
+            
+        ]);
+
+        
+        $lowongan->judul = $request->judul;
+        $lowongan->daya_tampung = $request->daya_tampung;
+        $lowongan->kriteria = $request->kriteria;
+        $lowongan->lokasi = $request->lokasi;
+        $lowongan->tanggal_buka = $request->tanggal_buka;
+        $lowongan->tanggal_tutup = $request->tanggal_tutup;
+        $lowongan->minimal_gaji = $request->minimal_gaji;
+        $lowongan->maksimal_gaji = $request->maksimal_gaji;
+        $lowongan->id_tipe = $request->id_tipe;
+        $lowongan->id_level = $request->id_level;
+        $lowongan->id_bidang = $request->id_bidang;
+            
+        
+        if ($lowongan->save()) {
+            return redirect('/industri/lowongan_ind')->with([
+                'notifikasi' => 'Data Berhasil diedit !',
+                'type' => 'success'
+            ]);
+        } else {
+            return redirect()->back()->with([
+                    'notifikasi' => 'Data gagal diedit !',
+                    'type' => 'error'
+                ]);
+        }
+    }
+
+
 
 }

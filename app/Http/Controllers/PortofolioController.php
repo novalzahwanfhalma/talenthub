@@ -29,17 +29,18 @@ class PortofolioController extends Controller
 
             'judul' => 'required',
             'deskripsi' => 'required',
-            'bukti' => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'link' => ''
+            'bukti' => 'required|file|mimes:pdf|max:2048',
+            'link' => 'nullable|url',
 
         ], [
 
             'judul.required' => 'Judul sudah digunakan.',
             'deskripsi.required' => 'Deskripsi harus diisi.',
             'bukti.required' => 'Bukti harus di-upload.',
-            'bukti.image' => 'Bukti harus berupa gambar.',
-            'bukti.mimes' => 'Tipe file yang diizinkan adalah JPEG, JPG, dan PNG.',
+            'bukti.image' => 'Bukti harus berupa file.',
+            'bukti.mimes' => 'Tipe file yang diizinkan adalah PDF.',
             'bukti.max' => 'Ukuran file tidak boleh lebih dari 2 MB.',
+            'link.url' => 'Link harus berupa URL',
 
 
 
@@ -111,7 +112,7 @@ class PortofolioController extends Controller
         // Menambahkan fungsi firstOrFail
         $portofolio = Portofolio::where(['id_portofolio' => $id_portofolio])->firstOrFail();
 
-        // Mengambil data foto
+        // Mengambil data bukti
         $bukti = $portofolio->bukti;
 
         if ($portofolio->count() < 1) {
@@ -123,7 +124,7 @@ class PortofolioController extends Controller
 
             if ($portofolio->delete()) {
 
-                // Hapus file foto jika ada
+                // Hapus file bukti jika ada
                 if (!empty($bukti) && Storage::exists($bukti)) {
                     Storage::delete($bukti);
                 }
@@ -139,100 +140,79 @@ class PortofolioController extends Controller
         }
     } 
 
-    public function edit(string $id)
+    public function update(Request $request, string $id_portofolio)
     {
-        $portofolio = Portofolio::where(['nim' => $nim ]);
-
-        if ( $portofolio->count() < 1 ) {
-            return redirect('/cv1/edit-modal')->with([
-                'notifikasi' => 'Data siswa tidak ditemukan !',
-                'type' => 'error'
-            ]);
-
-        }
-
-        return view('portofolio.index', ['portofolio' => $portofolio->first() ]);
-    }
-
-    public function update(Request $request, string $nim)
-    {
-        $portofolio = Portofolio::where('nim', $nim)->firstOrFail();
+        $portofolio = Portofolio::where('id_portofolio', $id_portofolio)->firstOrFail();
 
         // ddd($request->old_nim, $request->nim);
         $validatedData = $request->validate([
             'nim' => [
                 'required',
-                'unique:portofolios,nim,' . $request->old_nim . ',nim',
+                'unique:portofolio,nim,' . $request->old_nim . ',nim',
             ],
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'bukti' => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'link' => '-',
+            'judul' => '',
+            'deskripsi' => '',
+            'link' => '',
         ], [
+            'nim.required' => 'NIM harus diisi.',
             'judul.required' => 'Judul harus diisi.',
             'deskripsi.required' => 'Deskripsi harus diisi.',
-            'bukti.required' => 'Bukti harus di-upload.',
-            'bukti.image' => 'Bukti harus berupa gambar.',
-            'bukti.mimes' => 'Tipe file yang diizinkan adalah JPEG, JPG, dan PNG.',
-            'bukti.max' => 'Ukuran file tidak boleh lebih dari 2 MB.',
         ]);
 
 
         // Cek Apakah Ganti Foto
-        if ($request->ganti_foto == 1) {
+        if ($request->ganti_bukti == 1) {
             $request->validate([
-                'foto' => [
-                'required',
-                // validasi 
-                'mimes:jpeg,jpg,png',
-                'max:2048'
-
+                'bukti' => [
+                    'required',
+                    'mimes:jpeg,jpg,png',
+                    'max:2048'
                 ]
             ], [
-                'foto.required' => 'Foto harus di-upload.',
-                // lanjutan validasi
-                'foto.mimes' => 'Foto harus berformat jpeg, jpg, atau png.',
-                'foto.max' => 'Foto tidak boleh lebih dari 2 MB.',
+                'bukti.required' => 'Bukti harus di-upload.',
+                'bukti.mimes' => 'Bukti harus berformat JPEG, JPG, dan PNG.',
+                'bukti.max' => 'Bukti tidak boleh lebih dari 2 MB.',
             ]);
 
-            if ($request->hasFile('foto')) {
-                $foto = $request->file('foto')->store('public/foto');
-                $foto = basename($foto);
-                $foto = 'foto/' . $foto;
+            if ($request->hasFile('bukti')) {
+                $bukti = $request->file('bukti')->store('public/storage/bukti');
+                $bukti = basename($bukti);
+                $bukti = 'bukti/' . $bukti;
             } else {
-                $foto = null;
+                $bukti = null;
             }
         } else {
-            $foto = $portofolio->foto;
+            $bukti = $portofolio->bukti;
         }
 
-        // Foto Lama
-        $old_foto = $portofolio->foto;
+        // Bukti Lama
+        $old_bukti = $portofolio->bukti;
+
         
         $portofolio->nim = $request->nim;
         $portofolio->judul = $request->judul;
         $portofolio->deskripsi = $request->deskripsi;
-        $portofolio->bukti = $request->bukti;
+        $portofolio->bukti = $bukti ?? null;;
         $portofolio->link = $request->link;
 
-        $portofolio->foto = $foto ?? null;
+        // $portofolio->bukti = $bukti ?? null;
         
         if ($portofolio->save()) {
             
-            // Hapus file foto lama jika ada dan jika ganti foto
-            if ($request->ganti_foto == 1) {
+            // Hapus file bukti lama jika ada dan jika ganti bukti
+            if ($request->ganti_bukti == 1) {
 
-                if (!empty($old_foto) && Storage::exists($old_foto)) {
-                    Storage::delete($old_foto);
+                if (!empty($old_bukti) && Storage::exists($old_bukti)) {
+                    Storage::delete($old_bukti);
                 }
             }
             
-            return redirect('/cv1')->with([
+            return back()->with([
                 'notifikasi' => 'Data Berhasil diedit !',
                 'type' => 'success'
             ]);
         } else {
-            return redirect()->back()->with([
+            return back()->with([
                     'notifikasi' => 'Data gagal diedit !',
                     'type' => 'error'
                 ]);
