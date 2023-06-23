@@ -152,7 +152,7 @@
                                                     </div>
 
                                                     <div class="form-group" id="ganti_foto_div" style="display:">
-                                                        <label for="nama">Lampiran Dokumen<b
+                                                        <label for="nama">Sertifikat<b
                                                                 class="text-danger">*</b></label>
                                                         <input placeholder="Upload Foto" type="file"
                                                             accept="image/png, image/jpg, img/jepg" id="foto"
@@ -185,7 +185,7 @@
                                         <th class="min-w-500px">Bahasa</th>
                                         <th class="min-w-200px">Status</th>
                                         <th class="min-w-200px">Skor</th>
-                                        <th class="min-w-200px">Lampiran</th>
+                                        <th class="min-w-200px">Sertifikat</th>
                                         <th class="min-w-100px">Aksi</th>
                                     </tr>
                                 </thead>
@@ -200,12 +200,12 @@
 
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
-                                                    <i class="bi bi-search"></i>Edit</a>
+                                                    <i class="bi bi-search"></i> Edit</a>
                                                     {{--href="/student/edit/{{ $data->nim }}"--}}
 
                                                 <form method="POST" action="/cv6/delete/{{ $data->id_bahasa }}">
                                                     @csrf @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1"><i class="bi bi-trash-fill"></i> Hapus</button>
                                                 </form>
                                                 {{--action="/student/delete/{{ $data->nim }}"--}}
                                             </td>

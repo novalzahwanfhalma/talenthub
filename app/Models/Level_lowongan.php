@@ -5,19 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Prodi extends Model
+class Level_lowongan extends Model
 {
     use HasFactory;
 
-    protected $table = 'prodi';
+    protected $table = 'level_lowongan';
+    protected $primaryKey = 'id_level';
 
     protected $fllable = array(
-        'id_prodi', 'prodi'
+        'id_level', 'nama_level', 'updated_at', 'created_at'
     );
-
-    public function mahasiswa()
-    {
-        return belongsTo(mahasiswa::class, 'nim');
-    }
 
 }

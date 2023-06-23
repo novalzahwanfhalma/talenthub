@@ -47,7 +47,7 @@
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                                <li>{{$error}}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -69,7 +69,6 @@
                             </button>
                         </a>
                     </li>
-
                 </ol>
             </div>
         </section><!-- End Breadcrumbs -->
@@ -81,6 +80,15 @@
             <div class="col-lg-11 mt-5 mb-5 mx-auto">
                 <div class="card border">
                     <div class="card-header">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="card-title">
                             <br>
                             <h4 class="fw-bold"><i class="bi bi-briefcase text-dark fs-3 me-2"></i>Portofolio
@@ -113,13 +121,12 @@
                                                 <div class="row">
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
-                                                            <label class="required form-label">Judul<i
-                                                                    class="text-danger">
-                                                                    *</i></label>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm p-2" name="judul"
-                                                                value="" placeholder="Masukkan Judul"
-                                                                fdprocessedid="zt264h">
+                                                            <label class="required form-label">
+                                                                Judul
+                                                                <i class="text-danger">*</i>
+                                                            </label>
+                                                            <input type="text" class="form-control form-control-sm p-2" name="judul" value=""
+                                                            placeholder="Masukkan Judul" fdprocessedid="zt264h">
                                                         </div>
                                                     </div>
 
@@ -128,17 +135,15 @@
                                                             <label class="required form-label">Deskripsi<i
                                                                     class="text-danger">
                                                                     *</i></label>
-                                                            <textarea class="form-control" name="deskripsi" placeholder="Masukkan Deskripsi" minlength="4">
+                                                            <textarea class="form-control" name="deskripsi" placeholder="Masukkan Deskripsi"
+                                                                minlength="4">
                                                             </textarea>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group" id="ganti_foto_div" style="display:">
-                                                        <label for="nama">Bukti<b
-                                                                class="text-danger">*</b></label>
-                                                        <input placeholder="Upload Foto" type="file"
-                                                            accept="image/png, image/jpg, img/jepg" id="foto"
-                                                            name="bukti"
+                                                        <label for="nama">Bukti Lampiran<b class="text-danger">*</b></label>
+                                                        <input placeholder="Upload Foto" type="file" accept="file/pdf" id="foto" name="bukti"
                                                             class="form-control @error('foto') is-invalid @enderror">
                                                         @error('bukti')
                                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -147,74 +152,71 @@
 
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
-                                                            <label class="required form-label">Link<i
-                                                                    class="text-danger">
-                                                                    *</i></label>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm p-2"
-                                                                name="link" value=""
+                                                            <label class="form-label">
+                                                                Link
+                                                                <i class="text-danger">*</i></label>
+                                                            <input type="text" class="form-control form-control-sm p-2" name="link" value=""
                                                                 placeholder="Masukkan Link" fdprocessedid="zt264h">
                                                         </div>
                                                     </div>
+
                                                 </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
+                                            </form>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Tutup</button>
-                                        <button type="submit" class="btn btn-primary">Simpan</button>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table align-middle table-row-dashed datatable gy-4 scrollable">
-                                <thead>
-                                    <tr class="fw-bold fs-6 text-gray-800">
-                                        <th class="min-w-0px">No</th>
-                                        <th class="min-w-500px">Judul</th>
-                                        <th class="min-w-150px">Deskipsi</th>
-                                        <th class="min-w-200px">Bukti</th>
-                                        <th class="min-w-200px">Link</th>
-                                        <th class="min-w-100px">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse ($portofolio as $index => $data)
-                                        <tr>
-                                            <td>{{ $index + 1 }}</td>
-                                            <td>{{ $data->judul }}</td>
-                                            <td>{{ $data->deskripsi }}</td>
-                                            <td>{{ $data->bukti }}</td>
-                                            <td>{{ $data->link }}</td>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-row-dashed datatable gy-4 scrollable">
+                                        <thead>
+                                            <tr class="fw-bold fs-6 text-gray-800">
+                                                <th class="min-w-0px">No</th>
+                                                <th class="min-w-500px">Judul</th>
+                                                <th class="min-w-150px">Deskripsi</th>
+                                                <th class="min-w-200px">Lampiran</th>
+                                                <th class="min-w-200px">Link</th>
+                                                <th class="min-w-100px">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @forelse ($portofolio as $index => $data)
+                                                <tr>
+                                                    <td>{{ $index + 1 }}</td>
+                                                    <td>{{ $data->judul }}</td>
+                                                    <td>{{ $data->deskripsi }}</td>
+                                                    <td>{{ $data->bukti }}</td>
+                                                    <td>{{ $data->link }}</td>
 
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
                                                     <i class="bi bi-search"></i>Edit</a>
-                                                {{-- href="/student/edit/{{ $data->nim }}" --}}
+                                                    {{--href="/student/edit/{{ $data->nim }}"--}}
 
                                                 <form method="POST" action="/cv1/delete/{{ $data->id_portofolio }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit"
-                                                        class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
                                                 </form>
                                                 {{-- action="/student/delete/{{ $data->nim }}" --}}
                                             </td>
 
-                                        @empty
+                                            @empty
                                             <td colspan="6" class="text-center">
                                                 <h6 class="fw-bolder fs-7">Tidak ada data</h6>
                                             </td>
                                         </tr>
+
                                     @endforelse
 
 
-                                </tbody>
+                                        </tbody>
                             </table>
                         </div>
                     </div>

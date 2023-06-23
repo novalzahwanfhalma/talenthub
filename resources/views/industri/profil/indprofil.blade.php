@@ -156,7 +156,7 @@
                                                     Kelola
                                                     Profil</a></button>
                                             <button type="submit" class="btn btn-sm btn-primary mr-1"><a
-                                                    href="/lowonganind" style="color: #fff">Simpan</a></button>
+                                                    href="/lowongan" style="color: #fff">Simpan</a></button>
                                         </form>
                                     </td>
                                 </div>

@@ -26,7 +26,7 @@ class LoginindController extends Controller
         $credentials = $request->only('username', 'password');
 
         if (auth()->guard('industri')->attempt($credentials)) {
-            return redirect('/lowonganind')->with([
+            return redirect('/industri/lowongan_ind')->with([
                 'notifikasi' => 'Selamat datang di Talent hub !',
                 'type' => 'success'
             ]);

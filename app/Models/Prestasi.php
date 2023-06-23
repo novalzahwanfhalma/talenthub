@@ -14,7 +14,7 @@ class Prestasi extends Model
 
 
     protected $fllable = array(
-        'id_prestasi', 'nim', 'judul_prestasi', 'penyelenggara', 'deskripsi', 'tgl', 'lampiran_dokumen'
+        'id_prestasi', 'nim', 'judul_prestasi', 'penyelenggara', 'deskripsi', 'tgl', 'lampiran_dokumen', 'updated_at', 'created_at',
     );
 
     public function mahasiswa(){

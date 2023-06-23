@@ -195,7 +195,7 @@
                                         <th class="min-w-200px">Tahun</th>
                                         <th class="min-w-200px">Institusi</th>
                                         <th class="min-w-200px">Deskripsi</th>
-                                        <th class="min-w-200px">Lampiran Sertifikat</th>
+                                        <th class="min-w-200px">Sertifikat</th>
                                         <th class="min-w-100px">Aksi</th>
                                     </tr>
                                 </thead>
@@ -211,12 +211,12 @@
 
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
-                                                    <i class="bi bi-search"></i>Edit</a>
+                                                    <i class="bi bi-search"></i> Edit</a>
                                                     {{--href="/student/edit/{{ $data->nim }}"--}}
                                                 
                                                 <form method="POST" action="/cv5/delete/{{ $data->id_sertifikasi }}">  
                                                     @csrf @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1"><i class="bi bi-trash-fill"></i>Hapus</button>
                                                 </form>
                                                 {{--action="/student/delete/{{ $data->nim }}"--}}
                                             </td>

@@ -230,13 +230,125 @@
                                             <td>{{ $data->tipe }}</td>
 
                                             <td>
-                                                <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
-                                                    <i class="bi bi-search"></i>Edit</a>
+                                                <a href="/mahasiswa/edit-modal" class="btn btn-sm btn-warning mx-1 my-1" data-bs-toggle="modal" data-bs-target="#EditModal">
+                                                    <i class="bi bi-search"></i> Edit</a>
                                                     {{--href="/student/edit/{{ $data->nim }}"--}}
+
+
+                                                    {{--EDIT MODAL--}}
+
+                                                <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Edit Pengalaman</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                    aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="card-body">
+                                                                    <form method="POST" action="cv3/edit-modal/{{ $data->id_pengalaman }}" enctype="multipart/form-data">
+                                                                        @csrf @method('PUT')
+                                                                        <input type="hidden" name="nim" value="{{ auth()->user()->nim }}">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-12 p-3">
+                                                                                <div class="form-group mb-10">
+                                                                                    <label class="required form-label">Judul<i
+                                                                                            class="text-danger">
+                                                                                            *</i></label>
+                                                                                    <input type="text"
+                                                                                        class="form-control form-control-sm p-2  @error('judul') is-invalid @enderror" value="{{ $data->judul }}"
+                                                                                        name="judul" value=""
+                                                                                        placeholder="Masukkan Judul" fdprocessedid="zt264h">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-lg-12 p-3">
+                                                                                <div class="form-group mb-10">
+                                                                                    <label class="required form-label">Perusahaan<i
+                                                                                            class="text-danger">
+                                                                                            *</i></label>
+                                                                                    <input type="text"
+                                                                                        class="form-control form-control-sm p-2 @error('perusahaan') is-invalid @enderror"
+                                                                                        name="perusahaan" value="{{ $data->perusahaan }}"
+                                                                                        placeholder="Masukkan Perusahaan"
+                                                                                        fdprocessedid="zt264h">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-lg-12 p-3">
+                                                                                <div class="form-group mb-10">
+                                                                                    <label class="required form-label">Lokasi<i
+                                                                                            class="text-danger">
+                                                                                            *</i></label>
+                                                                                    <input type="text"
+                                                                                        class="form-control form-control-sm p-2 @error('lokasi') is-invalid @enderror"
+                                                                                        name="lokasi" value="{{ $data->lokasi }}"
+                                                                                        placeholder="Masukkan Lokasi" fdprocessedid="zt264h">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-lg-12 p-3">
+                                                                                <div class="form-group mb-10">
+                                                                                    <label class="required form-label">Tanggal Mulai<i
+                                                                                            class="text-danger">*</i></label>
+                                                                                    <input type="date"
+                                                                                        class="form-control form-control-sm p-2 @error('tgl_mulai') is-invalid @enderror"
+                                                                                        name="tgl_mulai" value="{{ $data->tgl_mulai }}"
+                                                                                        placeholder="Masukkan Tanggal Mulai" fdprocessedid="zt264h">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-lg-12 p-3">
+                                                                                <div class="form-group mb-10">
+                                                                                    <label class="required form-label">Tanggal Selesai<i
+                                                                                            class="text-danger">*</i></label>
+                                                                                    <input type="date"
+                                                                                        class="form-control form-control-sm p-2 @error('tgl_selesai') is-invalid @enderror"
+                                                                                        name="tgl_selesai" value="{{ $data->tgl_selesai }}"
+                                                                                        placeholder="Masukkan Tanggal Selesai" fdprocessedid="zt264h">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-lg-12 p-3">
+                                                                                <div class="form-group mb-10">
+                                                                                    <label class="required form-label">Tipe<i
+                                                                                            class="text-danger">
+                                                                                            *</i></label>
+                                                                                    <select class="form-select form-select-sm p-2 @error('tipe') is-invalid @enderror"
+                                                                                        name="tipe" tabindex="-1"
+                                                                                        aria-hidden="true">
+                                                                                        <option value="" disabled>Pilih Tipe
+                                                                                        </option>
+                                                                                        <option value="1" {{ $data->tipe == 'Magang' ? 'selected' : '' }}>Magang
+                                                                                        </option>
+                                                                                        <option value="2" {{ $data->tipe == 'Kontrak' ? 'selected' : '' }}>Kontrak</option>
+                                                                                        <option value="3" {{ $data->tipe == 'Part Time' ? 'selected' : '' }}>Part Time
+                                                                                        </option>
+                                                                                        <option value="4" {{ $data->tipe == 'Full Time' ? 'selected' : '' }}>Full Time</option>
+
+                                                                                    </select>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Tutup</button>
+                                                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                                 
                                                 <form method="POST" action="/cv3/delete/{{ $data->id_pengalaman }}">  
                                                     @csrf @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger mx-1 my-1"><i class="bi bi-trash-fill"></i> Hapus</button>
                                                 </form>
                                                 {{--action="/student/delete/{{ $data->nim }}"--}}
                                             </td>

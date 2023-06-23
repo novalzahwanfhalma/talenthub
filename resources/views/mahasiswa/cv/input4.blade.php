@@ -158,13 +158,13 @@
                                                     </div>
 
                                                     <div class="form-group" id="ganti_foto_div" style="display:">
-                                                        <label for="nama">Lampiran Dokumen<b
+                                                        <label for="nama">Sertifikat<b
                                                                 class="text-danger">*</b></label>
                                                         <input placeholder="Upload Foto" type="file"
                                                             accept="image/png, image/jpg, img/jepg" id="foto"
                                                             name="lampiran_dokumen"
-                                                            class="form-control @error('foto') is-invalid @enderror">
-                                                        @error('foto')
+                                                            class="form-control @error('lampiran_dokumen') is-invalid @enderror">
+                                                        @error('lampiran_dokumen')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
                                                     </div>
@@ -188,11 +188,11 @@
                                 <thead>
                                     <tr class="fw-bold fs-6 text-gray-800">
                                         <th class="min-w-0px">No</th>
-                                        <th class="min-w-500px">Judul Prestasi</th>
+                                        <th class="min-w-500px">Judul</th>
                                         <th class="min-w-200px">Deskripsi</th>
                                         <th class="min-w-200px">Penyelenggara</th>
                                         <th class="min-w-200px">Tanggal</th>
-                                        <th class="min-w-200px">Lampiran Dokumen</th>
+                                        <th class="min-w-200px">Sertifikat</th>
                                         <th class="min-w-100px">Aksi</th>
                                     </tr>
                                 </thead>
@@ -208,13 +208,13 @@
 
                                         <td>
                                             <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
-                                                <i class="bi bi-search"></i>Edit</a>
+                                                <i class="bi bi-search"></i> Edit</a>
                                                 {{--href="/student/edit/{{ $data->nim }}"--}}
                                             
                                             <form method="POST" action="/cv4/delete/{{ $data->id_prestasi }}">  
                                                 @csrf 
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger mx-1 my-1">Hapus</button>
+                                                <button type="submit" class="btn btn-sm btn-danger mx-1 my-1"><i class="bi bi-trash-fill"></i> Hapus</button>
                                             </form>
                                             {{--action="/student/delete/{{ $data->nim }}"--}}
                                         </td>

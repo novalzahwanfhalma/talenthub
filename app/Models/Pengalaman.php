@@ -13,7 +13,7 @@ class Pengalaman extends Model
     protected $primaryKey = 'id_pengalaman';
 
     protected $fllable = array(
-        'id_pengalaman', 'nim', 'judul', 'tipe', 'perusahaan', 'lokasi', 'tgl_mulai', 'tgl_selesai'
+        'id_pengalaman', 'nim', 'judul', 'tipe', 'perusahaan', 'lokasi', 'tgl_mulai', 'tgl_selesai', 'updated_at', 'created_at',
     );
 
     public function mahasiswa(){

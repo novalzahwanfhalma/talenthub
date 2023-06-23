@@ -29,17 +29,18 @@ class PortofolioController extends Controller
 
             'judul' => 'required',
             'deskripsi' => 'required',
-            'bukti' => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'link' => ''
+            'bukti' => 'required|file|mimes:pdf|max:2048',
+            'link' => 'nullable|url',
 
         ], [
 
             'judul.required' => 'Judul sudah digunakan.',
             'deskripsi.required' => 'Deskripsi harus diisi.',
             'bukti.required' => 'Bukti harus di-upload.',
-            'bukti.image' => 'Bukti harus berupa gambar.',
-            'bukti.mimes' => 'Tipe file yang diizinkan adalah JPEG, JPG, dan PNG.',
+            'bukti.image' => 'Bukti harus berupa file.',
+            'bukti.mimes' => 'Tipe file yang diizinkan adalah PDF.',
             'bukti.max' => 'Ukuran file tidak boleh lebih dari 2 MB.',
+            'link.url' => 'Link harus berupa URL',
 
 
 
@@ -110,7 +111,7 @@ class PortofolioController extends Controller
         // Menambahkan fungsi firstOrFail
         $portofolio = Portofolio::where(['id_portofolio' => $id_portofolio])->firstOrFail();
 
-        // Mengambil data foto
+        // Mengambil data bukti
         $bukti = $portofolio->bukti;
 
         if ($portofolio->count() < 1) {
@@ -122,14 +123,14 @@ class PortofolioController extends Controller
 
         if ($portofolio->delete()) {
 
-            // Hapus file foto jika ada
-            if (!empty($bukti) && Storage::exists($bukti)) {
-                Storage::delete($bukti);
-            }
-            return redirect()->route('portofolio.index')->with([
-                'notifikasi' => 'Data berhasil dihapus! ',
-                'type' => 'success'
-            ]);
+                // Hapus file foto jika ada
+                if (!empty($bukti) && Storage::exists($bukti)) {
+                    Storage::delete($bukti);
+                }
+                return redirect()->route('portofolio.index')->with([
+                    'notifikasi' => 'Data berhasil dihapus! ',
+                    'type' => 'success'
+                ]);
         } else {
             return redirect()->back()->with([
                 'notifikasi' => 'Data gagal dihapus! ',
@@ -137,4 +138,84 @@ class PortofolioController extends Controller
             ]);
         }
     }
+
+    public function update(Request $request, string $id_portofolio)
+    {
+        $portofolio = Portofolio::where('id_portofolio', $id_portofolio)->firstOrFail();
+
+        // ddd($request->old_nim, $request->nim);
+        $validatedData = $request->validate([
+            'nim' => [
+                'required',
+                'unique:portofolio,nim,' . $request->old_nim . ',nim',
+            ],
+            'judul' => '',
+            'deskripsi' => '',
+            'link' => '',
+        ], [
+            'nim.required' => 'NIM harus diisi.',
+            'judul.required' => 'Judul harus diisi.',
+            'deskripsi.required' => 'Deskripsi harus diisi.',
+        ]);
+
+
+        // Cek Apakah Ganti Foto
+        if ($request->ganti_bukti == 1) {
+            $request->validate([
+                'bukti' => [
+                    'required',
+                    'mimes:jpeg,jpg,png',
+                    'max:2048'
+                ]
+            ], [
+                'bukti.required' => 'Bukti harus di-upload.',
+                'bukti.mimes' => 'Bukti harus berformat JPEG, JPG, dan PNG.',
+                'bukti.max' => 'Bukti tidak boleh lebih dari 2 MB.',
+            ]);
+
+            if ($request->hasFile('bukti')) {
+                $bukti = $request->file('bukti')->store('public/storage/bukti');
+                $bukti = basename($bukti);
+                $bukti = 'bukti/' . $bukti;
+            } else {
+                $bukti = null;
+            }
+        } else {
+            $bukti = $portofolio->bukti;
+        }
+
+        // Bukti Lama
+        $old_bukti = $portofolio->bukti;
+
+
+        $portofolio->nim = $request->nim;
+        $portofolio->judul = $request->judul;
+        $portofolio->deskripsi = $request->deskripsi;
+        $portofolio->bukti = $bukti ?? null;;
+        $portofolio->link = $request->link;
+
+        // $portofolio->bukti = $bukti ?? null;
+
+        if ($portofolio->save()) {
+
+            // Hapus file bukti lama jika ada dan jika ganti bukti
+            if ($request->ganti_bukti == 1) {
+
+                if (!empty($old_bukti) && Storage::exists($old_bukti)) {
+                    Storage::delete($old_bukti);
+                }
+            }
+
+            return back()->with([
+                'notifikasi' => 'Data Berhasil diedit !',
+                'type' => 'success'
+            ]);
+        } else {
+            return back()->with([
+                    'notifikasi' => 'Data gagal diedit !',
+                    'type' => 'error'
+                ]);
+        }
+    }
+
 }
