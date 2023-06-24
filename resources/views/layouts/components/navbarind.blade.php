@@ -22,7 +22,7 @@
                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
                         <span>
                             <div id="pp" class="mt-0 mb-0 ms-2">
-                                <img src="{{ asset('style/assets/img/noval.jpg') }}" class="rounded-circle img-fluid"
+                                <img src="{{ asset('style/assets/img/58676209.jpg') }}" class="rounded-circle img-fluid"
                                     style="width: 50px;" />
                             </div>
                         </span>

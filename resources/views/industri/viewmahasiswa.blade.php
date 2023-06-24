@@ -51,7 +51,7 @@
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header">
-                    <p>Mahasiswa dengan IPK tertinggi</p>
+                    <p>Mahasiswa Unggulan</p>
                 </header>
 
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">

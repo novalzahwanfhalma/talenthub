@@ -2,6 +2,11 @@
 include 'fpdf/fpdf.php';
 use App\Models\Mahasiswa;
 use App\Models\Pendidikan;
+use App\Models\Portofolio;
+use App\Models\Pengalaman;
+use App\Models\Prestasi;
+use App\Models\Sertifikasi;
+use App\Models\Bahasa;
 
 
 $nim = Auth::user()->nim;
@@ -14,6 +19,22 @@ $deskripsi = $mahasiswa->deskripsi;
 $pendidikan = Pendidikan::where('nim', $nim)->first();
 $jurusan = $pendidikan->jurusan;
 $institusi = $pendidikan->institusi;
+$pengalaman = Pengalaman::where('nim', $nim)->first();
+$judul_exp = $pengalaman->judul;
+$perusahaan = $pengalaman->perusahaan;
+$portofolio = Portofolio::where('nim', $nim)->first();
+$judul_porto = $portofolio->judul;
+$deskripsi_porto = $portofolio->deskripsi;
+$prestasi = Prestasi::where('nim', $nim)->first();
+$judul_pres = $prestasi->judul_prestasi;
+$penyelenggara = $prestasi->penyelenggara;
+$deskripsi_pres = $prestasi->deskripsi;
+$sertifikasi = Sertifikasi::where('nim', $nim)->first();
+$judul_sertif = $sertifikasi->judul;
+$tahun = $sertifikasi->tahun;
+$institusi_sertif = $sertifikasi->institusi;
+$deskripsi_sertif = $sertifikasi->deskripsi;
+$bahasa = Bahasa::where('nim', $nim)->first();
 
 
 
@@ -22,9 +43,9 @@ $pdf->SetMargins(1,1,1);
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial', 'B',17);
-$pdf->Cell(0, 1, "{ Nama }", 0, 1, 'C');
+$pdf->Cell(0, 1, "$nama_mhs", 0, 1, 'C');
 $pdf->SetFont('Arial', 'B',9);
-$pdf->Cell(0, 0.5, "Address : {  alamat  }  |  No. Telp : {  no. hp }  |  E-mail : {  email  } ", 0, 0, 'C');
+$pdf->Cell(0, 0.5, "Alamat : $alamat  |  No. Telp : $no_hp  |  E-mail : $email ", 0, 0, 'C');
 $pdf->ln();
 $pdf->ln();
 $pdf->ln();
@@ -59,8 +80,7 @@ $pdf->ln();
 
 $pdf->ln();
 $pdf->ln();
-$pdf->ln();
-$pdf->ln();
+
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 0.5, "PENGALAMAN", 0, 0,);
@@ -69,11 +89,11 @@ $length = $pdf->GetStringWidth("TENTANG SAYA"); // Mendapatkan panjang teks "TEN
 $pdf->Line(1, $y + 0.5, $length + 16, $y + 0.5);
 $pdf->ln();
 $pdf->ln();
-$pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(0, 0.5, "{ Riwayat Pengalaman } ", 0, 0,);
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(0, 0.5, "$judul_exp ", 0, 0,);
 $pdf->ln();
-$pdf->ln();
-$pdf->ln();
+$pdf->SetFont('Arial', 'BI', 8);
+$pdf->Cell(0, 0.5, "$perusahaan ", 0, 0,);
 $pdf->ln();
 $pdf->ln();
 $pdf->ln();
@@ -88,9 +108,14 @@ $length = $pdf->GetStringWidth("TENTANG SAYA"); // Mendapatkan panjang teks "TEN
 $pdf->Line(1, $y + 0.5, $length + 16, $y + 0.5);
 $pdf->ln();
 $pdf->ln();
-$pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(0, 0.5, "{ Deskripsi Prestasi } ", 0, 0,);
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(0, 0.5, " $judul_pres ", 0, 0,);
 $pdf->ln();
+$pdf->SetFont('Arial', 'BI', 10);
+$pdf->Cell(0, 0.5, " $penyelenggara ", 0, 0,);
+$pdf->ln();
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(0, 0.5, " $deskripsi ", 0, 0,);
 $pdf->ln();
 $pdf->ln();
 $pdf->ln();
@@ -103,9 +128,17 @@ $length = $pdf->GetStringWidth("TENTANG SAYA"); // Mendapatkan panjang teks "TEN
 $pdf->Line(1, $y + 0.5, $length + 16, $y + 0.5);
 $pdf->ln();
 $pdf->ln();
-$pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(0, 0.5, "{ Deskripsi Sertifikasi } ", 0, 0,);
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(0, 0.5, " $judul_sertif ", 0, 0,);
 $pdf->ln();
+$pdf->SetFont('Arial', 'BI', 10);
+$pdf->Cell(0, 0.5, " $penyelenggara ", 0, 0,);
+$pdf->ln();
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(0, 0.5, " $tahun ", 0, 0,);
+$pdf->ln();
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(0, 0.5, " $deskripsi_sertif ", 0, 0,);
 $pdf->ln();
 $pdf->ln();
 $pdf->ln();
@@ -124,8 +157,9 @@ $pdf->Line(1, $y + 0.5, $length + 16, $y + 0.5);
 $pdf->ln();
 $pdf->ln();
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(0, 0.5, "{ Deskripsi Portofolio } ", 0, 0,);
+$pdf->Cell(0, 0.5, "$judul_porto", 0, 0,);
 $pdf->ln();
+$pdf->Cell(0, 0.5, "$deskripsi_porto", 0, 0,);
 $pdf->ln();
 $pdf->ln();
 $pdf->ln();

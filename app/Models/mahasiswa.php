@@ -17,6 +17,12 @@ class Mahasiswa extends Authenticatable
     protected $table = 'mahasiswa';
     protected $primaryKey = 'nim';
 
-    protected $fillable = ['nim', 'username', 'password', 'nama_mhs', 'ipk', 'foto', 'no_hp', 'email', 'alamat'];
+    protected $fillable = ['nim', 'username', 'password', 'nama_mhs', 'ipk', 'foto', 'no_hp', 'email', 'alamat', 'id_prodi', 'deskripsi', 'jenis_kelamin', 'status'];
     protected $hidden = ['password'];
+
+    public function mahasiswa()
+    {
+        return $this->hasMany(portofolio::class, 'nim');
+    }
+
 }

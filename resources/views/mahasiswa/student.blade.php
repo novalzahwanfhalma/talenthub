@@ -60,9 +60,9 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                    rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                                    risus at semper.
+                                    Front end merupakan salah satu bagian dari website yang menampilkan tampilan untuk para pengguna.
+                                    Pada bagian ini dibuat dengan menggunakan 3 bahasa pemrograman web yaitu
+                                    HyperText Markup Language (HTTP), Cascading Style Sheets (CSS), dan JavaScript.
                                 </p>
                                 <div class="profile mt-auto">
                                     <img src="{{ asset('style/assets/img/noval.jpg') }}" class="testimonial-img"
@@ -76,15 +76,14 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                    cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
-                                    legam anim culpa.
+                                    Web designer atau perancang web adalah profesi yang dijalankan oleh orang-orang yang pekerjaannya membuat desain sebuah website.
+                                    Desain tersebut nantinya bisa dibuka dan dinikmati pada sebuah layar monitor baik melalui komputer, handphone, ataupun tablet.
                                 </p>
                                 <div class="profile mt-auto">
                                     <img src="{{ asset('style/assets/img/bisma.jpg') }}" class="testimonial-img"
                                         alt="">
                                     <h3>Bisma Arya Whardhana</h3>
-                                    <h4>Designer</h4>
+                                    <h4>Desainer</h4>
                                 </div>
                             </div>
                         </div><!-- End testimonial item -->
@@ -92,9 +91,10 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem
-                                    veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint
-                                    minim.
+                                    Back end merupakan bagian dari situs web yang tidak dilihat oleh pelanggan.
+                                    Back end berurusan dengan data-data di balik layar,
+                                    ia bertanggung jawab dalam menyimpan dan mengatur data,
+                                    serta memastikan hal yang ada pada sisi klien berfungsi dan tidak bermasalah.
                                 </p>
                                 <div class="profile mt-auto">
                                     <img src="{{ asset('style/assets/img/dilan.jpg') }}" class="testimonial-img"
@@ -108,9 +108,7 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim
-                                    fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem
-                                    dolore labore illum veniam.
+                                    Full-stack developer adalah seorang ahli teknologi yang mampu memperbaiki front-end maupun back-end dari sebuah aplikasi.
                                 </p>
                                 <div class="profile mt-auto">
                                     <img src="{{ asset('style/assets/img/fitri.jpg') }}" class="testimonial-img"
@@ -124,15 +122,16 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
-                                    veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
-                                    culpa fore nisi cillum quid.
+                                    Analisis data adalah proses pengolahan data untuk tujuan menemukan informasi
+                                    yang berguna yang dapat dijadikan sebagai dasar pengambilan keputusan untuk memecahkan suatu masalah.
+                                    Proses analisis ini meliputi kegiatan pengelompokan data berdasarkan karakteristiknya, pembersihan data, transformasi data,
+                                    pembuatan model data hingga mencari informasi penting dari data tersebut.
                                 </p>
                                 <div class="profile mt-auto">
                                     <img src="{{ asset('style/assets/img/hanna.jpg') }}" class="testimonial-img"
                                         alt="">
                                     <h3>Hanna</h3>
-                                    <h4>Ananlisis</h4>
+                                    <h4>Analisis</h4>
                                 </div>
                             </div>
                         </div><!-- End testimonial item -->

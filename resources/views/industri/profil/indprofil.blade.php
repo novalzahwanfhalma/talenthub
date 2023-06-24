@@ -90,9 +90,9 @@
 
                                                 <div class="social-icons"
                                                     style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
-                                                    <a href="{{ Auth::guard('industri')->user()->facebook }}" target="_blank"
-                                                        style="margin-right: 10px;"><i class="fab fa-facebook"
-                                                            style="font-size: 24px;"></i></a>
+                                                    <a href="{{ Auth::guard('industri')->user()->facebook }}"
+                                                        target="_blank" style="margin-right: 10px;"><i
+                                                            class="fab fa-facebook" style="font-size: 24px;"></i></a>
                                                     <a href="https://www.instagram.com/your-account" target="_blank"
                                                         style="margin-right: 10px;"><i class="fab fa-instagram"
                                                             style="font-size: 24px;"></i></a>

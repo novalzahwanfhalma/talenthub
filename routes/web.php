@@ -22,6 +22,7 @@ use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\SertifikasiController;
 use App\Http\Controllers\BahasaController;
+use App\Http\Controllers\LowonganController;
 
 
 /*

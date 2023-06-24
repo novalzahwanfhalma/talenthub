@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Portofolio extends Model
+class bidang_industri extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'bidang_industri';
+    protected $primaryKey = 'id_bidang';
+
 
     protected $fllable = array(
-        'id_bidang', "id_industri", 'bidang'
+        'id_bidang', 'nama_bidang'
     );
-
 }

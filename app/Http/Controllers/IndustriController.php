@@ -7,6 +7,7 @@ use App\Models\bidang_industri;
 use App\Models\tipe_industri;
 
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;

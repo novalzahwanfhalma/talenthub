@@ -144,12 +144,12 @@
                             <article class="entry" style="border-radius: 20px;">
 
                                 <div class="entry-img" style="border-radius: 20px;">
-                                    <img src="{{ asset('style/assets/img/dilan.jpg') }}" alt=""
+                                    <img src="{{ asset('style/assets/img/58676209.jpg') }}" alt=""
                                         class="img-fluid">
                                 </div>
 
                                 <h2 class="entry-title">
-                                    <a>PT. TRPL Industri</a>
+                                    <a>PT. Batam Indo</a>
                                 </h2>
 
                                 <div class="entry-meta">
@@ -161,11 +161,12 @@
 
                                 <div class="entry-content">
                                     <p>
-                                        Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi
-                                        praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                                        Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde
-                                        soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur
-                                        assumenda perferendis dolore.
+                                        PT Batam Indo adalah perusahaan yang fokus pada pengembangan,
+                                        implementasi, dan penyediaan solusi teknologi informasi (TI) untuk memenuhi
+                                        kebutuhan perusahaan dan organisasi di berbagai sektor. PT tersebut secara
+                                        khusus mengkhususkan diri dalam bidang informatika, yang meliputi pengembangan
+                                        perangkat lunak, pengelolaan infrastruktur TI, keamanan informasi, analisis
+                                        data, dan layanan konsultasi TI.
                                     </p>
                                     <div class="read-more">
                                         <a href="/perusahaan3">Lihat Detail</a>

@@ -130,8 +130,8 @@
                                                     <label class="required form-label">Tentang Perusahaan<i
                                                             class="text-danger"> *</i></label>
                                                     <textarea class="form-control form-control-sm p-2" name="deskripsi_industri"
-                                                        value="{{ old('deskripsi_industri', $industri->deskripsi_industri) }}" placeholder="Tentang Perusahaan"
-                                                        style="height: 100px">
+                                                        value="" placeholder="Tentang Perusahaan"
+                                                        style="height: 100px">{{ old('deskripsi_industri', $industri->deskripsi_industri) }}
                                                         </textarea>
                                                 </div>
                                             </div>
@@ -140,8 +140,8 @@
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Alamat Perusahaan<i
                                                             class="text-danger"> *</i></label>
-                                                    <textarea class="form-control form-control-sm p-2" name="alamat" value="{{ old('alamat', $industri->alamat) }}"
-                                                        placeholder="Alamat Perusahaan" style="height: 100px">
+                                                    <textarea class="form-control form-control-sm p-2" name="alamat" value=""
+                                                        placeholder="Alamat Perusahaan" style="height: 100px">{{ old('alamat', $industri->alamat) }}
                                                         </textarea>
                                                 </div>
                                             </div>
