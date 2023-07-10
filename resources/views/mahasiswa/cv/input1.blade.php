@@ -43,15 +43,6 @@
         <!-- ======= Breadcrumbs ======= -->
         <section class="breadcrumbs" style="text-align: center;">
             <div class="container">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <ol style="text-align: center;">
                     <li><a href="/cv1">Portofolio</a></li>
                     <li><a href="/cv2">Pendidikan</a></li>

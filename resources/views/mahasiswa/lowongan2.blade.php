@@ -115,42 +115,36 @@
 
                     <div class="col-lg-8 entries">
                         <label>
+                            @foreach ($lowongan as $index => $data)
+                            {{--nanti coba ganti forelse biar bisa empty data--}}
                             <article class="entry">
 
-                                <div class="entry-img">
-                                    <img src="{{ asset('style/assets/img/58676209.jpg') }}" alt=""
-                                        class="img-fluid">
-                                </div>
 
-                                <h2 class="entry-title">
-                                    <a href="/lowongan3">PT Technology Batam</a>
-                                </h2>
+                                    <h2 class="entry-title">
+                                        <a href="/lowongan3">{{$data->judul}}</a>
+                                    </h2>
 
-                                <div class="entry-meta">
-                                    <ul>
-                                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                                href="blog-single.html">Programming &amp; Software Development</a></li>
-                                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                                href="blog-single.html"><time datetime="2020-01-01">Jul 1,
-                                                    2023</time></a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="entry-content">
-                                    <p>
-                                        PT Technology Batam adalah perusahaan yang fokus pada pengembangan,
-                                        implementasi, dan penyediaan solusi teknologi informasi (TI) untuk memenuhi
-                                        kebutuhan perusahaan dan organisasi di berbagai sektor. PT tersebut secara
-                                        khusus mengkhususkan diri dalam bidang informatika, yang meliputi pengembangan
-                                        perangkat lunak, pengelolaan infrastruktur TI, keamanan informasi, analisis
-                                        data, dan layanan konsultasi TI.
-                                    </p>
-                                    <div class="read-more">
-                                        <a href="/lowongan3">Lihat Detail</a>
+                                    <div class="entry-meta">
+                                        <ul>
+                                            <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                                    href="blog-single.html">{{$data->industri->nama_industri}}</a>
+                                            </li>
+                                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                                    href="blog-single.html"><time datetime="2020-01-01">{{$data->tanggal_tutup}}</time></a></li>
+                                        </ul>
                                     </div>
-                                </div>
 
-                            </article><!-- End blog entry -->
+                                    <div class="entry-content">
+                                        <p>
+                                            {{-- {{ Auth::guard('industri')->user()->deskripsi_industri }} --}}
+                                        </p>
+                                        <div class="read-more">
+                                            <a href="/lowongan3">Lihat Detail</a>
+                                        </div>
+                                    </div>
+
+                            </article>
+                            @endforeach <!-- End blog entry -->
 
                             <article class="entry">
 
@@ -166,7 +160,8 @@
                                 <div class="entry-meta">
                                     <ul>
                                         <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                                href="blog-single.html">Programming &amp; Software Development</a></li>
+                                                href="blog-single.html">Programming &amp; Software Development</a>
+                                        </li>
                                         <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
                                                 href="blog-single.html"><time datetime="2020-01-01">Jul 22,
                                                     2023</time></a></li>
@@ -175,7 +170,8 @@
 
                                 <div class="entry-content">
                                     <p>
-                                        PT Sangkurier adalah sebuah perusahaan teknologi informasi yang berfokus pada
+                                        PT Sangkurier adalah sebuah perusahaan teknologi informasi yang berfokus
+                                        pada
                                         pengembangan
                                         solusi perangkat lunak untuk sektor perbankan. Mereka menyediakan produk dan
                                         layanan yang dirancang khusus untuk memenuhi kebutuhan sistem informasi
@@ -202,7 +198,8 @@
                                 <div class="entry-meta">
                                     <ul>
                                         <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                                href="blog-single.html">Programming &amp; Software Development</a></li>
+                                                href="blog-single.html">Programming &amp; Software Development</a>
+                                        </li>
                                         <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
                                                 href="blog-single.html"><time datetime="2020-01-01">August 12,
                                                     2023</time></a></li>
@@ -211,7 +208,8 @@
 
                                 <div class="entry-content">
                                     <p>
-                                        PT Galleon adalah sebuah perusahaan teknologi informasi yang bergerak di bidang
+                                        PT Galleon adalah sebuah perusahaan teknologi informasi yang bergerak di
+                                        bidang
                                         pengembangan perangkat lunak khusus untuk industri e-commerce. Mereka
                                         menyediakan solusi yang dirancang untuk mendukung operasional e-commerce,
                                         memperbaiki pengalaman pengguna, dan meningkatkan efisiensi bisnis.
@@ -237,7 +235,8 @@
                                 <div class="entry-meta">
                                     <ul>
                                         <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                                href="blog-single.html">Programming &amp; Software Development</a></li>
+                                                href="blog-single.html">Programming &amp; Software Development</a>
+                                        </li>
                                         <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
                                                 href="blog-single.html"><time datetime="2020-01-01">August 6,
                                                     2023</time></a></li>
@@ -246,9 +245,12 @@
 
                                 <div class="entry-content">
                                     <p>
-                                        PT Natsuri adalah perusahaan teknologi informasi yang berfokus pada pengembangan
-                                        sistem manajemen sumber daya manusia (HRM) berbasis cloud. Mereka menyediakan
-                                        solusi yang dirancang khusus untuk membantu perusahaan dalam mengelola proses
+                                        PT Natsuri adalah perusahaan teknologi informasi yang berfokus pada
+                                        pengembangan
+                                        sistem manajemen sumber daya manusia (HRM) berbasis cloud. Mereka
+                                        menyediakan
+                                        solusi yang dirancang khusus untuk membantu perusahaan dalam mengelola
+                                        proses
                                         HRM secara efisien dan efektif.
                                     </p>
                                     <div class="read-more">
@@ -256,9 +258,14 @@
                                     </div>
                                 </div>
 
-                            </article><!-- End blog entry -->
+
+                    {{ $lowongan->links() }}
+
 
                     </div><!-- End blog entries list -->
+
+
+
                 </div>
             </div>
         </section><!-- End Blog Section -->

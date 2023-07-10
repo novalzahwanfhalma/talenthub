@@ -100,7 +100,7 @@
                                                 </div>
                                             </div>
 
-                                            
+
 
                                             <div class="col-lg-6 p-3">
                                                 <div class="form-group mb-10">
@@ -144,13 +144,13 @@
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Daya Tampung<i
                                                             class="text-danger"> *</i></label>
-                                                    <input type="text" class="form-control form-control-sm p-2"
+                                                    <input type="number" class="form-control form-control-sm p-2"
                                                         name="daya_tampung" value=""
                                                         placeholder="Masukkan Judul Lowongan" fdprocessedid="lgb33s">
                                                 </div>
                                             </div>
 
-                                            
+
                                             <div class="col-lg-12 p-3">
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Kriteria (Minimal 500
@@ -161,7 +161,7 @@
                                             </div>
 
 
-                                        
+
                                             <div class="col-lg-12">
                                                 <h5 class="mb-10 pt-5 ps-1">Lokasi Pekerjaan</h5>
                                             </div>
@@ -169,7 +169,7 @@
                                             <div class="col-lg-12 p-3">
                                                 <div class="form-group mb-10">
                                                     <label class="required form-label">Alamat Lengkap<i class="text-danger"> *</i></label>
-                                                    <textarea name="lokasi" class="form-select form-select-sm p-2" placeholder="Masukkan Alamat Lengkap"></textarea>
+                                                    <textarea name="lokasi" class="form-control" placeholder="Masukkan Alamat Lengkap"></textarea>
                                                 </div>
                                             </div>
 

@@ -13,9 +13,15 @@ class Lowongan extends Model
     protected $primaryKey = 'id_lowongan';
 
     protected $fllable = array(
-        'id_lowongan', 'id_industri', 'judul', 'daya_tampung', 'deskripsi', 'lokasi', 
+        'id_lowongan', 'id_industri', 'judul', 'daya_tampung', 'deskripsi', 'lokasi',
         'tanggal_buka', 'tanggal_tutup', 'minimal_gaji', 'maksimal_gaji', 'id_level', 'id_tipe',
         'id_bidang', 'updated_at', 'created_at'
     );
+
+    public function industri()
+{
+    return $this->belongsTo(Industri::class, 'id_industri');
+}
+
 
 }

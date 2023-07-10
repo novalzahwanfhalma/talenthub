@@ -105,9 +105,7 @@ Route::get('/lowongan', function () {
     return view('mahasiswa/lowongan');
 });
 
-Route::get('/lowongan2', function () {
-    return view('mahasiswa/lowongan2');
-});
+Route::get('/lowongan2', [LowonganController::class, 'index2']);
 
 Route::get('/lowongan3', function () {
     return view('mahasiswa/lowongan3');

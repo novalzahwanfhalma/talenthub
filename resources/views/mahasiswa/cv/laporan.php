@@ -11,30 +11,32 @@ use App\Models\Bahasa;
 
 $nim = Auth::user()->nim;
 $mahasiswa = Mahasiswa::where('nim', $nim)->first();
-$nama_mhs = $mahasiswa->nama_mhs;
-$alamat = $mahasiswa->alamat;
-$no_hp = $mahasiswa->no_hp;
-$email = $mahasiswa->email;
-$deskripsi = $mahasiswa->deskripsi;
+$nama_mhs = $mahasiswa ? $mahasiswa->nama_mhs : 'Nama Mahasiswa';
+$alamat = $mahasiswa ? $mahasiswa->alamat : 'Alamat';
+$no_hp = $mahasiswa ? $mahasiswa->no_hp : 'Nomor HP';
+$email = $mahasiswa ? $mahasiswa->email : 'Email';
+$deskripsi = $mahasiswa ? $mahasiswa->deskripsi : 'Deskripsi';
 $pendidikan = Pendidikan::where('nim', $nim)->first();
-$jurusan = $pendidikan->jurusan;
-$institusi = $pendidikan->institusi;
+$jurusan = $pendidikan ? $pendidikan->jurusan : 'Jurusan';
+$institusi = $pendidikan ? $pendidikan->institusi : 'Institusi';
 $pengalaman = Pengalaman::where('nim', $nim)->first();
-$judul_exp = $pengalaman->judul;
-$perusahaan = $pengalaman->perusahaan;
+$judul_exp = $pengalaman ? $pengalaman->judul : 'Judul Pengalaman';
+$perusahaan = $pengalaman ? $pengalaman->perusahaan : 'Perusahaan';
 $portofolio = Portofolio::where('nim', $nim)->first();
-$judul_porto = $portofolio->judul;
-$deskripsi_porto = $portofolio->deskripsi;
+$judul_porto = $portofolio ? $portofolio->judul : 'Judul Portofolio';
+$deskripsi_porto = $portofolio ? $portofolio->deskripsi : 'Deskripsi Portofolio';
 $prestasi = Prestasi::where('nim', $nim)->first();
-$judul_pres = $prestasi->judul_prestasi;
-$penyelenggara = $prestasi->penyelenggara;
-$deskripsi_pres = $prestasi->deskripsi;
+$judul_pres = $prestasi ? $prestasi->judul_prestasi : 'Judul Prestasi';
+$penyelenggara = $prestasi ? $prestasi->penyelenggara : 'Penyelenggara';
+$deskripsi_pres = $prestasi ? $prestasi->deskripsi : 'Deskripsi Prestasi';
 $sertifikasi = Sertifikasi::where('nim', $nim)->first();
-$judul_sertif = $sertifikasi->judul;
-$tahun = $sertifikasi->tahun;
-$institusi_sertif = $sertifikasi->institusi;
-$deskripsi_sertif = $sertifikasi->deskripsi;
+$judul_sertif = $sertifikasi ? $sertifikasi->judul : 'Judul Sertifikasi';
+$tahun = $sertifikasi ? $sertifikasi->tahun : 'Tahun';
+$institusi_sertif = $sertifikasi ? $sertifikasi->institusi : 'Institusi Sertifikasi';
+$deskripsi_sertif = $sertifikasi ? $sertifikasi->deskripsi : 'Deskripsi Sertifikasi';
 $bahasa = Bahasa::where('nim', $nim)->first();
+
+
 
 
 
@@ -48,17 +50,14 @@ $pdf->SetFont('Arial', 'B',9);
 $pdf->Cell(0, 0.5, "Alamat : $alamat  |  No. Telp : $no_hp  |  E-mail : $email ", 0, 0, 'C');
 $pdf->ln();
 $pdf->ln();
-$pdf->ln();
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 0.5, "TENTANG SAYA", 0, 0,);
 $y = $pdf->GetY(); // Mendapatkan posisi Y setelah Cell sebelumnya
 $length = $pdf->GetStringWidth("TENTANG SAYA"); // Mendapatkan panjang teks "TENTANG SAYA"
 $pdf->Line(1, $y + 0.5, $length + 16, $y + 0.5);
 $pdf->ln();
-$pdf->ln();
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(0, 0.5, " $deskripsi ", 0, 0,);
-$pdf->ln();
+$pdf->Cell(0, 0.5, "$deskripsi ", 0, 0,);
 $pdf->ln();
 $pdf->ln();
 
@@ -68,26 +67,19 @@ $y = $pdf->GetY(); // Mendapatkan posisi Y setelah Cell sebelumnya
 $length = $pdf->GetStringWidth("TENTANG SAYA"); // Mendapatkan panjang teks "TENTANG SAYA"
 $pdf->Line(1, $y + 0.5, $length + 16, $y + 0.5);
 $pdf->ln();
-$pdf->ln();
 $pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(0, 0.5, " $institusi ", 0, 0,);
+$pdf->Cell(0, 0.5, "$institusi ", 0, 0,);
 $pdf->ln();
 $pdf->SetFont('Arial', 'BI', 8);
-$pdf->Cell(0, 0.5, " $jurusan ", 0, 0,);
+$pdf->Cell(0, 0.5, "$jurusan ", 0, 0,);
 $pdf->ln();
 $pdf->ln();
-$pdf->ln();
-
-$pdf->ln();
-$pdf->ln();
-
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 0.5, "PENGALAMAN", 0, 0,);
 $y = $pdf->GetY(); // Mendapatkan posisi Y setelah Cell sebelumnya
 $length = $pdf->GetStringWidth("TENTANG SAYA"); // Mendapatkan panjang teks "TENTANG SAYA"
 $pdf->Line(1, $y + 0.5, $length + 16, $y + 0.5);
-$pdf->ln();
 $pdf->ln();
 $pdf->SetFont('Arial', 'B', 10);
 $pdf->Cell(0, 0.5, "$judul_exp ", 0, 0,);
@@ -96,10 +88,7 @@ $pdf->SetFont('Arial', 'BI', 8);
 $pdf->Cell(0, 0.5, "$perusahaan ", 0, 0,);
 $pdf->ln();
 $pdf->ln();
-$pdf->ln();
-$pdf->ln();
-$pdf->ln();
-$pdf->ln();
+
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 0.5, "PRESTASI", 0, 0,);
@@ -107,19 +96,17 @@ $y = $pdf->GetY(); // Mendapatkan posisi Y setelah Cell sebelumnya
 $length = $pdf->GetStringWidth("TENTANG SAYA"); // Mendapatkan panjang teks "TENTANG SAYA"
 $pdf->Line(1, $y + 0.5, $length + 16, $y + 0.5);
 $pdf->ln();
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(0, 0.5, "$judul_pres ", 0, 0,);
 $pdf->ln();
-$pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(0, 0.5, " $judul_pres ", 0, 0,);
-$pdf->ln();
-$pdf->SetFont('Arial', 'BI', 10);
-$pdf->Cell(0, 0.5, " $penyelenggara ", 0, 0,);
+$pdf->SetFont('Arial', 'BI', 9);
+$pdf->Cell(0, 0.5, "$penyelenggara ", 0, 0,);
 $pdf->ln();
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(0, 0.5, " $deskripsi ", 0, 0,);
+$pdf->Cell(0, 0.5, "$deskripsi_pres ", 0, 0,);
 $pdf->ln();
 $pdf->ln();
-$pdf->ln();
-$pdf->ln();
+
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 0.5, "SERTIFIKASI", 0, 0,);
@@ -127,25 +114,17 @@ $y = $pdf->GetY(); // Mendapatkan posisi Y setelah Cell sebelumnya
 $length = $pdf->GetStringWidth("TENTANG SAYA"); // Mendapatkan panjang teks "TENTANG SAYA"
 $pdf->Line(1, $y + 0.5, $length + 16, $y + 0.5);
 $pdf->ln();
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(0, 0.5, "$judul_sertif ", 0, 0,);
 $pdf->ln();
-$pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(0, 0.5, " $judul_sertif ", 0, 0,);
-$pdf->ln();
-$pdf->SetFont('Arial', 'BI', 10);
-$pdf->Cell(0, 0.5, " $penyelenggara ", 0, 0,);
-$pdf->ln();
-$pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(0, 0.5, " $tahun ", 0, 0,);
+$pdf->SetFont('Arial', 'BI', 9);
+$pdf->Cell(0, 0.5, "$penyelenggara ", 0, 0,);
 $pdf->ln();
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(0, 0.5, " $deskripsi_sertif ", 0, 0,);
+$pdf->Cell(0, 0.5, "$tahun ", 0, 0,);
 $pdf->ln();
-$pdf->ln();
-$pdf->ln();
-$pdf->ln();
-$pdf->ln();
-$pdf->ln();
-$pdf->ln();
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(0, 0.5, "$deskripsi_sertif ", 0, 0,);
 $pdf->ln();
 $pdf->ln();
 
@@ -155,17 +134,13 @@ $y = $pdf->GetY(); // Mendapatkan posisi Y setelah Cell sebelumnya
 $length = $pdf->GetStringWidth("TENTANG SAYA"); // Mendapatkan panjang teks "TENTANG SAYA"
 $pdf->Line(1, $y + 0.5, $length + 16, $y + 0.5);
 $pdf->ln();
-$pdf->ln();
-$pdf->SetFont('Arial', 'B', 8);
+$pdf->SetFont('Arial', 'B', 10);
 $pdf->Cell(0, 0.5, "$judul_porto", 0, 0,);
 $pdf->ln();
+$pdf->SetFont('Arial', 'B', 8);
 $pdf->Cell(0, 0.5, "$deskripsi_porto", 0, 0,);
 $pdf->ln();
 $pdf->ln();
-$pdf->ln();
-$pdf->ln();
-$pdf->ln();
-
 
 
 

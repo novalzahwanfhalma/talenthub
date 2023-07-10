@@ -79,6 +79,15 @@
             <div class="col-lg-11 mt-5 mb-5 mx-auto">
                 <div class="card border">
                     <div class="card-header">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="card-title">
                             <br>
                             <h4 class="fw-bold"><i class="bi bi-briefcase text-dark fs-3 me-2"></i>Pendidikan
