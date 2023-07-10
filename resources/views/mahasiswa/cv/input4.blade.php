@@ -124,12 +124,8 @@
 
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
-                                                            <label class="required form-label">Deskripsi<i
-                                                                    class="text-danger">
-                                                                    *</i></label>
-                                                            <textarea class="form-control form-control-sm p-2" name="deskripsi" placeholder="Masukkan Deskripsi"
-                                                                style="height: 100px">
-                                                                </textarea>
+                                                            <label class="required form-label">Deskripsi<i class="text-danger">*</i></label>
+                                                            <textarea class="form-control form-control-sm p-2" name="deskripsi" placeholder="Masukkan Deskripsi" style="height: 100px"></textarea>
                                                         </div>
                                                     </div>
 
@@ -197,7 +193,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ( $prestasi as $index => $data )
+                                    @forelse ( $prestasi->where('nim', auth()->user()->nim) as $index => $data )
                                     <tr>
                                         <td>{{ $index+1 }}</td>
                                         <td>{{ $data->judul_prestasi }}</td>

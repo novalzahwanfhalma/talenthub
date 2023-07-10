@@ -153,9 +153,7 @@
                                                             <label class="required form-label">Deskripsi<i
                                                                     class="text-danger">
                                                                     *</i></label>
-                                                            <textarea class="form-control form-control-sm p-2" name="deskripsi" placeholder="Masukkan Deskripsi"
-                                                                style="height: 100px">
-                                                                </textarea>
+                                                            <textarea class="form-control form-control-sm p-2" name="deskripsi" placeholder="Masukkan Deskripsi" style="height: 100px"></textarea>
                                                         </div>
                                                     </div>
 
@@ -200,7 +198,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ( $sertifikasi as $index => $data )
+                                    @forelse ( $sertifikasi->where('nim', auth()->user()->nim) as $index => $data )
                                         <tr>
                                             <td>{{ $index+1 }}</td>
                                             <td>{{ $data->judul }}</td>

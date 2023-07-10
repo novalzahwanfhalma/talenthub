@@ -219,7 +219,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ( $pengalaman as $index => $data )
+                                    @forelse ( $pengalaman->where('nim', auth()->user()->nim) as $index => $data )
                                         <tr>
                                             <td>{{ $index+1 }}</td>
                                             <td>{{ $data->judul }}</td>
