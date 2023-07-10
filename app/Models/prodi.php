@@ -12,7 +12,7 @@ class Prodi extends Model
     protected $table = 'prodi';
 
     protected $fllable = array(
-        'id_prodi', 'prodi'
+        'id_prodi', 'nama_prodi'
     );
 
     public function mahasiswa()

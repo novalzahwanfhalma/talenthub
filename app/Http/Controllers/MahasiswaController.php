@@ -34,7 +34,6 @@ class MahasiswaController extends Controller
             'password' => 'required|min:8',
             'email' => 'email|unique:mahasiswa',
             'alamat' => 'required',
-            'status' => '',
             'ipk' => '',
             'foto' => '',
             'id_prodi' => '',
@@ -51,8 +50,7 @@ class MahasiswaController extends Controller
             'email' => $request->input('email'),
             'alamat' => $request->input('alamat'),
             'ipk' => '-',
-            'status' => '-',
-            'id_prodi' => '-',
+            'id_prodi' => '0',
             'foto' => '-',
             'deskripsi' => '-',
 
@@ -81,7 +79,6 @@ class MahasiswaController extends Controller
             'password' => 'required|min:8',
             'email' => 'email|unique:mahasiswa',
             'alamat' => 'required',
-            'status' => 'required'
         ]);
     }
     /**

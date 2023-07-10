@@ -153,9 +153,7 @@
                                                             <label class="required form-label">Deskripsi<i
                                                                     class="text-danger">
                                                                     *</i></label>
-                                                            <textarea class="form-control form-control-sm p-2" name="deskripsi" placeholder="Masukkan Deskripsi"
-                                                                style="height: 100px">
-                                                                </textarea>
+                                                            <textarea class="form-control form-control-sm p-2" name="deskripsi" placeholder="Masukkan Deskripsi" style="height: 100px"></textarea>
                                                         </div>
                                                     </div>
 

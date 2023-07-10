@@ -149,12 +149,10 @@
 
                                             <div class="col-lg-12 p-3">
                                                 <div class="form-group mb-10">
-                                                    <label class="required form-label">Deskripsi<i
-                                                            class="text-danger">
-                                                            *</i></label>
-                                                    <textarea class="form-control form-control-sm p-2" name="deskripsi"
-                                                        value="" placeholder="Alamat Perusahaan" style="height: 100px">{{ old('deskripsi', $mahasiswa->deskripsi) }}
-                                                        </textarea>
+                                                    <label class="required form-label">
+                                                        Deskripsi<i class="text-danger">*</i>
+                                                    </label>
+                                                    <textarea class="form-control form-control-sm p-2" name="deskripsi" value="" placeholder="Alamat Perusahaan" style="height: 100px">{{ old('deskripsi', $mahasiswa->deskripsi) }}</textarea>
                                                 </div>
                                             </div>
 

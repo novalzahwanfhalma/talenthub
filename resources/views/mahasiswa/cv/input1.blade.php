@@ -132,12 +132,8 @@
 
                                                     <div class="col-lg-12 p-3">
                                                         <div class="form-group mb-10">
-                                                            <label class="required form-label">Deskripsi<i
-                                                                    class="text-danger">
-                                                                    *</i></label>
-                                                            <textarea class="form-control" name="deskripsi" placeholder="Masukkan Deskripsi"
-                                                                minlength="4">
-                                                            </textarea>
+                                                            <label class="required form-label">Deskripsi<i class="text-danger"> *</i></label>
+                                                            <textarea class="form-control" name="deskripsi" placeholder="Masukkan Deskripsi" minlength="4"></textarea>
                                                         </div>
                                                     </div>
 
@@ -171,6 +167,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
                             <div class="card-body">
                                 <div class="table-responsive">
