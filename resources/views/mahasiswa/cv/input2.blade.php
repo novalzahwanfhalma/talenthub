@@ -210,7 +210,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($pendidikan as $index => $data)
+                                    @forelse ($pendidikan->where('nim', auth()->user()->nim) as $index => $data)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
                                             <td>{{ $data->institusi }}</td>

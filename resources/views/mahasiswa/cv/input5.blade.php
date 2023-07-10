@@ -46,7 +46,7 @@
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li>{{$error}}</li>                        
+                                <li>{{$error}}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -180,7 +180,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ( $sertifikasi as $index => $data )
+                                    @forelse ( $sertifikasi->where('nim', auth()->user()->nim) as $index => $data )
                                         <tr>
                                             <td>{{ $index+1 }}</td>
                                             <td>{{ $data->judul }}</td>
@@ -213,8 +213,8 @@
                                                 <a href="#" class="btn btn-sm btn-warning mx-1 my-1">
                                                     <i class="bi bi-search"></i> Edit</a>
                                                     {{--href="/student/edit/{{ $data->nim }}"--}}
-                                                
-                                                <form method="POST" action="/cv5/delete/{{ $data->id_sertifikasi }}">  
+
+                                                <form method="POST" action="/cv5/delete/{{ $data->id_sertifikasi }}">
                                                     @csrf @method('DELETE')
                                                     <button type="submit" class="btn btn-sm btn-danger mx-1 my-1"><i class="bi bi-trash-fill"></i>Hapus</button>
                                                 </form>
@@ -224,8 +224,8 @@
                                             <td colspan="6" class="text-center">
                                                 <h6 class="fw-bolder fs-7">Tidak ada data</h6>
                                             </td>
-                                        </tr> 
-                                   
+                                        </tr>
+
                                     @endforelse
                                 </tbody>
                             </table>
